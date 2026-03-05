@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora BIM — BIMARG</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700,800,900&display=swap">
+<style>
+/*
+  ═══════════════════════════════════════════════════════
+  BIMARG — CALCULADORA BIM
+  Para integrar en landing-arquitectos.html:
+  Pegar todo el bloque <section id="calculadora"> y el <script>
+  al final de la página, dentro del wrapper .bma
+  ═══════════════════════════════════════════════════════
+*/
+
+/* Reset standalone */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+/* Standalone wrapper para preview */
+body{
+  font-family:Satoshi,sans-serif;
+  background:#070707;
+  color:rgba(255,255,255,.90);
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+  padding:80px 40px;
+}
+
+/* ══════════════════════
+   SECCIÓN CALCULADORA
+══════════════════════ */
+.calc-section{
+  max-width:1200px;
+  margin:0 auto;
+}
+.calc-header{
+  text-align:center;
+  margin-bottom:60px;
+}
+.calc-eye{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:10px;font-weight:700;letter-spacing:.2em;
+  text-transform:uppercase;color:#00BFFF;
+  margin-bottom:16px;
+}
+.calc-eye::before{
+  content:'';width:24px;height:1px;background:#00BFFF;display:inline-block;
+}
+.calc-h2{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(40px,6vw,80px);
+  color:#fff;line-height:.92;letter-spacing:.02em;
+  margin-bottom:20px;
+}
+.calc-h2 em{color:#00BFFF;font-style:normal}
+.calc-lead{
+  font-size:16px;color:rgba(255,255,255,.50);
+  line-height:1.78;max-width:540px;margin:0 auto;
+}
+
+/* ══════════════════════
+   LAYOUT PRINCIPAL
+══════════════════════ */
+.calc-wrap{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+  align-items:start;
+}
+
+/* ══════════════════════
+   PANEL IZQUIERDO — Configurador
+══════════════════════ */
+.calc-config{
+  background:#0f0f0f;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:28px;
+  padding:44px 40px;
+}
+.calc-config-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:18px;letter-spacing:.12em;
+  color:rgba(255,255,255,.40);
+  text-transform:uppercase;
+  margin-bottom:40px;
+  padding-bottom:16px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+/* Bloque de opción */
+.calc-block{
+  margin-bottom:36px;
+}
+.calc-block:last-child{margin-bottom:0}
+.calc-block-label{
+  font-size:14px;font-weight:700;color:rgba(255,255,255,.85);
+  margin-bottom:16px;display:block;letter-spacing:.01em;
+}
+.calc-block-hint{
+  font-size:11px;color:rgba(255,255,255,.35);
+  font-weight:400;margin-left:8px;
+}
+
+/* Radio cards */
+.radio-group{display:flex;flex-direction:column;gap:8px}
+.radio-card{
+  position:relative;cursor:pointer;
+}
+.radio-card input[type="radio"]{
+  position:absolute;opacity:0;width:0;height:0;
+}
+.radio-label{
+  display:flex;align-items:center;justify-content:space-between;
+  background:#151515;border:1px solid rgba(255,255,255,.07);
+  border-radius:14px;padding:16px 20px;
+  transition:border-color .2s,background .2s;
+  cursor:pointer;
+}
+.radio-card input:checked ~ .radio-label{
+  border-color:rgba(0,191,255,.40);
+  background:rgba(0,191,255,.05);
+}
+.radio-label:hover{
+  border-color:rgba(255,255,255,.15);
+  background:#1a1a1a;
+}
+.radio-left{display:flex;align-items:center;gap:12px}
+.radio-dot{
+  width:18px;height:18px;border-radius:50%;
+  border:2px solid rgba(255,255,255,.20);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;transition:border-color .2s;
+}
+.radio-card input:checked ~ .radio-label .radio-dot{
+  border-color:#00BFFF;
+  background:#00BFFF;
+  box-shadow:0 0 0 4px rgba(0,191,255,.12);
+}
+.radio-dot::after{
+  content:'';width:6px;height:6px;border-radius:50%;
+  background:#000;opacity:0;transition:opacity .15s;
+}
+.radio-card input:checked ~ .radio-label .radio-dot::after{opacity:1}
+.radio-text{font-size:14px;font-weight:600;color:rgba(255,255,255,.85)}
+.radio-sub{font-size:11px;color:rgba(255,255,255,.35);font-weight:400;margin-top:2px}
+.radio-price{
+  font-size:12px;font-weight:700;color:#00BFFF;
+  letter-spacing:.05em;text-align:right;
+  transition:opacity .2s;
+}
+.radio-price.included{color:rgba(0,191,255,.45);font-weight:500}
+
+/* Slider de superficie */
+.slider-wrap{position:relative}
+.slider-display{
+  display:flex;align-items:baseline;justify-content:space-between;
+  margin-bottom:16px;
+}
+.slider-val{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:52px;color:#fff;letter-spacing:.02em;line-height:1;
+}
+.slider-unit{
+  font-size:16px;color:rgba(255,255,255,.40);margin-left:4px;font-weight:400;
+}
+.slider-range-lbl{font-size:11px;color:rgba(255,255,255,.30)}
+
+input[type="range"]{
+  width:100%;-webkit-appearance:none;appearance:none;
+  height:3px;border-radius:99px;
+  background:linear-gradient(to right,#00BFFF var(--pct,0%),rgba(255,255,255,.10) var(--pct,0%));
+  outline:none;cursor:pointer;
+  transition:background .1s;
+}
+input[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance:none;
+  width:22px;height:22px;border-radius:50%;
+  background:#00BFFF;cursor:pointer;
+  border:3px solid #0f0f0f;
+  box-shadow:0 0 0 2px rgba(0,191,255,.30),0 4px 12px rgba(0,0,0,.5);
+  transition:box-shadow .2s;
+}
+input[type="range"]::-webkit-slider-thumb:hover{
+  box-shadow:0 0 0 6px rgba(0,191,255,.18),0 4px 12px rgba(0,0,0,.5);
+}
+
+/* Checkboxes add-ons */
+.check-group{display:flex;flex-direction:column;gap:8px}
+.check-card{position:relative;cursor:pointer}
+.check-card input[type="checkbox"]{position:absolute;opacity:0;width:0;height:0}
+.check-label{
+  display:flex;align-items:center;justify-content:space-between;
+  background:#151515;border:1px solid rgba(255,255,255,.07);
+  border-radius:12px;padding:14px 18px;
+  transition:border-color .2s,background .2s;cursor:pointer;
+}
+.check-card input:checked ~ .check-label{
+  border-color:rgba(0,191,255,.35);
+  background:rgba(0,191,255,.04);
+}
+.check-label:hover{border-color:rgba(255,255,255,.14)}
+.check-box{
+  width:18px;height:18px;border-radius:5px;
+  border:1.5px solid rgba(255,255,255,.20);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-right:12px;
+  transition:border-color .2s,background .2s;
+}
+.check-card input:checked ~ .check-label .check-box{
+  border-color:#00BFFF;background:#00BFFF;
+}
+.check-tick{
+  color:#000;font-size:11px;font-weight:900;
+  opacity:0;transition:opacity .15s;transform:scale(.7);
+}
+.check-card input:checked ~ .check-label .check-tick{opacity:1;transform:scale(1)}
+.check-text{font-size:13px;font-weight:600;color:rgba(255,255,255,.80);flex:1}
+.check-price{
+  font-size:12px;font-weight:700;color:#00BFFF;
+  margin-left:12px;flex-shrink:0;
+}
+
+/* Divider inside config */
+.calc-divider{
+  height:1px;background:rgba(255,255,255,.05);
+  margin:32px 0;
+}
+
+/* ══════════════════════
+   PANEL DERECHO — Resultados
+══════════════════════ */
+.calc-results{
+  display:flex;flex-direction:column;gap:16px;
+  position:sticky;top:20px;
+}
+
+/* Comparativas (agencia / freelancer) */
+.result-compare{
+  background:#0f0f0f;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:22px;padding:28px 32px;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:20px;
+  transition:opacity .3s;
+}
+.result-compare-label{
+  font-size:12px;color:rgba(255,255,255,.40);
+  font-weight:600;letter-spacing:.04em;
+  margin-bottom:6px;
+}
+.result-compare-price{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:38px;color:rgba(255,255,255,.50);
+  letter-spacing:.02em;line-height:1;
+}
+.result-compare-note{
+  font-size:11px;color:rgba(255,255,255,.28);
+  margin-top:4px;
+}
+.result-compare-icon{font-size:28px;opacity:.4}
+
+/* Card principal BIMARG */
+.result-main{
+  background:linear-gradient(135deg,#0c1820 0%,#0a1219 100%);
+  border:1px solid rgba(0,191,255,.22);
+  border-radius:24px;padding:36px 36px 32px;
+  position:relative;overflow:hidden;
+  box-shadow:0 0 0 1px rgba(0,191,255,.08) inset,
+             0 20px 60px rgba(0,191,255,.06);
+}
+.result-main::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(0,191,255,.5),transparent);
+}
+/* Glowing orb */
+.result-main::after{
+  content:'';position:absolute;top:-60px;right:-60px;
+  width:200px;height:200px;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(0,191,255,.08) 0%,transparent 70%);
+  pointer-events:none;
+}
+
+.result-main-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:#00BFFF;background:rgba(0,191,255,.10);border:1px solid rgba(0,191,255,.20);
+  padding:5px 14px;border-radius:99px;margin-bottom:20px;
+}
+.result-blink{
+  width:6px;height:6px;border-radius:50%;background:#00BFFF;
+  animation:blink 2s infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+.result-label{
+  font-size:13px;color:rgba(255,255,255,.45);
+  font-weight:600;letter-spacing:.05em;text-transform:uppercase;
+  margin-bottom:6px;
+}
+.result-price-wrap{
+  display:flex;align-items:baseline;gap:8px;margin-bottom:4px;
+}
+.result-currency{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:32px;color:#00BFFF;letter-spacing:.02em;line-height:1;
+  opacity:.7;
+}
+.result-price{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(64px,8vw,96px);color:#fff;
+  letter-spacing:.02em;line-height:1;
+  transition:all .4s cubic-bezier(0.16,1,0.3,1);
+}
+.result-unit{
+  font-size:13px;color:rgba(255,255,255,.35);font-weight:400;
+  margin-bottom:6px;
+}
+.result-savings{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(34,197,94,.10);border:1px solid rgba(34,197,94,.20);
+  padding:6px 14px;border-radius:99px;margin-top:12px;
+  font-size:12px;font-weight:700;color:#22C55E;
+}
+
+/* Desglose de entregables */
+.result-delivers{
+  margin-top:24px;padding-top:22px;
+  border-top:1px solid rgba(255,255,255,.06);
+}
+.result-delivers-title{
+  font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(255,255,255,.30);margin-bottom:14px;
+}
+.delivers-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:6px;
+}
+.deliver-item{
+  display:flex;align-items:center;gap:7px;
+  font-size:12px;color:rgba(255,255,255,.55);
+  padding:6px 10px;background:rgba(255,255,255,.03);
+  border-radius:8px;line-height:1.3;
+  transition:color .2s,background .2s;
+}
+.deliver-item.active{
+  color:rgba(255,255,255,.80);
+  background:rgba(0,191,255,.06);
+}
+.deliver-dot{
+  width:5px;height:5px;border-radius:50%;
+  background:rgba(255,255,255,.20);flex-shrink:0;
+  transition:background .2s;
+}
+.deliver-item.active .deliver-dot{background:#00BFFF}
+
+/* CTA */
+.result-cta{
+  display:flex;flex-direction:column;gap:10px;
+  margin-top:24px;
+}
+.btn-cta-main{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  background:#00BFFF;color:#000;font-weight:800;font-size:15px;
+  padding:17px 24px;border-radius:14px;text-decoration:none;
+  border:none;cursor:pointer;font-family:Satoshi,sans-serif;
+  width:100%;letter-spacing:.03em;
+  transition:transform .25s cubic-bezier(0.16,1,0.3,1),box-shadow .25s;
+}
+.btn-cta-main:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(0,191,255,.40)}
+.btn-cta-sec{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  background:rgba(255,255,255,.06);color:rgba(255,255,255,.70);
+  font-weight:600;font-size:13px;padding:13px 24px;
+  border-radius:12px;text-decoration:none;border:1px solid rgba(255,255,255,.10);
+  width:100%;transition:background .2s;
+  font-family:Satoshi,sans-serif;cursor:pointer;
+}
+.btn-cta-sec:hover{background:rgba(255,255,255,.10)}
+
+/* Nota final */
+.calc-note{
+  text-align:center;margin-top:20px;
+  font-size:12px;color:rgba(255,255,255,.25);line-height:1.6;
+}
+
+/* ══════════════════════
+   RESPONSIVE
+══════════════════════ */
+@media(max-width:900px){
+  .calc-wrap{grid-template-columns:1fr}
+  .calc-results{position:static}
+  .delivers-grid{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  body{padding:40px 20px}
+  .calc-config{padding:28px 24px}
+  .result-main{padding:28px 24px 24px}
+  .result-price{font-size:72px}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     CALCULADORA BIM — BIMARG
+     Integrar todo esto en landing-arquitectos.html
+═══════════════════════════════════════════════ -->
+<section id="calculadora" class="calc-section">
+
+  <!-- Header -->
+  <div class="calc-header">
+    <div class="calc-eye">Calculadora BIM</div>
+    <h2 class="calc-h2">¿Cuánto cuesta<br><em>tu proyecto BIM?</em></h2>
+    <p class="calc-lead">
+      Configurá tu proyecto y obtené una estimación instantánea.
+      Sin letra chica, sin sorpresas — el precio es el precio.
+    </p>
+  </div>
+
+  <!-- Layout -->
+  <div class="calc-wrap">
+
+    <!-- ════════════════════
+         PANEL CONFIGURADOR
+    ════════════════════ -->
+    <div class="calc-config">
+      <div class="calc-config-title">Configurá tu proyecto</div>
+
+      <!-- 1. SERVICIOS -->
+      <div class="calc-block">
+        <span class="calc-block-label">
+          Servicios
+          <span class="calc-block-hint">Seleccioná las disciplinas que necesitás</span>
+        </span>
+        <div class="check-group">
+
+          <label class="check-card">
+            <input type="checkbox" id="svc-arq" data-extra="3" checked>
+            <div class="check-label">
+              <div class="check-box"><span class="check-tick">✓</span></div>
+              <div style="flex:1">
+                <div class="check-text">Modelado de Arquitectura</div>
+                <div style="font-size:11px;color:rgba(255,255,255,.35);margin-top:2px">Modelo Revit completo · Todas las plantas y vistas</div>
+              </div>
+              <span class="check-price">USD 3/m²</span>
+            </div>
+          </label>
+
+          <label class="check-card">
+            <input type="checkbox" id="svc-docejec" data-extra="3" checked>
+            <div class="check-label">
+              <div class="check-box"><span class="check-tick">✓</span></div>
+              <div style="flex:1">
+                <div class="check-text">Documentación Ejecutiva</div>
+                <div style="font-size:11px;color:rgba(255,255,255,.35);margin-top:2px">Planos, secciones, detalles listos para obra</div>
+              </div>
+              <span class="check-price">USD 3/m²</span>
+            </div>
+          </label>
+
+          <label class="check-card">
+            <input type="checkbox" id="svc-mep" data-extra="3" checked>
+            <div class="check-label">
+              <div class="check-box"><span class="check-tick">✓</span></div>
+              <div style="flex:1">
+                <div class="check-text">MEP</div>
+                <div style="font-size:11px;color:rgba(255,255,255,.35);margin-top:2px">Sanitarias · Eléctrica · HVAC · Gas · Incendios</div>
+              </div>
+              <span class="check-price">USD 3/m²</span>
+            </div>
+          </label>
+
+          <label class="check-card">
+            <input type="checkbox" id="svc-ejecmep" data-extra="3" checked>
+            <div class="check-label">
+              <div class="check-box"><span class="check-tick">✓</span></div>
+              <div style="flex:1">
+                <div class="check-text">Documentación Ejecutiva MEP</div>
+                <div style="font-size:11px;color:rgba(255,255,255,.35);margin-top:2px">Planos de instalaciones listos para obra</div>
+              </div>
+              <span class="check-price">USD 3/m²</span>
+            </div>
+          </label>
+
+        </div>
+      </div>
+
+      <div class="calc-divider"></div>
+
+      <!-- 2. SUPERFICIE -->
+      <div class="calc-block" id="superficie-block">
+        <span class="calc-block-label">Superficie total cubierta</span>
+        <div class="slider-wrap">
+          <div class="slider-display">
+            <div>
+              <span class="slider-val" id="m2-display">150</span>
+              <span class="slider-unit">m²</span>
+            </div>
+            <span class="slider-range-lbl">50 — 600 m²</span>
+          </div>
+          <input
+            type="range"
+            id="m2-slider"
+            min="50" max="600" value="150" step="5"
+            style="--pct:19.6%"
+          >
+        </div>
+      </div>
+
+      <div class="calc-divider"></div>
+
+      <!-- 3. ADICIONALES -->
+      <div class="calc-block">
+        <span class="calc-block-label">
+          Adicionales
+          <span class="calc-block-hint">Servicios complementarios</span>
+        </span>
+        <div class="check-group">
+
+          <!-- Cómputos: siempre incluido, gratis -->
+          <div class="check-card" style="opacity:.7;cursor:default">
+            <div class="check-label">
+              <div class="check-box" style="background:rgba(0,191,255,.15);border-color:rgba(0,191,255,.4)"><span class="check-tick" style="opacity:1">✓</span></div>
+              <div style="flex:1">
+                <div class="check-text">Cómputos y mediciones</div>
+                <div style="font-size:11px;color:rgba(255,255,255,.35);margin-top:2px">Incluidos en todos los servicios</div>
+              </div>
+              <span class="check-price" style="color:#22C55E;font-size:11px;letter-spacing:.06em">GRATIS</span>
+            </div>
+          </div>
+
+          <label class="check-card">
+            <input type="checkbox" id="addon-bep" data-flat="1000">
+            <div class="check-label">
+              <div class="check-box"><span class="check-tick">✓</span></div>
+              <div style="flex:1">
+                <div class="check-text">BEP — Plan de Ejecución BIM</div>
+                <div style="font-size:11px;color:rgba(255,255,255,.35);margin-top:2px">Documento rector del proceso BIM del proyecto</div>
+              </div>
+              <span class="check-price">+USD 1.000</span>
+            </div>
+          </label>
+
+          <label class="check-card">
+            <input type="checkbox" id="addon-muni" data-extra="2">
+            <div class="check-label">
+              <div class="check-box"><span class="check-tick">✓</span></div>
+              <div style="flex:1">
+                <div class="check-text">Planos municipales</div>
+                <div style="font-size:11px;color:rgba(255,255,255,.35);margin-top:2px">Planillas y documentación lista para presentar</div>
+              </div>
+              <span class="check-price">+USD 2/m²</span>
+            </div>
+          </label>
+
+          <label class="check-card">
+            <input type="checkbox" id="addon-asbuilt" data-extra="1">
+            <div class="check-label">
+              <div class="check-box"><span class="check-tick">✓</span></div>
+              <div style="flex:1">
+                <div class="check-text">As Built final</div>
+                <div style="font-size:11px;color:rgba(255,255,255,.35);margin-top:2px">Modelo actualizado a lo efectivamente construido</div>
+              </div>
+              <span class="check-price">+USD 1/m²</span>
+            </div>
+          </label>
+
+        </div>
+      </div>
+
+      <div class="calc-divider"></div>
+
+      <!-- 4. VELOCIDAD -->
+      <div class="calc-block">
+        <span class="calc-block-label">Velocidad de entrega</span>
+        <div class="radio-group">
+
+          <label class="radio-card">
+            <input type="radio" name="speed" value="express" data-pct="20">
+            <div class="radio-label">
+              <div class="radio-left">
+                <div class="radio-dot"></div>
+                <div>
+                  <div class="radio-text">Express — 7 días hábiles</div>
+                  <div class="radio-sub">Prioridad máxima en producción</div>
+                </div>
+              </div>
+              <span class="radio-price">+20%</span>
+            </div>
+          </label>
+
+          <label class="radio-card">
+            <input type="radio" name="speed" value="estandar" data-pct="0" checked>
+            <div class="radio-label">
+              <div class="radio-left">
+                <div class="radio-dot"></div>
+                <div>
+                  <div class="radio-text">Estándar — 21 días hábiles</div>
+                  <div class="radio-sub">Plazo habitual del proceso BIMBOX®</div>
+                </div>
+              </div>
+              <span class="radio-price included">Sin cargo</span>
+            </div>
+          </label>
+
+        </div>
+      </div>
+
+      <div class="calc-divider"></div>
+
+      <!-- 5. SERVICIOS A CONSULTAR -->
+      <div class="calc-block">
+        <span class="calc-block-label">
+          Proyectos especiales
+          <span class="calc-block-hint">Precio fijo · Consultá por WhatsApp</span>
+        </span>
+        <div style="display:flex;flex-direction:column;gap:8px">
+
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:10px">
+            <div>
+              <div style="font-size:13px;font-weight:600;color:rgba(255,255,255,.85)">Implementación BIM Corporativa</div>
+              <div style="font-size:11px;color:rgba(255,255,255,.35);margin-top:2px">12 semanas · Templates, familias, flujo BIMBOX®</div>
+            </div>
+            <a href="https://wa.me/+542996287652?text=Hola%20Franco!%20Me%20interesa%20saber%20m%C3%A1s%20sobre%20Implementaci%C3%B3n%20BIM%20Corporativa." target="_blank" rel="noopener" style="font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--c);text-transform:uppercase;text-decoration:none;white-space:nowrap">CONSULTAR →</a>
+          </div>
+
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 16px;background:rgba(0,191,255,.04);border:1px solid rgba(0,191,255,.15);border-radius:10px">
+            <div>
+              <div style="font-size:13px;font-weight:600;color:rgba(255,255,255,.85)">Modelo BIM Completo · Edificios</div>
+              <div style="font-size:11px;color:rgba(255,255,255,.35);margin-top:2px">Arq + Estructura + MEP · Coordinación completa</div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-size:13px;font-weight:800;color:var(--c)">desde USD 30.000</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div><!-- /calc-config -->
+
+
+    <!-- ════════════════════
+         PANEL RESULTADOS
+    ════════════════════ -->
+    <div class="calc-results">
+
+      <!-- Comparativa: Agencia -->
+      <div class="result-compare" id="compare-agencia">
+        <div>
+          <div class="result-compare-label">Agencia BIM sin metodología</div>
+          <div class="result-compare-price" id="price-agencia">USD 3.150</div>
+          <div class="result-compare-note">Sin RIBA, sin Last Planner, sin garantía</div>
+        </div>
+        <div class="result-compare-icon">🏢</div>
+      </div>
+
+      <!-- Comparativa: Freelancer -->
+      <div class="result-compare" id="compare-free">
+        <div>
+          <div class="result-compare-label">Freelancer sin coordinación BIM</div>
+          <div class="result-compare-price" id="price-free">USD 1.050</div>
+          <div class="result-compare-note">Riesgo de retrabajo, sin clash detection</div>
+        </div>
+        <div class="result-compare-icon">👤</div>
+      </div>
+
+      <!-- Principal: BIMARG -->
+      <div class="result-main">
+        <div class="result-main-badge">
+          <span class="result-blink"></span>
+          BIMARG · RIBA + Lean + Last Planner
+        </div>
+
+        <div class="result-label">Estimación para tu proyecto</div>
+
+        <div class="result-price-wrap">
+          <span class="result-currency">USD</span>
+          <span class="result-price" id="bimarg-price">1.650</span>
+        </div>
+        <div class="result-unit" id="bimarg-sub">150 m² · Casa 1 piso · Entrega estándar</div>
+
+        <div class="result-savings" id="savings-badge">
+          ⚡ Precio fijo · Sin adicionales · Entregables garantizados
+        </div>
+
+        <!-- Entregables incluidos -->
+        <div style="margin-bottom:12px"><a href="metodologia-lean.html" style="font-size:12px;color:rgba(0,191,255,.7);text-decoration:none;letter-spacing:.08em;text-transform:uppercase;font-weight:600">→ Ver metodología RIBA + Lean + Last Planner</a></div>
+        <div class="result-delivers">
+          <div class="result-delivers-title">Entregables incluidos en el precio</div>
+          <div class="delivers-grid">
+            <div class="deliver-item active" data-key="base">
+              <span class="deliver-dot"></span>Modelo 3D BIM (Revit)
+            </div>
+            <div class="deliver-item active" data-key="base">
+              <span class="deliver-dot"></span>Planos de arquitectura
+            </div>
+            <div class="deliver-item active" data-key="base">
+              <span class="deliver-dot"></span>Vistas y secciones
+            </div>
+            <div class="deliver-item active" data-key="base">
+              <span class="deliver-dot"></span>Planillas de carpintería
+            </div>
+            <div class="deliver-item active" data-key="base">
+              <span class="deliver-dot"></span>Cómputo de muros y losas
+            </div>
+            <div class="deliver-item active" data-key="base">
+              <span class="deliver-dot"></span>Estructura fundaciones
+            </div>
+            <div class="deliver-item active" data-key="base">
+              <span class="deliver-dot"></span>3D fotorrealista
+            </div>
+            <div class="deliver-item active" data-key="base">
+              <span class="deliver-dot"></span>Coordinación BIM base
+            </div>
+            <!-- ADDON: Instalaciones -->
+            <div class="deliver-item" data-key="inst">
+              <span class="deliver-dot"></span>Inst. sanitarias
+            </div>
+            <div class="deliver-item" data-key="inst">
+              <span class="deliver-dot"></span>Inst. agua fría/caliente
+            </div>
+            <div class="deliver-item" data-key="inst">
+              <span class="deliver-dot"></span>Inst. gas
+            </div>
+            <div class="deliver-item" data-key="inst">
+              <span class="deliver-dot"></span>Inst. eléctricas
+            </div>
+            <div class="deliver-item" data-key="inst">
+              <span class="deliver-dot"></span>Inst. incendios
+            </div>
+            <div class="deliver-item" data-key="inst">
+              <span class="deliver-dot"></span>Clash detection instalac.
+            </div>
+            <!-- ADDON: Municipal -->
+            <div class="deliver-item" data-key="muni">
+              <span class="deliver-dot"></span>Planillas municipales
+            </div>
+            <div class="deliver-item" data-key="muni">
+              <span class="deliver-dot"></span>Planos de presentación
+            </div>
+            <!-- ADDON: BEP -->
+            <div class="deliver-item" data-key="bep">
+              <span class="deliver-dot"></span>BEP completo
+            </div>
+            <div class="deliver-item" data-key="bep">
+              <span class="deliver-dot"></span>Flujos y responsabilidades
+            </div>
+            <!-- ADDON: As-built -->
+            <div class="deliver-item" data-key="asbuilt">
+              <span class="deliver-dot"></span>Modelo as-built
+            </div>
+            <div class="deliver-item" data-key="asbuilt">
+              <span class="deliver-dot"></span>Actualización post-obra
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="result-cta">
+          <a
+            href="https://wa.me/+542996287652?text=Hola%20Franco%2C%20usé%20la%20calculadora%20BIM%20y%20quiero%20cotizar%20mi%20proyecto"
+            class="btn-cta-main"
+            target="_blank" rel="noopener"
+            id="btn-wa"
+          >
+            💬 Pedir cotización exacta →
+          </a>
+          <button class="btn-cta-sec" onclick="scrollToForm()">
+            O escribinos por email
+          </button>
+        </div>
+
+      </div><!-- /result-main -->
+
+      <!-- Nota -->
+      <p class="calc-note">
+        Esta es una estimación orientativa basada en nuestra tarifa estándar BIMBOX®.<br>
+        La cotización final puede variar según complejidad y condiciones específicas del proyecto.
+      </p>
+
+    </div><!-- /calc-results -->
+
+  </div><!-- /calc-wrap -->
+
+  <!-- CTA para edificios -->
+  <div id="edificio-msg" style="
+    display:none;
+    background:#0f0f0f;border:1px solid rgba(0,191,255,.2);
+    border-radius:20px;padding:36px;text-align:center;margin-top:24px;
+  ">
+    <div style="font-size:36px;margin-bottom:16px">🏢</div>
+    <h3 style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:#fff;letter-spacing:.03em;margin-bottom:10px">
+      Proyectos de escala mayor
+    </h3>
+    <p style="font-size:15px;color:rgba(255,255,255,.50);line-height:1.75;max-width:500px;margin:0 auto 24px">
+      Para edificios, proyectos comerciales e institucionales cotizamos según
+      el alcance real del proyecto. Contactanos y te respondemos en 48hs.
+    </p>
+    <a href="https://wa.me/+542996287652?text=Hola%20Franco%2C%20quiero%20cotizar%20un%20edificio%20o%20proyecto%20comercial"
+       class="btn-cta-main" style="max-width:340px;margin:0 auto;display:flex;"
+       target="_blank" rel="noopener">
+      💬 Consultar por WhatsApp →
+    </a>
+  </div>
+
+</section><!-- /calculadora -->
+
+
+<script>
+/* ═══════════════════════════════════════════
+   CALCULADORA BIM — BIMARG
+   Lógica de cálculo y UI interactiva
+═══════════════════════════════════════════ */
+
+const COMPARE_AGENCIA_MULT = 1.9;
+const COMPARE_FREE_MULT = 0.64;
+
+// ── Estado
+let state = {
+  m2: 150,
+  speed: 0,
+  services: {
+    arq:     { active: true,  extra: 3, flat: 0 },
+    docejec: { active: true,  extra: 3, flat: 0 },
+    mep:     { active: true,  extra: 3, flat: 0 },
+    ejecmep: { active: true,  extra: 3, flat: 0 },
+  },
+  addons: {
+    bep:     { active: false, extra: 0, flat: 1000 },
+    muni:    { active: false, extra: 2, flat: 0 },
+    asbuilt: { active: false, extra: 1, flat: 0 },
+  }
+};
+
+// ── Calcular precio
+function calc() {
+  let totalRate = 0;
+  let totalFlat = 0;
+
+  for (const svc of Object.values(state.services)) {
+    if (svc.active) { totalRate += svc.extra; totalFlat += svc.flat; }
+  }
+  for (const addon of Object.values(state.addons)) {
+    if (addon.active) { totalRate += addon.extra; totalFlat += addon.flat; }
+  }
+
+  if (totalRate === 0 && totalFlat === 0) return 0;
+
+  let subtotal = (state.m2 * totalRate) + totalFlat;
+  subtotal = subtotal * (1 + state.speed / 100);
+  return Math.round(subtotal / 10) * 10;
+}
+
+// ── Formatear número
+function fmt(n) {
+  return n.toLocaleString('es-AR').replace(',', '.');
+}
+
+// ── Servicios activos como label
+function getServicesLabel() {
+  const names = {
+    arq: 'Arquitectura', docejec: 'Doc. Ejecutiva',
+    mep: 'MEP', ejecmep: 'Ejec. MEP'
+  };
+  const active = Object.entries(state.services)
+    .filter(([,v]) => v.active).map(([k]) => names[k]);
+  return active.length ? active.join(' + ') : 'Sin servicios';
+}
+
+// ── Actualizar UI
+function update() {
+  const price = calc();
+
+  const agenciaPrice = price > 0 ? Math.round(price * COMPARE_AGENCIA_MULT / 10) * 10 : 0;
+  const freePrice    = price > 0 ? Math.round(price * COMPARE_FREE_MULT / 10) * 10 : 0;
+  const savings      = agenciaPrice - price;
+
+  document.getElementById('price-agencia').textContent = price > 0 ? 'USD ' + fmt(agenciaPrice) : '—';
+  document.getElementById('price-free').textContent    = price > 0 ? 'USD ' + fmt(freePrice) : '—';
+  document.getElementById('bimarg-price').textContent  = price > 0 ? fmt(price) : '0';
+
+  const speedLabel = state.speed === 20 ? '· Express 7 días' : '· Entrega estándar 21 días';
+  document.getElementById('bimarg-sub').textContent =
+    `${state.m2} m² · ${getServicesLabel()} ${speedLabel}`;
+
+  document.getElementById('savings-badge').textContent = price > 0
+    ? `⚡ Metodología RIBA+Lean · Ahorrás USD ${fmt(savings)} vs. agencia`
+    : '⚡ Seleccioná al menos un servicio para ver el precio';
+
+  // Entregables: MEP-related
+  document.querySelectorAll('.deliver-item[data-key]').forEach(el => {
+    const key = el.dataset.key;
+    if (key === 'base') return;
+    if (key === 'inst' || key === 'mep') {
+      el.classList.toggle('active', state.services.mep?.active || state.services.ejecmep?.active);
+    }
+    if (key === 'muni') el.classList.toggle('active', state.addons.muni?.active);
+    if (key === 'bep')  el.classList.toggle('active', state.addons.bep?.active);
+    if (key === 'asbuilt') el.classList.toggle('active', state.addons.asbuilt?.active);
+  });
+
+  // WA button
+  const waText = encodeURIComponent(
+    `Hola Franco! Usé la calculadora BIM:\n` +
+    `• Servicios: ${getServicesLabel()}\n` +
+    `• Superficie: ${state.m2} m²\n` +
+    `• Precio estimado: USD ${fmt(price)}\n` +
+    `Quiero cotizar el proyecto real.`
+  );
+  document.getElementById('btn-wa').href = `https://wa.me/+542996287652?text=${waText}`;
+}
+
+// ── Slider m²
+const slider = document.getElementById('m2-slider');
+slider.addEventListener('input', () => {
+  state.m2 = parseInt(slider.value);
+  document.getElementById('m2-display').textContent = state.m2;
+  const pct = ((state.m2 - 50) / (600 - 50)) * 100;
+  slider.style.setProperty('--pct', pct + '%');
+  update();
+});
+
+// ── Radios velocidad
+document.querySelectorAll('input[name="speed"]').forEach(input => {
+  input.addEventListener('change', () => {
+    state.speed = parseInt(input.dataset.pct);
+    update();
+  });
+});
+
+// ── Checkboxes servicios y addons
+document.querySelectorAll('.check-card input[type="checkbox"]').forEach(input => {
+  input.addEventListener('change', () => {
+    const id = input.id;
+    const svcMap = {
+      'svc-arq': 'arq', 'svc-docejec': 'docejec',
+      'svc-mep': 'mep', 'svc-ejecmep': 'ejecmep'
+    };
+    const addMap = {
+      'addon-bep': 'bep', 'addon-muni': 'muni', 'addon-asbuilt': 'asbuilt'
+    };
+    if (svcMap[id]) {
+      state.services[svcMap[id]].active = input.checked;
+    } else if (addMap[id]) {
+      state.addons[addMap[id]].active = input.checked;
+      if (input.dataset.extra) state.addons[addMap[id]].extra = parseFloat(input.dataset.extra);
+      if (input.dataset.flat)  state.addons[addMap[id]].flat  = parseFloat(input.dataset.flat);
+    }
+    update();
+  });
+});
+
+// ── Scroll to form
+function scrollToForm() {
+  const contactEl = document.getElementById('contacto') ||
+                    document.querySelector('form') ||
+                    document.querySelector('#contacto');
+  if (contactEl) contactEl.scrollIntoView({ behavior: 'smooth' });
+  else window.open('mailto:info@bimarg.com', '_blank');
+}
+
+// ── Init
+update();
+
+// ── Animate in on scroll (si hay IntersectionObserver)
+if ('IntersectionObserver' in window) {
+  const calcEl = document.getElementById('calculadora');
+  if (calcEl) {
+    const elems = calcEl.querySelectorAll('.calc-config,.result-compare,.result-main');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.animation = 'fadeInUp .7s cubic-bezier(0.16,1,0.3,1) both';
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: .1 });
+    elems.forEach(el => io.observe(el));
+  }
+}
+</script>
+
+<style>
+/* Animación para integración */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: none; }
+}
+</style>
+
+</body>
+</html>

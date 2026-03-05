@@ -1,0 +1,353 @@
+<!-- ============================================================
+     BIMARG — LANDING ARQUITECTOS
+     URL sugerida: bimarg.com/arquitectos
+     Pegar en Divi → Fullwidth Code Module (página en blanco)
+     ============================================================ -->
+<style>
+.bma*,.bma *::before,.bma *::after{box-sizing:border-box;margin:0;padding:0}
+.bma{
+  --c:#00BFFF;--cd:rgba(0,191,255,0.12);--cb:rgba(0,191,255,0.25);
+  --dk:#080808;--d2:#0f0f0f;--ca:#111111;
+  --tx:rgba(255,255,255,0.88);--mu:rgba(255,255,255,0.50);--fa:rgba(255,255,255,0.07);
+  --fn:'Helvetica Neue',Arial,sans-serif;
+  font-family:var(--fn);color:var(--tx);background:var(--dk);-webkit-font-smoothing:antialiased;
+}
+.bma-eye{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--c);background:var(--cd);
+  border:1px solid var(--cb);padding:6px 14px;border-radius:100px}
+.bma-dot{width:6px;height:6px;border-radius:50%;background:var(--c);animation:pdot 2s infinite}
+@keyframes pdot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+.bma-h1{font-size:clamp(28px,5vw,58px);font-weight:900;line-height:1.1;letter-spacing:-.025em;color:#fff}
+.bma-h1 em,.bma-h2 em{color:var(--c);font-style:normal}
+.bma-h2{font-size:clamp(22px,3.5vw,42px);font-weight:800;line-height:1.18;letter-spacing:-.02em;color:#fff}
+.bma-h3{font-size:17px;font-weight:700;color:#fff;line-height:1.35}
+.bma-lead{font-size:clamp(15px,1.8vw,17px);color:var(--mu);line-height:1.8;max-width:640px}
+.bma-lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--c)}
+.bma-sec{padding:clamp(64px,8vw,120px) clamp(20px,5vw,80px);max-width:1100px;margin:0 auto;
+  display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px}
+.bma-full{background:var(--d2)}
+.bma-full>.bma-sec{max-width:1100px;margin:0 auto}
+/* HERO */
+.bma-hero{position:relative;background:var(--dk);min-height:92vh;display:flex;align-items:center;
+  justify-content:center;overflow:hidden}
+.bma-hbg{position:absolute;inset:0;z-index:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(0,191,255,.07) 0%,transparent 60%),
+             radial-gradient(ellipse 50% 40% at 90% 90%,rgba(0,191,255,.04) 0%,transparent 50%)}
+.bma-hgrid{position:absolute;inset:0;z-index:0;
+  background-image:linear-gradient(rgba(0,191,255,.04) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(0,191,255,.04) 1px,transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 0%,transparent 80%)}
+.bma-hc{position:relative;z-index:2;text-align:center;
+  padding:clamp(80px,10vw,120px) clamp(20px,5vw,60px) clamp(60px,8vw,100px);
+  max-width:900px;display:flex;flex-direction:column;align-items:center;gap:28px}
+/* BTNS */
+.bma-bp{display:inline-flex;align-items:center;gap:10px;background:var(--c);color:#000;
+  font-weight:800;font-size:15px;padding:16px 32px;border-radius:100px;text-decoration:none;
+  transition:transform .2s,box-shadow .2s}
+.bma-bp:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,191,255,.35)}
+.bma-bg{display:inline-flex;align-items:center;gap:10px;background:transparent;color:#fff;
+  font-weight:600;font-size:15px;padding:15px 28px;border-radius:100px;text-decoration:none;
+  border:1px solid rgba(255,255,255,.2);transition:border-color .2s,background .2s}
+.bma-bg:hover{border-color:var(--c);background:var(--cd)}
+.bma-ctas{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+/* PROOF */
+.bma-pb{border-top:1px solid var(--fa);border-bottom:1px solid var(--fa);background:var(--d2);
+  padding:20px clamp(20px,5vw,80px);display:flex;justify-content:center;gap:clamp(24px,5vw,64px);
+  flex-wrap:wrap;align-items:center}
+.bma-pi{display:flex;flex-direction:column;align-items:center;gap:2px}
+.bma-pn{font-size:28px;font-weight:900;color:#fff;letter-spacing:-.02em}
+.bma-pl{font-size:11px;color:var(--mu);text-transform:uppercase;letter-spacing:.1em}
+/* FEAR GRID */
+.bma-fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1px;background:var(--fa);border-radius:20px;overflow:hidden;width:100%;margin-top:48px}
+.bma-fc{background:var(--ca);padding:36px 32px;display:flex;flex-direction:column;gap:14px;transition:background .2s}
+.bma-fc:hover{background:#161616}
+.bma-ft{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.1em;
+  background:rgba(255,68,68,.1);color:#FF7777;border:1px solid rgba(255,68,68,.2);
+  padding:3px 10px;border-radius:100px;text-transform:uppercase;align-self:flex-start}
+.bma-fi{font-size:30px}
+/* SOLUTION CARDS */
+.bma-sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:20px;width:100%;margin-top:48px}
+.bma-sc{background:var(--ca);border:1px solid var(--fa);border-radius:20px;padding:36px 32px;
+  display:flex;flex-direction:column;gap:14px;transition:border-color .25s,transform .25s;position:relative;overflow:hidden}
+.bma-sc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--c),transparent);opacity:0;transition:opacity .25s}
+.bma-sc:hover{border-color:var(--cb);transform:translateY(-4px)}
+.bma-sc:hover::before{opacity:1}
+.bma-sn{font-size:34px;font-weight:900;color:var(--cb);letter-spacing:-.03em}
+.bma-stag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.1em;
+  background:var(--cd);color:var(--c);border:1px solid var(--cb);
+  padding:3px 10px;border-radius:100px;text-transform:uppercase}
+/* DELIVERABLES */
+.bma-dl{width:100%;display:flex;flex-direction:column;gap:0;margin-top:48px;
+  border-radius:20px;overflow:hidden;border:1px solid var(--fa)}
+.bma-dr{display:grid;grid-template-columns:36px 1fr auto;align-items:center;gap:20px;
+  padding:22px 32px;background:var(--ca);border-bottom:1px solid var(--fa);transition:background .2s}
+.bma-dr:last-child{border-bottom:none}
+.bma-dr:hover{background:#161616}
+.bma-dk2{color:var(--c);font-size:18px;font-weight:900}
+.bma-dn{font-size:15px;font-weight:600;color:#fff}
+.bma-ds{font-size:12px;color:var(--mu);margin-top:3px}
+.bma-dt{font-size:11px;font-weight:700;color:var(--c);white-space:nowrap}
+/* STEPS */
+.bma-steps{width:100%;display:flex;flex-direction:column;gap:0;margin-top:48px}
+.bma-step{display:grid;grid-template-columns:60px 1fr;gap:24px;padding:32px 0;
+  border-bottom:1px solid var(--fa);text-align:left}
+.bma-step:last-child{border-bottom:none}
+.bma-snum{width:48px;height:48px;border-radius:50%;background:var(--cd);border:1px solid var(--cb);
+  display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:var(--c);flex-shrink:0}
+.bma-st{font-size:17px;font-weight:700;color:#fff;margin-bottom:8px}
+.bma-sd{font-size:14px;color:var(--mu);line-height:1.75}
+.bma-stg{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.1em;
+  background:var(--cd);color:var(--c);padding:2px 8px;border-radius:100px;text-transform:uppercase;margin-bottom:8px}
+/* PRICING */
+.bma-price{background:var(--ca);border:1px solid var(--cb);border-radius:24px;padding:48px;
+  text-align:center;position:relative;overflow:hidden;margin-top:48px;width:100%}
+.bma-price::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,transparent,var(--c),transparent)}
+.bma-ptag{font-size:48px;font-weight:900;color:#fff;letter-spacing:-.03em}
+.bma-punit{font-size:18px;color:var(--mu);font-weight:400}
+.bma-pitems{display:flex;gap:28px;flex-wrap:wrap;justify-content:center;margin-top:32px}
+.bma-pitem{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--mu)}
+.bma-pitem::before{content:'✓';color:var(--c);font-weight:900}
+/* TESTI */
+.bma-tg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;width:100%;margin-top:48px}
+.bma-tc{background:var(--ca);border:1px solid var(--fa);border-radius:20px;padding:36px;
+  text-align:left;display:flex;flex-direction:column;gap:18px}
+.bma-tstars{color:var(--c);font-size:15px;letter-spacing:2px}
+.bma-tq{font-size:14px;color:var(--tx);line-height:1.8;font-style:italic}
+/* CTA FINAL */
+.bma-ctaf{background:radial-gradient(ellipse 80% 100% at 50% 0%,rgba(0,191,255,.08) 0%,transparent 70%);
+  border-top:1px solid var(--cb);padding:clamp(64px,8vw,120px) clamp(20px,5vw,60px);
+  text-align:center;display:flex;flex-direction:column;align-items:center;gap:28px}
+/* FAQ */
+.bma-faq-d{border-top:1px solid var(--fa);font-family:var(--fn)}
+.bma-faq-d:last-child{border-bottom:1px solid var(--fa)}
+.bma-faq-s{padding:22px 0;font-size:15px;font-weight:600;color:var(--tx);cursor:pointer;
+  list-style:none;display:flex;justify-content:space-between;align-items:center;gap:24px}
+.bma-faq-s::-webkit-details-marker{display:none}
+.bma-faq-s::after{content:'+';color:var(--c);font-size:22px;font-weight:300;flex-shrink:0;transition:transform .3s}
+details[open] .bma-faq-s::after{transform:rotate(45deg)}
+.bma-faq-a{padding:0 0 22px;font-size:13px;color:var(--mu);line-height:1.8}
+@media(max-width:768px){.bma-dr{grid-template-columns:32px 1fr}.bma-dt{display:none}
+  .bma-price{padding:32px 20px}.bma-ptag{font-size:36px}.bma-step{grid-template-columns:48px 1fr;gap:14px}}
+@media(max-width:600px){.bma-fg,.bma-sg,.bma-tg{grid-template-columns:1fr}}
+</style>
+
+<div class="bma" itemscope itemtype="https://schema.org/Service">
+
+<!-- ══ HERO ══ -->
+<section class="bma-hero" role="banner">
+  <div class="bma-hbg" aria-hidden="true"></div>
+  <div class="bma-hgrid" aria-hidden="true"></div>
+  <div class="bma-hc">
+    <span class="bma-eye"><span class="bma-dot"></span>Para estudios de arquitectura · Patagonia & Buenos Aires</span>
+    <h1 class="bma-h1">Tu estudio necesita BIM.<br>Vos seguís dibujando en<br><em>AutoCAD y perdiendo trabajos.</em></h1>
+    <p style="font-size:clamp(14px,1.6vw,17px);color:var(--mu);line-height:1.8;max-width:580px">
+      Convertimos tus planos AutoCAD en modelos BIM 3D completos en Revit y toda la documentación ejecutiva.
+      Sin que aprendas el software. Sin cambiar tu flujo de trabajo. Tu estudio entrega BIM — nosotros lo producimos.
+    </p>
+    <div class="bma-ctas">
+      <a href="https://wa.me/+542996287652?text=Hola%20Franco%2C%20soy%20arquitecto%20y%20quiero%20hablar%20sobre%20modelado%20BIM%20para%20mi%20estudio" class="bma-bp" target="_blank" rel="noopener">📐 Quiero modelos BIM para mi estudio</a>
+      <a href="#bma-como" class="bma-bg">Ver cómo funciona</a>
+    </div>
+    <p style="font-size:12px;color:var(--mu)">Sin compromiso · Diagnóstico gratis en 48hs · Precio fijo</p>
+  </div>
+</section>
+
+<!-- ══ PROOF BAR ══ -->
+<div class="bma-pb">
+  <div class="bma-pi"><span class="bma-pn">+100K</span><span class="bma-pl">m² modelados</span></div>
+  <div class="bma-pi"><span class="bma-pn">11</span><span class="bma-pl">años en BIM + obra</span></div>
+  <div class="bma-pi"><span class="bma-pn">3–6</span><span class="bma-pl">semanas de entrega</span></div>
+  <div class="bma-pi"><span class="bma-pn">USD 10</span><span class="bma-pl">por m² modelado</span></div>
+</div>
+
+<!-- ══ MIEDOS ══ -->
+<div class="bma-full">
+  <div class="bma-sec">
+    <span class="bma-lbl">Lo que te está pasando ahora mismo</span>
+    <h2 class="bma-h2">Los miedos que ningún arquitecto<br><em>dice en voz alta</em></h2>
+    <p class="bma-lead">Sabemos lo que pensás cuando llega un pliego con exigencia BIM o cuando un cliente te pregunta si trabajás con Revit.</p>
+    <div class="bma-fg">
+      <div class="bma-fc">
+        <span class="bma-ft">Miedo #1</span>
+        <span class="bma-fi">😰</span>
+        <p class="bma-h3">"Perdí la licitación porque no tenía BIM"</p>
+        <p style="font-size:14px;color:var(--mu);line-height:1.7">Cada vez más pliegos exigen entrega BIM. Si tu propuesta no lo incluye, quedás afuera antes de que lean tu currículum. El estudio de enfrente sí lo tiene.</p>
+      </div>
+      <div class="bma-fc">
+        <span class="bma-ft">Miedo #2</span>
+        <span class="bma-fi">😬</span>
+        <p class="bma-h3">"El cliente me preguntó si trabajo con Revit y no supe qué decir"</p>
+        <p style="font-size:14px;color:var(--mu);line-height:1.7">Los clientes desarrolladores ya saben que el BIM reduce sobrecostos. Cuando preguntan y la respuesta es vaga, la confianza baja. La próxima llamada la hacen a otro estudio.</p>
+      </div>
+      <div class="bma-fc">
+        <span class="bma-ft">Miedo #3</span>
+        <span class="bma-fi">💸</span>
+        <p class="bma-h3">"Tuve que absorber adicionales por errores de documentación que eran míos"</p>
+        <p style="font-size:14px;color:var(--mu);line-height:1.7">Una cota que no cierra. Un plano que no coincide con estructura. Un conducto que choca con una viga. En obra esos errores los pagás vos, con plata o con la relación con tu cliente.</p>
+      </div>
+      <div class="bma-fc">
+        <span class="bma-ft">Miedo #4</span>
+        <span class="bma-fi">⏳</span>
+        <p class="bma-h3">"No tengo tiempo de aprender Revit y llevar los proyectos al mismo tiempo"</p>
+        <p style="font-size:14px;color:var(--mu);line-height:1.7">Hiciste el curso. Tenés el software. Pero entre proyectos, clientes y administración, nunca llegaste a usarlo en serio. Y ese ciclo no va a romperse solo.</p>
+      </div>
+      <div class="bma-fc">
+        <span class="bma-ft">Miedo #5</span>
+        <span class="bma-fi">📉</span>
+        <p class="bma-h3">"Estoy perdiendo proyectos grandes porque no puedo entregar BIM"</p>
+        <p style="font-size:14px;color:var(--mu);line-height:1.7">Los proyectos de escala —hoteleros, de inversión, de más de 6 pisos— se definen con criterios BIM. Sin esa capacidad, tu estudio compite solo en el mercado donde la presión de precio es mayor.</p>
+      </div>
+      <div class="bma-fc">
+        <span class="bma-ft">Miedo #6</span>
+        <span class="bma-fi">🏗️</span>
+        <p class="bma-h3">"La obra se frenó por inconsistencias en los planos"</p>
+        <p style="font-size:14px;color:var(--mu);line-height:1.7">El director de obra llama porque las cotas no coinciden. El calculista dice que sus planos están bien. Vos también. La obra para. El cliente no entiende quién es responsable.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SOLUCIÓN ══ -->
+<div class="bma-sec">
+  <span class="bma-lbl">La solución</span>
+  <h2 class="bma-h2">Tu estudio entrega proyectos BIM.<br><em>Nosotros los producimos.</em></h2>
+  <p class="bma-lead">No necesitás aprender Revit ni contratar un modelador. Nos integramos a tu estudio como el equipo BIM externo que nunca tuviste. Vos diseñás y coordinás con el cliente. Nosotros producimos el modelo y toda la documentación.</p>
+  <div class="bma-sg">
+    <div class="bma-sc">
+      <span class="bma-stag">Servicio core</span>
+      <span class="bma-sn">01</span>
+      <p class="bma-h3">Modelado BIM 3D desde tus planos AutoCAD</p>
+      <p style="font-size:14px;color:var(--mu);line-height:1.75">Tomamos tus DWG o PDF y los convertimos en modelo Revit 3D completo. Arquitectura, estructura e instalaciones coordinadas. LOD 300-400 según necesidad.</p>
+    </div>
+    <div class="bma-sc">
+      <span class="bma-stag">Documentación</span>
+      <span class="bma-sn">02</span>
+      <p class="bma-h3">Planos ejecutivos y municipales desde el modelo</p>
+      <p style="font-size:14px;color:var(--mu);line-height:1.75">Plantas, cortes, elevaciones y detalles producidos desde BIM. Las cotas siempre cierran. Documentación lista para aprobación en Neuquén, Cipolletti y CABA.</p>
+    </div>
+    <div class="bma-sc">
+      <span class="bma-stag">Licitaciones</span>
+      <span class="bma-sn">03</span>
+      <p class="bma-h3">Presentaciones BIM para pliegos y clientes</p>
+      <p style="font-size:14px;color:var(--mu);line-height:1.75">Renders 3D desde Revit, animaciones de recorrido, documentación BIM según requisitos del pliego. Si el pliego pide BIM, lo entregamos.</p>
+    </div>
+    <div class="bma-sc">
+      <span class="bma-stag">Coordinación</span>
+      <span class="bma-sn">04</span>
+      <p class="bma-h3">Coordinación de especialidades + Clash Detection</p>
+      <p style="font-size:14px;color:var(--mu);line-height:1.75">Incorporamos estructura, sanitaria, electricidad y HVAC al modelo y detectamos interferencias antes de la obra. Reporte con resolución propuesta para cada clash.</p>
+    </div>
+    <div class="bma-sc">
+      <span class="bma-stag">Transferencia</span>
+      <span class="bma-sn">05</span>
+      <p class="bma-h3">Sesión de transferencia del modelo a tu equipo</p>
+      <p style="font-size:14px;color:var(--mu);line-height:1.75">Al cierre, entregamos el modelo y explicamos cómo navegarlo y actualizarlo. Tu equipo aprende con el proyecto real, sin cursada teórica.</p>
+    </div>
+    <div class="bma-sc">
+      <span class="bma-stag">Posicionamiento</span>
+      <span class="bma-sn">06</span>
+      <p class="bma-h3">Tu estudio, con capacidad BIM desde el proyecto 1</p>
+      <p style="font-size:14px;color:var(--mu);line-height:1.75">Competís por proyectos de mayor escala desde hoy, sin inversión en software ni RRHH. BIMARG es tu equipo de producción BIM, invisible para el cliente.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ENTREGABLES ══ -->
+<div class="bma-full">
+  <div class="bma-sec">
+    <span class="bma-lbl">Entregables concretos</span>
+    <h2 class="bma-h2">Qué recibís exactamente<br><em>cuando terminamos</em></h2>
+    <p class="bma-lead">Sin "entregables a definir". Antes de empezar, acordamos qué entregamos, en qué formato y cuándo.</p>
+    <div class="bma-dl">
+      <div class="bma-dr"><span class="bma-dk2">✓</span><div><p class="bma-dn">Modelo Revit (.rvt) — Arquitectura</p><p class="bma-ds">LOD 300-400 · Familias parametrizadas · Fases de obra</p></div><span class="bma-dt">Sem. 2-3</span></div>
+      <div class="bma-dr"><span class="bma-dk2">✓</span><div><p class="bma-dn">Modelo coordinado (estructura + instalaciones)</p><p class="bma-ds">Clash detection · Reporte de interferencias · Resoluciones</p></div><span class="bma-dt">Sem. 4-5</span></div>
+      <div class="bma-dr"><span class="bma-dk2">✓</span><div><p class="bma-dn">Planos ejecutivos en DWG y PDF</p><p class="bma-ds">Plantas · Cortes · Elevaciones · Detalles · Perspectivas</p></div><span class="bma-dt">Sem. 5-6</span></div>
+      <div class="bma-dr"><span class="bma-dk2">✓</span><div><p class="bma-dn">Documentación municipal (Neuquén / CABA)</p><p class="bma-ds">Planos de aprobación · Memorias · Planillas</p></div><span class="bma-dt">Sem. 6</span></div>
+      <div class="bma-dr"><span class="bma-dk2">✓</span><div><p class="bma-dn">Renders y vistas 3D de presentación</p><p class="bma-ds">Perspectivas interiores y exteriores</p></div><span class="bma-dt">Sem. 6</span></div>
+      <div class="bma-dr"><span class="bma-dk2">✓</span><div><p class="bma-dn">Sesión de transferencia + guía del modelo</p><p class="bma-ds">Capacitación básica para tu equipo incluida</p></div><span class="bma-dt">Sem. 7</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PROCESO ══ -->
+<div class="bma-sec" id="bma-como">
+  <span class="bma-lbl">Proceso de trabajo</span>
+  <h2 class="bma-h2">Cómo nos integramos<br><em>a tu estudio</em></h2>
+  <p class="bma-lead">Tu flujo de trabajo no cambia. Nos adaptamos a vos.</p>
+  <div class="bma-steps">
+    <div class="bma-step"><div class="bma-snum">1</div><div><span class="bma-stg">Gratis · 48hs</span><p class="bma-st">Diagnóstico del proyecto</p><p class="bma-sd">Mandanos los planos existentes (DWG, PDF, lo que tengas). En 48hs te devolvemos un diagnóstico con alcance exacto, timeline y precio fijo. También detectamos inconsistencias que ya tienen tus planos.</p></div></div>
+    <div class="bma-step"><div class="bma-snum">2</div><div><span class="bma-stg">Semana 1</span><p class="bma-st">Acuerdo de alcance y kick-off</p><p class="bma-sd">Una llamada de 30 minutos para alinear qué modelamos, qué entregamos, en cuánto tiempo y con qué hitos de pago. Todo queda por escrito antes de empezar.</p></div></div>
+    <div class="bma-step"><div class="bma-snum">3</div><div><span class="bma-stg">Semanas 2-6</span><p class="bma-st">Producción con revisiones quincenales</p><p class="bma-sd">Producimos el modelo en etapas. Cada 2 semanas te mostramos el avance en una sesión de revisión de 30 minutos. Si el proyecto cambia, adaptamos dentro del alcance acordado.</p></div></div>
+    <div class="bma-step"><div class="bma-snum">4</div><div><span class="bma-stg">Semana final</span><p class="bma-st">Entrega, QA y transferencia</p><p class="bma-sd">Control de calidad interno antes de entregar: cada plano verificado, cada cota revisada, cada clash resuelto. Sesión de transferencia del modelo para tu equipo incluida.</p></div></div>
+  </div>
+</div>
+
+<!-- ══ PRECIO ══ -->
+<div class="bma-full">
+  <div class="bma-sec">
+    <span class="bma-lbl">Inversión</span>
+    <h2 class="bma-h2">Precio transparente.<br><em>Sin sorpresas al final.</em></h2>
+    <div class="bma-price">
+      <p style="font-size:14px;color:var(--mu);margin-bottom:16px">Modelado BIM desde</p>
+      <div><span class="bma-ptag">USD 10</span><span class="bma-punit"> / m² modelado</span></div>
+      <p style="font-size:13px;color:var(--mu);margin-top:12px">Edificio de 1,500 m² → desde USD 15,000 · Precio fijo acordado antes de empezar</p>
+      <div class="bma-pitems">
+        <span class="bma-pitem">Diagnóstico gratis</span>
+        <span class="bma-pitem">Precio fijo por proyecto</span>
+        <span class="bma-pitem">Hitos de pago por entregable</span>
+        <span class="bma-pitem">Revisiones incluidas</span>
+        <span class="bma-pitem">Documentación municipal incluida</span>
+        <span class="bma-pitem">Transferencia del modelo</span>
+      </div>
+      <p style="font-size:12px;color:var(--mu);margin-top:24px;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.7">¿Por qué vale la pena? Un edificio de 1,500 m² con BIM detecta en promedio 20-50 interferencias antes de la obra. Resolverlas en modelo: incluido. En obra: entre USD 2,000 y USD 15,000 cada una.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ TESTIMONIOS ══ -->
+<div class="bma-sec">
+  <span class="bma-lbl">Lo que dicen los arquitectos que ya trabajan con nosotros</span>
+  <h2 class="bma-h2">Estudios que hoy entregan BIM<br><em>sin tener Revit interno</em></h2>
+  <div class="bma-tg">
+    <div class="bma-tc"><div class="bma-tstars">★★★★★</div><p class="bma-tq">"Teníamos el pliego del Hotel True con exigencia BIM y sin equipo para hacerlo. BIMARG se integró en una semana. El modelo que entregamos superó las expectativas del cliente. Hoy es nuestra diferencial."</p><div><strong style="font-size:14px;color:#fff;display:block">Florencia Perelarte</strong><span style="font-size:12px;color:var(--mu)">Arquitecta — ASPA Patagonia · Hotel True, Cipolletti</span></div></div>
+    <div class="bma-tc"><div class="bma-tstars">★★★★★</div><p class="bma-tq">"Por primera vez presenté un expediente municipal que aprobó sin observaciones técnicas. La documentación salida del modelo BIM es de otro nivel. Ahora lo exijo para todos mis proyectos."</p><div><strong style="font-size:14px;color:#fff;display:block">Gaspar Ignacio Marcet</strong><span style="font-size:12px;color:var(--mu)">Director — ASPA Patagonia</span></div></div>
+    <div class="bma-tc"><div class="bma-tstars">★★★★★</div><p class="bma-tq">"No tuve que aprender Revit. Mandé mis planos AutoCAD y recibí modelo 3D + planos ejecutivos coordinados. Gané un proyecto de 8 pisos que antes no podría haber competido."</p><div><strong style="font-size:14px;color:#fff;display:block">Arquitecto</strong><span style="font-size:12px;color:var(--mu)">Estudio de arquitectura — Neuquén Capital</span></div></div>
+  </div>
+</div>
+
+<!-- ══ FAQ ══ -->
+<div class="bma-full">
+  <div class="bma-sec" style="max-width:760px">
+    <span class="bma-lbl">Preguntas frecuentes</span>
+    <h2 class="bma-h2">Lo que siempre preguntan<br><em>antes de arrancar</em></h2>
+    <div style="width:100%;margin-top:48px;text-align:left">
+      <details class="bma-faq-d"><summary class="bma-faq-s">¿Necesito saber Revit para trabajar con ustedes?</summary><p class="bma-faq-a">No. Solo necesitás los planos del proyecto en DWG o PDF. Producimos todo en Revit. Al final hacemos una sesión donde mostramos el modelo y explicamos cómo navegarlo, pero no es obligatorio.</p></details>
+      <details class="bma-faq-d"><summary class="bma-faq-s">¿Qué pasa si el proyecto cambia durante la producción?</summary><p class="bma-faq-a">Los cambios dentro del alcance acordado no tienen costo adicional. Si el cliente pide algo que cambia significativamente el alcance, lo conversamos y acordamos un adicional por escrito antes de ejecutarlo.</p></details>
+      <details class="bma-faq-d"><summary class="bma-faq-s">¿Pueden trabajar con el calculista y el instalador de mi equipo?</summary><p class="bma-faq-a">Sí, y es lo más recomendable. Les pedimos los planos DWG o PDF a cada especialista y los incorporamos al modelo para la coordinación. No necesitan saber BIM. El resultado es un modelo coordinado con todos los clashes resueltos.</p></details>
+      <details class="bma-faq-d"><summary class="bma-faq-s">¿Puedo mostrarle a mi cliente que el proyecto "es BIM" si ustedes lo producen?</summary><p class="bma-faq-a">Absolutamente. Somos tu equipo de producción BIM. Como cualquier relación cliente-proveedor, el proyecto es tuyo. Podés presentarlo como capacidad de tu estudio. Muchos estudios grandes del mundo trabajan así con equipos externos especializados.</p></details>
+      <details class="bma-faq-d"><summary class="bma-faq-s">¿Trabajan con proyectos en Buenos Aires o solo en Patagonia?</summary><p class="bma-faq-a">Trabajamos en ambas regiones. La producción del modelo es 100% remota — necesitamos los planos digitales. Para proyectos en Buenos Aires, la documentación se adapta a los requisitos del GCBA. Si necesitás reuniones presenciales, podemos coordinar visitas.</p></details>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CTA FINAL ══ -->
+<section class="bma-ctaf">
+  <span class="bma-eye"><span class="bma-dot"></span>Diagnóstico gratis · Respuesta en 48hs</span>
+  <h2 class="bma-h2" style="max-width:600px">Tu próximo proyecto puede ser el primero que entregás en BIM.<br><em>Sin aprender Revit.</em></h2>
+  <p style="font-size:16px;color:var(--mu);max-width:480px;line-height:1.7">Mandanos los planos. En 48hs te decimos qué podemos hacer, en cuánto tiempo y a qué costo. Sin compromiso.</p>
+  <div class="bma-ctas">
+    <a href="https://wa.me/+542996287652?text=Hola%20Franco%2C%20soy%20arquitecto%20y%20quiero%20un%20diagn%C3%B3stico%20BIM%20gratis" class="bma-bp" target="_blank" rel="noopener">📐 Diagnóstico BIM gratis</a>
+    <a href="/cdn-cgi/l/email-protection#355c5b535a75575c585447521b565a58" class="bma-bg">✉️ Escribir por mail</a>
+  </div>
+  <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--mu)">Atendemos estudios en <span style="color:var(--c)">Patagonia</span> y <span style="color:var(--c)">Buenos Aires</span></p>
+</section>
+
+</div>
+<!-- Schema SEO -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Modelado BIM para Arquitectos","provider":{"@type":"LocalBusiness","name":"BIMARG","url":"https://www.bimarg.com","telephone":"+542996287652","address":{"@type":"PostalAddress","addressLocality":"Neuquén","addressCountry":"AR"}},"description":"Modelado BIM 3D desde planos AutoCAD para estudios de arquitectura. Documentación ejecutiva y municipal. Sin necesidad de aprender Revit.","areaServed":[{"@type":"City","name":"Neuquén"},{"@type":"City","name":"Buenos Aires"}],"offers":{"

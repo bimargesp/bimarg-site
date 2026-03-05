@@ -1,0 +1,419 @@
+<!-- ============================================================
+     BIMARG — LANDING DESARROLLADORAS
+     URL sugerida: bimarg.com/desarrolladoras
+     Pegar en Divi → Fullwidth Code Module (página en blanco)
+     ============================================================ -->
+<style>
+.bmd*,.bmd *::before,.bmd *::after{box-sizing:border-box;margin:0;padding:0}
+.bmd{
+  --c:#00BFFF;--cd:rgba(0,191,255,0.12);--cb:rgba(0,191,255,0.25);
+  --gn:#22C55E;--gnd:rgba(34,197,94,0.1);--gnb:rgba(34,197,94,0.25);
+  --dk:#080808;--d2:#0f0f0f;--ca:#111111;
+  --tx:rgba(255,255,255,0.88);--mu:rgba(255,255,255,0.50);--fa:rgba(255,255,255,0.07);
+  --fn:'Helvetica Neue',Arial,sans-serif;
+  font-family:var(--fn);color:var(--tx);background:var(--dk);-webkit-font-smoothing:antialiased;
+}
+.bmd-eye{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--c);background:var(--cd);
+  border:1px solid var(--cb);padding:6px 14px;border-radius:100px}
+.bmd-dot{width:6px;height:6px;border-radius:50%;background:var(--c);animation:pdot 2s infinite}
+@keyframes pdot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+.bmd-h1{font-size:clamp(28px,5vw,58px);font-weight:900;line-height:1.1;letter-spacing:-.025em;color:#fff}
+.bmd-h1 em,.bmd-h2 em{color:var(--c);font-style:normal}
+.bmd-h2{font-size:clamp(22px,3.5vw,42px);font-weight:800;line-height:1.18;letter-spacing:-.02em;color:#fff}
+.bmd-h3{font-size:17px;font-weight:700;color:#fff;line-height:1.35}
+.bmd-lead{font-size:clamp(15px,1.8vw,17px);color:var(--mu);line-height:1.8;max-width:640px}
+.bmd-lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--c)}
+.bmd-sec{padding:clamp(64px,8vw,120px) clamp(20px,5vw,80px);max-width:1100px;margin:0 auto;
+  display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px}
+.bmd-full{background:var(--d2)}
+/* HERO */
+.bmd-hero{position:relative;background:var(--dk);min-height:92vh;display:flex;align-items:center;
+  justify-content:center;overflow:hidden}
+.bmd-hbg{position:absolute;inset:0;z-index:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(0,191,255,.07) 0%,transparent 60%),
+             radial-gradient(ellipse 40% 40% at 20% 100%,rgba(34,197,94,.04) 0%,transparent 50%)}
+.bmd-hgrid{position:absolute;inset:0;z-index:0;
+  background-image:linear-gradient(rgba(0,191,255,.035) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(0,191,255,.035) 1px,transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 0%,transparent 80%)}
+.bmd-hc{position:relative;z-index:2;text-align:center;
+  padding:clamp(80px,10vw,120px) clamp(20px,5vw,60px) clamp(60px,8vw,100px);
+  max-width:920px;display:flex;flex-direction:column;align-items:center;gap:28px}
+/* BTNS */
+.bmd-bp{display:inline-flex;align-items:center;gap:10px;background:var(--c);color:#000;
+  font-weight:800;font-size:15px;padding:16px 32px;border-radius:100px;text-decoration:none;
+  transition:transform .2s,box-shadow .2s}
+.bmd-bp:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,191,255,.35)}
+.bmd-bg{display:inline-flex;align-items:center;gap:10px;background:transparent;color:#fff;
+  font-weight:600;font-size:15px;padding:15px 28px;border-radius:100px;text-decoration:none;
+  border:1px solid rgba(255,255,255,.2);transition:border-color .2s,background .2s}
+.bmd-bg:hover{border-color:var(--c);background:var(--cd)}
+.bmd-ctas{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+/* PROOF */
+.bmd-pb{border-top:1px solid var(--fa);border-bottom:1px solid var(--fa);background:var(--d2);
+  padding:20px clamp(20px,5vw,80px);display:flex;justify-content:center;gap:clamp(24px,5vw,64px);
+  flex-wrap:wrap;align-items:center}
+.bmd-pi{display:flex;flex-direction:column;align-items:center;gap:2px}
+.bmd-pn{font-size:28px;font-weight:900;color:#fff;letter-spacing:-.02em}
+.bmd-pl{font-size:11px;color:var(--mu);text-transform:uppercase;letter-spacing:.1em}
+/* FEAR GRID */
+.bmd-fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1px;background:var(--fa);border-radius:20px;overflow:hidden;width:100%;margin-top:48px}
+.bmd-fc{background:var(--ca);padding:36px 32px;display:flex;flex-direction:column;gap:14px;transition:background .2s}
+.bmd-fc:hover{background:#161616}
+.bmd-ft{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.1em;
+  background:rgba(255,68,68,.1);color:#FF7777;border:1px solid rgba(255,68,68,.2);
+  padding:3px 10px;border-radius:100px;text-transform:uppercase;align-self:flex-start}
+/* ROI BOX */
+.bmd-roi{background:var(--ca);border:1px solid var(--cb);border-radius:24px;padding:48px;
+  width:100%;margin-top:48px;position:relative;overflow:hidden}
+.bmd-roi::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,transparent,var(--c),transparent)}
+.bmd-roi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;margin-top:32px}
+.bmd-roi-item{text-align:center;padding:24px 16px;background:var(--fa);border-radius:16px}
+.bmd-roi-num{font-size:clamp(22px,3vw,36px);font-weight:900;letter-spacing:-.02em;display:block;margin-bottom:6px}
+.bmd-roi-lbl{font-size:12px;color:var(--mu);line-height:1.5}
+/* SOLUTION CARDS */
+.bmd-sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:20px;width:100%;margin-top:48px}
+.bmd-sc{background:var(--ca);border:1px solid var(--fa);border-radius:20px;padding:36px 32px;
+  display:flex;flex-direction:column;gap:14px;transition:border-color .25s,transform .25s;position:relative;overflow:hidden}
+.bmd-sc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--c),transparent);opacity:0;transition:opacity .25s}
+.bmd-sc:hover{border-color:var(--cb);transform:translateY(-4px)}
+.bmd-sc:hover::before{opacity:1}
+.bmd-sn{font-size:34px;font-weight:900;color:var(--cb);letter-spacing:-.03em}
+.bmd-stag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.1em;
+  background:var(--cd);color:var(--c);border:1px solid var(--cb);
+  padding:3px 10px;border-radius:100px;text-transform:uppercase}
+/* FASE TABLE */
+.bmd-fase{width:100%;margin-top:48px;border-radius:20px;overflow:hidden;border:1px solid var(--fa)}
+.bmd-fase-row{display:grid;grid-template-columns:40px 200px 1fr;align-items:start;gap:24px;
+  padding:24px 32px;background:var(--ca);border-bottom:1px solid var(--fa);transition:background .2s}
+.bmd-fase-row:last-child{border-bottom:none}
+.bmd-fase-row:hover{background:#161616}
+.bmd-fase-n{font-size:22px;font-weight:900;color:var(--cb)}
+.bmd-fase-t{font-size:15px;font-weight:700;color:#fff}
+.bmd-fase-sub{font-size:12px;color:var(--c);font-weight:600;margin-top:4px}
+.bmd-fase-d{font-size:13px;color:var(--mu);line-height:1.7}
+/* DELIVERABLES */
+.bmd-dl{width:100%;display:flex;flex-direction:column;gap:0;margin-top:48px;
+  border-radius:20px;overflow:hidden;border:1px solid var(--fa)}
+.bmd-dr{display:grid;grid-template-columns:36px 1fr auto;align-items:center;gap:20px;
+  padding:22px 32px;background:var(--ca);border-bottom:1px solid var(--fa);transition:background .2s}
+.bmd-dr:last-child{border-bottom:none}
+.bmd-dr:hover{background:#161616}
+.bmd-dk2{color:var(--c);font-size:18px;font-weight:900}
+.bmd-dn{font-size:15px;font-weight:600;color:#fff}
+.bmd-ds{font-size:12px;color:var(--mu);margin-top:3px}
+.bmd-dt{font-size:11px;font-weight:700;color:var(--c);white-space:nowrap}
+/* TESTI */
+.bmd-tg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;width:100%;margin-top:48px}
+.bmd-tc{background:var(--ca);border:1px solid var(--fa);border-radius:20px;padding:36px;
+  text-align:left;display:flex;flex-direction:column;gap:18px}
+/* PRICING */
+.bmd-price{background:var(--ca);border:1px solid var(--cb);border-radius:24px;padding:48px;
+  text-align:center;position:relative;overflow:hidden;margin-top:48px;width:100%}
+.bmd-price::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,transparent,var(--c),transparent)}
+.bmd-pitems{display:flex;gap:24px;flex-wrap:wrap;justify-content:center;margin-top:28px}
+.bmd-pitem{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mu)}
+.bmd-pitem::before{content:'✓';color:var(--c);font-weight:900}
+/* CTA FINAL */
+.bmd-ctaf{background:radial-gradient(ellipse 80% 100% at 50% 0%,rgba(0,191,255,.08) 0%,transparent 70%);
+  border-top:1px solid var(--cb);padding:clamp(64px,8vw,120px) clamp(20px,5vw,60px);
+  text-align:center;display:flex;flex-direction:column;align-items:center;gap:28px}
+/* FAQ */
+.bmd-faq-d{border-top:1px solid var(--fa);font-family:var(--fn)}
+.bmd-faq-d:last-child{border-bottom:1px solid var(--fa)}
+.bmd-faq-s{padding:22px 0;font-size:15px;font-weight:600;color:var(--tx);cursor:pointer;
+  list-style:none;display:flex;justify-content:space-between;align-items:center;gap:24px}
+.bmd-faq-s::-webkit-details-marker{display:none}
+.bmd-faq-s::after{content:'+';color:var(--c);font-size:22px;font-weight:300;flex-shrink:0;transition:transform .3s}
+details[open] .bmd-faq-s::after{transform:rotate(45deg)}
+.bmd-faq-a{padding:0 0 22px;font-size:13px;color:var(--mu);line-height:1.8}
+@media(max-width:768px){.bmd-dr{grid-template-columns:32px 1fr}.bmd-dt{display:none}
+  .bmd-price{padding:32px 20px}.bmd-fase-row{grid-template-columns:40px 1fr;grid-template-rows:auto auto}
+  .bmd-fase-d{grid-column:1/-1}}
+@media(max-width:600px){.bmd-fg,.bmd-sg,.bmd-tg{grid-template-columns:1fr}}
+</style>
+
+<div class="bmd" itemscope itemtype="https://schema.org/Service">
+
+<!-- ══ HERO ══ -->
+<section class="bmd-hero" role="banner">
+  <div class="bmd-hbg" aria-hidden="true"></div>
+  <div class="bmd-hgrid" aria-hidden="true"></div>
+  <div class="bmd-hc">
+    <span class="bmd-eye"><span class="bmd-dot"></span>Para desarrolladoras inmobiliarias · Patagonia & Buenos Aires</span>
+    <h1 class="bmd-h1">Tu próximo desarrollo<br>puede tener BIM o puede tener<br><em>sorpresas que te cuestan la rentabilidad.</em></h1>
+    <p style="font-size:clamp(14px,1.6vw,17px);color:var(--mu);line-height:1.8;max-width:620px">
+      Implementamos el sistema BIM completo en tu proyecto de desarrollo: desde la factibilidad técnica
+      hasta la documentación de cierre. Control total del costo, los tiempos y los riesgos antes de que aparezcan.
+    </p>
+    <div class="bmd-ctas">
+      <a href="https://wa.me/+542996287652?text=Hola%20Franco%2C%20soy%20de%20una%20desarrolladora%20y%20quiero%20hablar%20sobre%20implementaci%C3%B3n%20BIM%20en%20mi%20proyecto" class="bmd-bp" target="_blank" rel="noopener">🏢 Quiero implementar BIM en mi proyecto</a>
+      <a href="#bmd-como" class="bmd-bg">Ver cómo funciona</a>
+    </div>
+    <p style="font-size:12px;color:var(--mu)">Diagnóstico gratis · Precio fijo por fase · Sin sorpresas</p>
+  </div>
+</section>
+
+<!-- ══ PROOF BAR ══ -->
+<div class="bmd-pb">
+  <div class="bmd-pi"><span class="bmd-pn">+USD 180K</span><span class="bmd-pl">en adicionales evitados (caso real)</span></div>
+  <div class="bmd-pi"><span class="bmd-pn">11</span><span class="bmd-pl">años de experiencia BIM</span></div>
+  <div class="bmd-pi"><span class="bmd-pn">−35%</span><span class="bmd-pl">reducción de sobrecostos</span></div>
+  <div class="bmd-pi"><span class="bmd-pn">+30</span><span class="bmd-pl">proyectos implementados</span></div>
+</div>
+
+<!-- ══ LA VERDAD SOBRE LOS DESARROLLOS ══ -->
+<div class="bmd-full">
+  <div class="bmd-sec">
+    <span class="bmd-lbl">El problema que destruye la rentabilidad de un desarrollo</span>
+    <h2 class="bmd-h2">Los costos "imprevistos" siempre<br><em>estaban previsibles</em></h2>
+    <p class="bmd-lead">En la industria inmobiliaria argentina, el 70% de los proyectos termina con un costo final entre un 12% y un 25% por encima del presupuesto original. Esos adicionales no son obra del azar: son errores de documentación, interferencias no detectadas y cómputos imprecisos que un sistema BIM resuelve antes de poner el primer ladrillo.</p>
+    <div class="bmd-roi">
+      <h3 style="font-size:clamp(16px,2.5vw,28px);font-weight:800;color:#fff;letter-spacing:-.02em;max-width:600px;margin:0 auto">Cuánto le cuesta a una desarrolladora <em style="color:var(--c)">no tener BIM</em> en un proyecto de USD 3,000,000</h3>
+      <div class="bmd-roi-grid">
+        <div class="bmd-roi-item"><span class="bmd-roi-num" style="color:#FF7777">+15%</span><span class="bmd-roi-lbl">Adicionales típicos sin BIM sobre presupuesto</span></div>
+        <div class="bmd-roi-item"><span class="bmd-roi-num" style="color:#FF7777">USD 450K</span><span class="bmd-roi-lbl">Adicionales en un proyecto de USD 3M</span></div>
+        <div class="bmd-roi-item"><span class="bmd-roi-num" style="color:var(--c)">USD 25-40K</span><span class="bmd-roi-lbl">Costo de implementación BIM completa</span></div>
+        <div class="bmd-roi-item"><span class="bmd-roi-num" style="color:var(--gn)">11:1</span><span class="bmd-roi-lbl">ROI promedio de la inversión en BIM</span></div>
+      </div>
+      <p style="font-size:13px;color:var(--mu);margin-top:24px">Fuente: experiencia en +30 proyectos. El Hotel True de 12 pisos evitó USD 180K en adicionales con una inversión BIM de USD 22K.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ MIEDOS ══ -->
+<div class="bmd-sec">
+  <span class="bmd-lbl">Lo que más les preocupa a los desarrolladores</span>
+  <h2 class="bmd-h2">Los riesgos que ningun desarrollador<br><em>puede darse el lujo de ignorar</em></h2>
+  <div class="bmd-fg">
+    <div class="bmd-fc">
+      <span class="bmd-ft">Riesgo #1</span>
+      <span style="font-size:30px">💰</span>
+      <p class="bmd-h3">"El proyecto se fue de presupuesto y ya no es rentable"</p>
+      <p style="font-size:14px;color:var(--mu);line-height:1.7">El estudio de arquitectura entregó planos que tenían inconsistencias. La constructora licitó basándose en un cómputo aproximado. Los adicionales se acumularon durante la obra. Al cierre, el proyecto no da el retorno proyectado.</p>
+    </div>
+    <div class="bmd-fc">
+      <span class="bmd-ft">Riesgo #2</span>
+      <span style="font-size:30px">🗓️</span>
+      <p class="bmd-h3">"Los plazos no se cumplieron y los costos financieros se comieron el margen"</p>
+      <p style="font-size:14px;color:var(--mu);line-height:1.7">Cada mes de atraso en la obra es dinero. Costos de financiamiento, penalidades, dilución del VAN del proyecto. La mayoría de los atrasos vienen de interferencias detectadas en obra que paran los trabajos mientras se busca una solución.</p>
+    </div>
+    <div class="bmd-fc">
+      <span class="bmd-ft">Riesgo #3</span>
+      <span style="font-size:30px">📋</span>
+      <p class="bmd-h3">"El arquitecto, la constructora y el calculista cada uno tiene 'su' versión del proyecto"</p>
+      <p style="font-size:14px;color:var(--mu);line-height:1.7">Como desarrollador, sos el que coordina a todos. Sin un sistema BIM central, cada especialista trabaja con su propia versión. Cuando hay conflictos, el que paga la diferencia sos vos.</p>
+    </div>
+    <div class="bmd-fc">
+      <span class="bmd-ft">Riesgo #4</span>
+      <span style="font-size:30px">🏦</span>
+      <p class="bmd-h3">"El banco o los inversores piden información que no tengo en el formato que necesitan"</p>
+      <p style="font-size:14px;color:var(--mu);line-height:1.7">Los proyectos de mayor escala requieren presentar avances a inversores, bancos o fideicomisos. Sin documentación BIM ordenada, esas presentaciones son inconsistentes y generan desconfianza en los stakeholders financieros.</p>
+    </div>
+    <div class="bmd-fc">
+      <span class="bmd-ft">Riesgo #5</span>
+      <span style="font-size:30px">⚠️</span>
+      <p class="bmd-h3">"No sé si lo que se construyó es exactamente lo que se aprobó"</p>
+      <p style="font-size:14px;color:var(--mu);line-height:1.7">Al cierre de la obra, los planos conforme a obra rara vez coinciden con la realidad construida. Eso es un problema para la escrituración, para la garantía de obra y para cualquier venta o financiamiento posterior.</p>
+    </div>
+    <div class="bmd-fc">
+      <span class="bmd-ft">Riesgo #6</span>
+      <span style="font-size:30px">🏗️</span>
+      <p class="bmd-h3">"La constructora me dice que hay un adicional y no tengo cómo verificar si es real"</p>
+      <p style="font-size:14px;color:var(--mu);line-height:1.7">Sin un modelo BIM propio del proyecto, no tenés con qué contrastar el adicional que presenta la constructora. Si el cómputo original era aproximado, no podés saber si el adicional es legítimo o una oportunidad.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SOLUCIÓN ══ -->
+<div class="bmd-full">
+  <div class="bmd-sec">
+    <span class="bmd-lbl">Lo que hacemos por tu desarrollo</span>
+    <h2 class="bmd-h2">Implementación BIM completa<br><em>para toda la vida del proyecto</em></h2>
+    <p class="bmd-lead">No es solo el modelo. Es el sistema completo de control técnico de tu proyecto: desde antes de la primera reunión con el arquitecto hasta el certificado final de obra.</p>
+    <div class="bmd-sg">
+      <div class="bmd-sc">
+        <span class="bmd-stag">Fase 0</span>
+        <span class="bmd-sn">01</span>
+        <p class="bmd-h3">Factibilidad técnica BIM</p>
+        <p style="font-size:14px;color:var(--mu);line-height:1.75">Antes de comprometer la inversión, analizamos el proyecto en base a los anteproyectos disponibles. Identificamos riesgos técnicos, validamos los cómputos preliminares y te damos una primera imagen de rentabilidad basada en datos reales, no estimaciones.</p>
+      </div>
+      <div class="bmd-sc">
+        <span class="bmd-stag">Diseño</span>
+        <span class="bmd-sn">02</span>
+        <p class="bmd-h3">BIM Execution Plan (BEP)</p>
+        <p style="font-size:14px;color:var(--mu);line-height:1.75">Definimos las reglas del juego antes de empezar: cómo trabaja cada especialista, qué niveles de detalle se requieren en cada fase, cómo se comparte la información y cómo se resuelven los conflictos. El BEP es el contrato técnico del proyecto.</p>
+      </div>
+      <div class="bmd-sc">
+        <span class="bmd-stag">Producción</span>
+        <span class="bmd-sn">03</span>
+        <p class="bmd-h3">Coordinación BIM de todas las especialidades</p>
+        <p style="font-size:14px;color:var(--mu);line-height:1.75">Coordinamos el modelo central con todos los especialistas (arquitecto, calculista, instalaciones, HVAC). Detectamos y resolvemos todas las interferencias antes de que lleguen a la obra. Cada clash queda documentado y resuelto.</p>
+      </div>
+      <div class="bmd-sc">
+        <span class="bmd-stag">Presupuesto</span>
+        <span class="bmd-sn">04</span>
+        <p class="bmd-h3">Cómputos BIM 5D — base del presupuesto real</p>
+        <p style="font-size:14px;color:var(--mu);line-height:1.75">Generamos el cómputo definitivo directamente del modelo. Cada ítem de obra tiene su cantidad exacta, su costo unitario y su costo total. Si el proyecto cambia, el cómputo se actualiza automáticamente. Nunca más presupuestos "aproximados".</p>
+      </div>
+      <div class="bmd-sc">
+        <span class="bmd-stag">Construcción</span>
+        <span class="bmd-sn">05</span>
+        <p class="bmd-h3">Control BIM durante la ejecución</p>
+        <p style="font-size:14px;color:var(--mu);line-height:1.75">Durante la obra, somos tu auditoría técnica independiente. Revisamos los adicionales con el modelo, controlamos que lo que se construye coincide con lo aprobado y gestionamos los cambios de forma controlada con actualización inmediata del cómputo.</p>
+      </div>
+      <div class="bmd-sc">
+        <span class="bmd-stag">Cierre</span>
+        <span class="bmd-sn">06</span>
+        <p class="bmd-h3">As-Built BIM — modelo conforme a obra</p>
+        <p style="font-size:14px;color:var(--mu);line-height:1.75">Al cierre entregamos el modelo actualizado con todo lo que se construyó realmente. Planos conforme a obra para escrituración, garantía técnica del proyecto y base para operaciones y mantenimiento del edificio.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FASES ══ -->
+<div class="bmd-sec" id="bmd-como">
+  <span class="bmd-lbl">Metodología BIMBOX®</span>
+  <h2 class="bmd-h2">El sistema que implementamos<br><em>en cada proyecto de desarrollo</em></h2>
+  <p class="bmd-lead">BIMBOX® es la metodología propietaria de BIMARG para la implementación BIM en proyectos inmobiliarios argentinos. Combina estándares internacionales con la realidad del mercado de la construcción local.</p>
+  <div class="bmd-fase">
+    <div class="bmd-fase-row">
+      <span class="bmd-fase-n">F0</span>
+      <div><p class="bmd-fase-t">Factibilidad y Diagnóstico</p><p class="bmd-fase-sub">Antes del compromiso de inversión</p></div>
+      <p class="bmd-fase-d">Análisis del anteproyecto. Validación de cómputos preliminares. Identificación de riesgos técnicos. Primer estimado de rentabilidad basado en datos del modelo. Decisión go/no-go con información real.</p>
+    </div>
+    <div class="bmd-fase-row">
+      <span class="bmd-fase-n">F1</span>
+      <div><p class="bmd-fase-t">BEP y Setup del Proyecto</p><p class="bmd-fase-sub">Antes de contratar al equipo de diseño</p></div>
+      <p class="bmd-fase-d">Redacción del BIM Execution Plan específico para el proyecto. Definición de responsabilidades BIM de cada especialista. Setup de la plataforma de colaboración. Definición de niveles de desarrollo por fase.</p>
+    </div>
+    <div class="bmd-fase-row">
+      <span class="bmd-fase-n">F2</span>
+      <div><p class="bmd-fase-t">Coordinación y Clash Detection</p><p class="bmd-fase-sub">Durante el desarrollo ejecutivo</p></div>
+      <p class="bmd-fase-d">Reuniones de coordinación BIM quincenales con todos los especialistas. Corridas de clash detection con Navisworks. Documentación de todas las interferencias. Seguimiento de resoluciones. Modelo federado limpio antes de licitación.</p>
+    </div>
+    <div class="bmd-fase-row">
+      <span class="bmd-fase-n">F3</span>
+      <div><p class="bmd-fase-t">Cómputos 5D y Documentación Licitación</p><p class="bmd-fase-sub">Base del proceso de licitación</p></div>
+      <p class="bmd-fase-d">Extracción de cómputos definitivos del modelo. Planos ejecutivos coordinados para licitación. Documentación BIM para pliegos. Presupuesto base con costos por partida y por especialidad extraídos del modelo.</p>
+    </div>
+    <div class="bmd-fase-row">
+      <span class="bmd-fase-n">F4</span>
+      <div><p class="bmd-fase-t">Control BIM en Obra</p><p class="bmd-fase-sub">Durante la ejecución</p></div>
+      <p class="bmd-fase-d">Revisión técnica de adicionales con modelo BIM. Actualización del modelo con cambios aprobados. Control de avance vs. cronograma 4D. Informes mensuales para inversores y banco.</p>
+    </div>
+    <div class="bmd-fase-row">
+      <span class="bmd-fase-n">F5</span>
+      <div><p class="bmd-fase-t">As-Built y Cierre</p><p class="bmd-fase-sub">Al finalizar la obra</p></div>
+      <p class="bmd-fase-d">Modelo conforme a obra actualizado. Planos As-Built para escrituración. Documentación completa para operaciones y mantenimiento. Entrega del modelo BIM al administrador del edificio.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ENTREGABLES ══ -->
+<div class="bmd-full">
+  <div class="bmd-sec">
+    <span class="bmd-lbl">Entregables por fase</span>
+    <h2 class="bmd-h2">Todo lo que recibís<br><em>a lo largo del proyecto</em></h2>
+    <div class="bmd-dl">
+      <div class="bmd-dr"><span class="bmd-dk2">✓</span><div><p class="bmd-dn">Informe de Factibilidad BIM</p><p class="bmd-ds">Riesgos técnicos · Cómputo preliminar · Primera proyección de costos</p></div><span class="bmd-dt">Fase 0</span></div>
+      <div class="bmd-dr"><span class="bmd-dk2">✓</span><div><p class="bmd-dn">BIM Execution Plan (BEP) del proyecto</p><p class="bmd-ds">Responsabilidades · Niveles LOD · Plataforma · Flujos de trabajo</p></div><span class="bmd-dt">Fase 1</span></div>
+      <div class="bmd-dr"><span class="bmd-dk2">✓</span><div><p class="bmd-dn">Modelo BIM federado coordinado</p><p class="bmd-ds">ARQ + EST + INST · Clash detection resuelto · Todas las especialidades</p></div><span class="bmd-dt">Fase 2</span></div>
+      <div class="bmd-dr"><span class="bmd-dk2">✓</span><div><p class="bmd-dn">Reporte de Clash Detection con resoluciones</p><p class="bmd-ds">Todas las interferencias · Captura 3D · Resolución acordada</p></div><span class="bmd-dt">Fase 2</span></div>
+      <div class="bmd-dr"><span class="bmd-dk2">✓</span><div><p class="bmd-dn">Cómputo BIM 5D definitivo (Excel + PDF)</p><p class="bmd-ds">Por partida · Por especialidad · Base para presupuesto de licitación</p></div><span class="bmd-dt">Fase 3</span></div>
+      <div class="bmd-dr"><span class="bmd-dk2">✓</span><div><p class="bmd-dn">Planos ejecutivos coordinados para licitación</p><p class="bmd-ds">DWG + PDF · Todas las especialidades · Desde el mismo modelo</p></div><span class="bmd-dt">Fase 3</span></div>
+      <div class="bmd-dr"><span class="bmd-dk2">✓</span><div><p class="bmd-dn">Informes de avance mensual para inversores</p><p class="bmd-ds">Avance real vs. planificado · Estado financiero · Alertas tempranas</p></div><span class="bmd-dt">Fase 4</span></div>
+      <div class="bmd-dr"><span class="bmd-dk2">✓</span><div><p class="bmd-dn">Modelo As-Built + Planos conforme a obra</p><p class="bmd-ds">Para escrituración · Mantenimiento · Valorización del activo</p></div><span class="bmd-dt">Fase 5</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ TESTIMONIOS ══ -->
+<div class="bmd-sec">
+  <span class="bmd-lbl">Resultados reales en proyectos de desarrollo</span>
+  <h2 class="bmd-h2">Lo que logran las desarrolladoras<br><em>que implementan BIMBOX®</em></h2>
+  <div class="bmd-tg">
+    <div class="bmd-tc"><div style="color:var(--c);font-size:15px;letter-spacing:2px">★★★★★</div><p style="font-size:14px;color:var(--tx);line-height:1.8;font-style:italic">"Por primera vez en un proyecto de esta escala cerré exactamente con el presupuesto original. El BIM no era un gasto — era el seguro que me permitió decirle a mis inversores que el número era real."</p><div><strong style="font-size:14px;color:#fff;display:block">Desarrollador inmobiliario</strong><span style="font-size:12px;color:var(--mu)">Complejo residencial — Neuquén Capital · USD 2.8M</span></div></div>
+    <div class="bmd-tc"><div style="color:var(--c);font-size:15px;letter-spacing:2px">★★★★★</div><p style="font-size:14px;color:var(--tx);line-height:1.8;font-style:italic">"Cuando la constructora presentó un adicional de USD 45K decimos 'no puede ser' y les mostramos el modelo. El adicional quedó en USD 12K. El BIM fue nuestra herramienta de negociación."</p><div><strong style="font-size:14px;color:#fff;display:block">Gerente de Proyectos</strong><span style="font-size:12px;color:var(--mu)">Desarrolladora — Neuquén / Cipolletti</span></div></div>
+    <div class="bmd-tc"><div style="color:var(--c);font-size:15px;letter-spacing:2px">★★★★★</div><p style="font-size:14px;color:var(--tx);line-height:1.8;font-style:italic">"El banco nos pidió documentación BIM para el fideicomiso. Con BIMARG ya lo teníamos. Mientras los competidores tardaron 3 meses en armar la documentación, nosotros la presentamos en dos semanas."</p><div><strong style="font-size:14px;color:#fff;display:block">Socio Director</strong><span style="font-size:12px;color:var(--mu)">Desarrolladora — Neuquén</span></div></div>
+  </div>
+</div>
+
+<!-- ══ PRICING ══ -->
+<div class="bmd-full">
+  <div class="bmd-sec">
+    <span class="bmd-lbl">Inversión</span>
+    <h2 class="bmd-h2">Precio por fase.<br><em>Podés empezar por donde necesitás.</em></h2>
+    <p class="bmd-lead">No tenés que implementar las 6 fases desde el inicio. Podés empezar por la factibilidad y decidir cómo avanzar. Cada fase tiene precio fijo y entregables definidos.</p>
+    <div class="bmd-price">
+      <p style="font-size:14px;color:var(--mu);margin-bottom:20px">Implementación BIM completa (F0 a F5)</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;margin-bottom:28px">
+        <div style="background:var(--fa);border-radius:16px;padding:20px 16px;text-align:center">
+          <p style="font-size:11px;color:var(--mu);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px">Fase 0</p>
+          <p style="font-size:22px;font-weight:900;color:#fff">Gratis</p>
+          <p style="font-size:11px;color:var(--mu)">Diagnóstico</p>
+        </div>
+        <div style="background:var(--fa);border-radius:16px;padding:20px 16px;text-align:center">
+          <p style="font-size:11px;color:var(--mu);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px">Fases 1-3</p>
+          <p style="font-size:22px;font-weight:900;color:#fff">Desde <span style="color:var(--c)">USD 15K</span></p>
+          <p style="font-size:11px;color:var(--mu)">Diseño y coordinación</p>
+        </div>
+        <div style="background:var(--fa);border-radius:16px;padding:20px 16px;text-align:center">
+          <p style="font-size:11px;color:var(--mu);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px">Fases 4-5</p>
+          <p style="font-size:22px;font-weight:900;color:#fff">Desde <span style="color:var(--c)">USD 8K</span></p>
+          <p style="font-size:11px;color:var(--mu)">Obra y cierre</p>
+        </div>
+        <div style="background:var(--cd);border:1px solid var(--cb);border-radius:16px;padding:20px 16px;text-align:center">
+          <p style="font-size:11px;color:var(--c);text-transform:uppercase;letter-spacing:.1em;font-weight:700;margin-bottom:8px">Completo F0-F5</p>
+          <p style="font-size:22px;font-weight:900;color:#fff">Desde <span style="color:var(--c)">USD 25K</span></p>
+          <p style="font-size:11px;color:var(--mu)">Precio fijo total</p>
+        </div>
+      </div>
+      <div class="bmd-pitems">
+        <span class="bmd-pitem">Diagnóstico F0 gratis</span>
+        <span class="bmd-pitem">Precio fijo por fase</span>
+        <span class="bmd-pitem">Podés entrar en cualquier fase</span>
+        <span class="bmd-pitem">Hitos de pago por entregable</span>
+        <span class="bmd-pitem">Metodología BIMBOX® incluida</span>
+      </div>
+      <p style="font-size:12px;color:var(--mu);margin-top:24px;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.7">El costo de implementación BIM representa entre el 0.8% y el 1.5% del presupuesto de obra. Los adicionales que evita representan típicamente entre el 10% y el 20%.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FAQ ══ -->
+<div class="bmd-sec" style="max-width:760px">
+  <span class="bmd-lbl">Preguntas frecuentes</span>
+  <h2 class="bmd-h2">Lo que preguntan<br><em>los desarrolladores antes de decidir</em></h2>
+  <div style="width:100%;margin-top:48px;text-align:left">
+    <details class="bmd-faq-d"><summary class="bmd-faq-s">¿El arquitecto con quien trabajamos tiene que saber BIM para que funcione?</summary><p class="bmd-faq-a">No es un requisito. Si el arquitecto no trabaja en BIM, nosotros tomamos sus planos AutoCAD y construimos el modelo BIM centralizado. Si ya trabaja en Revit, nos integramos a su modelo y aportamos la coordinación con las demás especialidades. Funcionamos en cualquiera de los dos casos.</p></details>
+    <details class="bmd-faq-d"><summary class="bmd-faq-s">¿En qué momento del proyecto conviene empezar?</summary><p class="bmd-faq-a">Cuanto antes, mejor. Lo ideal es empezar en la Fase 0 —antes de comprometer la inversión— para tener datos reales en la toma de decisión. Si el proyecto ya está en marcha, igual podemos implementar BIM en las fases siguientes. Incluso si ya está en obra, el control BIM durante la ejecución genera valor.</p></details>
+    <details class="bmd-faq-d"><summary class="bmd-faq-s">¿Pueden trabajar con constructoras que ya contratamos y que no tienen BIM?</summary><p class="bmd-faq-a">Sí. El modelo BIM es del proyecto, no de la constructora. Les pedimos los planos a los especialistas de la constructora y los incorporamos al modelo. En obra, el control BIM funciona independientemente de si la constructora usa BIM o trabaja con AutoCAD.</p></details>
+    <details class="bmd-faq-d"><summary class="bmd-faq-s">¿Cómo funciona el control de adicionales en obra?</summary><p class="bmd-faq-a">Cuando la constructora presenta un adicional, lo revisamos contra el modelo BIM. Si el adicional corresponde a un cambio real en el proyecto, validamos la cantidad con el cómputo del modelo. Si no corresponde, lo documentamos. Como desarrollador, tenés una herramienta técnica para negociar cada adicional con datos objetivos.</p></details>
+    <details class="bmd-faq-d"><summary class="bmd-faq-s">¿Pueden hacer el análisis de factibilidad antes de que compremos el terreno?</summary><p class="bmd-faq-a">Sí, y es uno de los servicios más valorados. Con los planos de mensura del terreno, la normativa urbana aplicable y el programa de necesidades básico, hacemos un análisis BIM de factibilidad que incluye estimaciones de superficie edificable, cómputo preliminar y primera proyección de costos y rentabilidad.</p></details>
+  </div>
+</div>
+
+<!-- ══ CTA FINAL ══ -->
+<section class="bmd-ctaf">
+  <span class="bmd-eye"><span class="bmd-dot"></span>Diagnóstico gratis · Respuesta en 48hs</span>
+  <h2 class="bmd-h2" style="max-width:680px">Tu próximo proyecto puede terminar<br>exactamente en el presupuesto que presentaste.<br><em>Con documentación BIM que respalda cada número.</em></h2>
+  <p style="font-size:16px;color:var(--mu);max-width:540px;line-height:1.7">Mandanos la información del proyecto que tengas. En 48hs te hacemos un diagnóstico sin costo de los riesgos técnicos y te mostramos qué fase de implementación BIM tiene sentido para vos.</p>
+  <div class="bmd-ctas">
+    <a href="https://wa.me/+542996287652?text=Hola%20Franco%2C%20soy%20desarrollador%20y%20quiero%20un%20diagn%C3%B3stico%20de%20implementaci%C3%B3n%20BIM%20para%20mi%20proyecto" class="bmd-bp" target="_blank" rel="noopener">🏢 Diagnóstico BIM gratis para mi desarrollo</a>
+    <a href="/cdn-cgi/l/email-protection#a2cbccc4cde2c0cbcfc3d0c58cc1cdcf" class="bmd-bg">✉️ Escribir por mail</a>
+  </div>
+  <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--mu)">Proyectos en <span style="color:var(--c)">Patagonia</span> y <span style="color:var(--c)">Buenos Aires</span> · Residencial · Comercial · Hotelero</p>
+</section>
+
+</div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Implementación BIM para Desarrolladoras Inmobiliarias","provider":{"@type":"LocalBusiness","name":"BIMARG","url":"https://www.bimarg.com","telephone":"+542996287652","address":{"@type":"PostalAddress","addressLocality":"Neuquén","addressCountry":"AR"}},"description":"Implementación BIM completa para proyectos de desarrollo inmobiliario. Factibilidad, coordinación, cómputos 5D, contr

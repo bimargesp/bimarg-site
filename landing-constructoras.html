@@ -1,0 +1,410 @@
+<!-- ============================================================
+     BIMARG — LANDING CONSTRUCTORAS
+     URL sugerida: bimarg.com/constructoras
+     Pegar en Divi → Fullwidth Code Module (página en blanco)
+     ============================================================ -->
+<style>
+.bmc*,.bmc *::before,.bmc *::after{box-sizing:border-box;margin:0;padding:0}
+.bmc{
+  --c:#00BFFF;--cd:rgba(0,191,255,0.12);--cb:rgba(0,191,255,0.25);
+  --or:#FF8C00;--ord:rgba(255,140,0,0.12);--orb:rgba(255,140,0,0.25);
+  --dk:#080808;--d2:#0f0f0f;--ca:#111111;
+  --tx:rgba(255,255,255,0.88);--mu:rgba(255,255,255,0.50);--fa:rgba(255,255,255,0.07);
+  --fn:'Helvetica Neue',Arial,sans-serif;
+  font-family:var(--fn);color:var(--tx);background:var(--dk);-webkit-font-smoothing:antialiased;
+}
+.bmc-eye{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--c);background:var(--cd);
+  border:1px solid var(--cb);padding:6px 14px;border-radius:100px}
+.bmc-dot{width:6px;height:6px;border-radius:50%;background:var(--c);animation:pdot 2s infinite}
+@keyframes pdot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+.bmc-h1{font-size:clamp(28px,5vw,58px);font-weight:900;line-height:1.1;letter-spacing:-.025em;color:#fff}
+.bmc-h1 em,.bmc-h2 em{color:var(--c);font-style:normal}
+.bmc-h2{font-size:clamp(22px,3.5vw,42px);font-weight:800;line-height:1.18;letter-spacing:-.02em;color:#fff}
+.bmc-h3{font-size:17px;font-weight:700;color:#fff;line-height:1.35}
+.bmc-lead{font-size:clamp(15px,1.8vw,17px);color:var(--mu);line-height:1.8;max-width:640px}
+.bmc-lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--c)}
+.bmc-sec{padding:clamp(64px,8vw,120px) clamp(20px,5vw,80px);max-width:1100px;margin:0 auto;
+  display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px}
+.bmc-full{background:var(--d2)}
+/* HERO */
+.bmc-hero{position:relative;background:var(--dk);min-height:92vh;display:flex;align-items:center;
+  justify-content:center;overflow:hidden}
+.bmc-hbg{position:absolute;inset:0;z-index:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(0,191,255,.06) 0%,transparent 60%),
+             radial-gradient(ellipse 60% 50% at 10% 80%,rgba(255,140,0,.04) 0%,transparent 55%)}
+.bmc-hgrid{position:absolute;inset:0;z-index:0;
+  background-image:linear-gradient(rgba(0,191,255,.035) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(0,191,255,.035) 1px,transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 0%,transparent 80%)}
+.bmc-hc{position:relative;z-index:2;text-align:center;
+  padding:clamp(80px,10vw,120px) clamp(20px,5vw,60px) clamp(60px,8vw,100px);
+  max-width:920px;display:flex;flex-direction:column;align-items:center;gap:28px}
+/* BTNS */
+.bmc-bp{display:inline-flex;align-items:center;gap:10px;background:var(--c);color:#000;
+  font-weight:800;font-size:15px;padding:16px 32px;border-radius:100px;text-decoration:none;
+  transition:transform .2s,box-shadow .2s}
+.bmc-bp:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,191,255,.35)}
+.bmc-bg{display:inline-flex;align-items:center;gap:10px;background:transparent;color:#fff;
+  font-weight:600;font-size:15px;padding:15px 28px;border-radius:100px;text-decoration:none;
+  border:1px solid rgba(255,255,255,.2);transition:border-color .2s,background .2s}
+.bmc-bg:hover{border-color:var(--c);background:var(--cd)}
+.bmc-ctas{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+/* PROOF */
+.bmc-pb{border-top:1px solid var(--fa);border-bottom:1px solid var(--fa);background:var(--d2);
+  padding:20px clamp(20px,5vw,80px);display:flex;justify-content:center;gap:clamp(24px,5vw,64px);
+  flex-wrap:wrap;align-items:center}
+.bmc-pi{display:flex;flex-direction:column;align-items:center;gap:2px}
+.bmc-pn{font-size:28px;font-weight:900;color:#fff;letter-spacing:-.02em}
+.bmc-pl{font-size:11px;color:var(--mu);text-transform:uppercase;letter-spacing:.1em}
+/* FEAR GRID */
+.bmc-fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1px;background:var(--fa);border-radius:20px;overflow:hidden;width:100%;margin-top:48px}
+.bmc-fc{background:var(--ca);padding:36px 32px;display:flex;flex-direction:column;gap:14px;transition:background .2s}
+.bmc-fc:hover{background:#161616}
+.bmc-ft{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.1em;
+  background:rgba(255,68,68,.1);color:#FF7777;border:1px solid rgba(255,68,68,.2);
+  padding:3px 10px;border-radius:100px;text-transform:uppercase;align-self:flex-start}
+/* IMPACTO NUMBERS */
+.bmc-impact{background:var(--ca);border:1px solid var(--cb);border-radius:24px;padding:48px;
+  width:100%;margin-top:48px;position:relative;overflow:hidden}
+.bmc-impact::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,transparent,var(--c),transparent)}
+.bmc-imp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;margin-top:32px}
+.bmc-imp-item{text-align:center;padding:24px;background:var(--fa);border-radius:16px}
+.bmc-imp-num{font-size:clamp(28px,4vw,44px);font-weight:900;color:var(--c);letter-spacing:-.03em;display:block;margin-bottom:8px}
+.bmc-imp-lbl{font-size:13px;color:var(--mu);line-height:1.5}
+/* SOLUTION CARDS */
+.bmc-sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:20px;width:100%;margin-top:48px}
+.bmc-sc{background:var(--ca);border:1px solid var(--fa);border-radius:20px;padding:36px 32px;
+  display:flex;flex-direction:column;gap:14px;transition:border-color .25s,transform .25s;position:relative;overflow:hidden}
+.bmc-sc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--c),transparent);opacity:0;transition:opacity .25s}
+.bmc-sc:hover{border-color:var(--cb);transform:translateY(-4px)}
+.bmc-sc:hover::before{opacity:1}
+.bmc-sn{font-size:34px;font-weight:900;color:var(--cb);letter-spacing:-.03em}
+.bmc-stag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.1em;
+  background:var(--cd);color:var(--c);border:1px solid var(--cb);
+  padding:3px 10px;border-radius:100px;text-transform:uppercase}
+/* COMPARACION */
+.bmc-comp{width:100%;margin-top:48px;border-radius:20px;overflow:hidden;border:1px solid var(--fa)}
+.bmc-comp-header{display:grid;grid-template-columns:1fr 1fr 1fr;background:var(--fa)}
+.bmc-comp-h{padding:16px 20px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em}
+.bmc-comp-h.hl{color:var(--c)}
+.bmc-comp-row{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid var(--fa)}
+.bmc-comp-row:hover{background:rgba(255,255,255,.02)}
+.bmc-comp-cell{padding:18px 20px;font-size:14px;vertical-align:middle}
+.bmc-comp-cell.hl{color:var(--c);font-weight:600}
+.bad-icon{color:#FF6666;margin-right:6px}
+.good-icon{color:var(--c);margin-right:6px}
+/* DELIVERABLES */
+.bmc-dl{width:100%;display:flex;flex-direction:column;gap:0;margin-top:48px;
+  border-radius:20px;overflow:hidden;border:1px solid var(--fa)}
+.bmc-dr{display:grid;grid-template-columns:36px 1fr auto;align-items:center;gap:20px;
+  padding:22px 32px;background:var(--ca);border-bottom:1px solid var(--fa);transition:background .2s}
+.bmc-dr:last-child{border-bottom:none}
+.bmc-dr:hover{background:#161616}
+.bmc-dk{color:var(--c);font-size:18px;font-weight:900}
+.bmc-dn{font-size:15px;font-weight:600;color:#fff}
+.bmc-ds{font-size:12px;color:var(--mu);margin-top:3px}
+.bmc-dt{font-size:11px;font-weight:700;color:var(--c);white-space:nowrap}
+/* STEPS */
+.bmc-steps{width:100%;display:flex;flex-direction:column;gap:0;margin-top:48px}
+.bmc-step{display:grid;grid-template-columns:60px 1fr;gap:24px;padding:32px 0;
+  border-bottom:1px solid var(--fa);text-align:left}
+.bmc-step:last-child{border-bottom:none}
+.bmc-snum{width:48px;height:48px;border-radius:50%;background:var(--cd);border:1px solid var(--cb);
+  display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:var(--c);flex-shrink:0}
+.bmc-st{font-size:17px;font-weight:700;color:#fff;margin-bottom:8px}
+.bmc-sd{font-size:14px;color:var(--mu);line-height:1.75}
+.bmc-stg{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.1em;
+  background:var(--cd);color:var(--c);padding:2px 8px;border-radius:100px;text-transform:uppercase;margin-bottom:8px}
+/* TESTI */
+.bmc-tg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;width:100%;margin-top:48px}
+.bmc-tc{background:var(--ca);border:1px solid var(--fa);border-radius:20px;padding:36px;
+  text-align:left;display:flex;flex-direction:column;gap:18px}
+/* PRICING */
+.bmc-price{background:var(--ca);border:1px solid var(--cb);border-radius:24px;padding:48px;
+  text-align:center;position:relative;overflow:hidden;margin-top:48px;width:100%}
+.bmc-price::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,transparent,var(--c),transparent)}
+.bmc-ptag{font-size:44px;font-weight:900;color:#fff;letter-spacing:-.03em}
+.bmc-punit{font-size:16px;color:var(--mu)}
+.bmc-pitems{display:flex;gap:24px;flex-wrap:wrap;justify-content:center;margin-top:28px}
+.bmc-pitem{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mu)}
+.bmc-pitem::before{content:'✓';color:var(--c);font-weight:900}
+/* CTA FINAL */
+.bmc-ctaf{background:radial-gradient(ellipse 80% 100% at 50% 0%,rgba(0,191,255,.08) 0%,transparent 70%);
+  border-top:1px solid var(--cb);padding:clamp(64px,8vw,120px) clamp(20px,5vw,60px);
+  text-align:center;display:flex;flex-direction:column;align-items:center;gap:28px}
+/* FAQ */
+.bmc-faq-d{border-top:1px solid var(--fa);font-family:var(--fn)}
+.bmc-faq-d:last-child{border-bottom:1px solid var(--fa)}
+.bmc-faq-s{padding:22px 0;font-size:15px;font-weight:600;color:var(--tx);cursor:pointer;
+  list-style:none;display:flex;justify-content:space-between;align-items:center;gap:24px}
+.bmc-faq-s::-webkit-details-marker{display:none}
+.bmc-faq-s::after{content:'+';color:var(--c);font-size:22px;font-weight:300;flex-shrink:0;transition:transform .3s}
+details[open] .bmc-faq-s::after{transform:rotate(45deg)}
+.bmc-faq-a{padding:0 0 22px;font-size:13px;color:var(--mu);line-height:1.8}
+@media(max-width:768px){.bmc-dr{grid-template-columns:32px 1fr}.bmc-dt{display:none}
+  .bmc-price{padding:32px 20px}.bmc-ptag{font-size:34px}.bmc-step{grid-template-columns:48px 1fr;gap:14px}
+  .bmc-comp-header,.bmc-comp-row{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.bmc-fg,.bmc-sg,.bmc-tg{grid-template-columns:1fr}
+  .bmc-comp-header,.bmc-comp-row{grid-template-columns:1fr}.bmc-comp-cell:nth-child(2){display:none}}
+</style>
+
+<div class="bmc" itemscope itemtype="https://schema.org/Service">
+
+<!-- ══ HERO ══ -->
+<section class="bmc-hero" role="banner">
+  <div class="bmc-hbg" aria-hidden="true"></div>
+  <div class="bmc-hgrid" aria-hidden="true"></div>
+  <div class="bmc-hc">
+    <span class="bmc-eye"><span class="bmc-dot"></span>Para empresas constructoras · Patagonia & Buenos Aires</span>
+    <h1 class="bmc-h1">Los adicionales de obra<br>no son accidentes.<br><em>Son planos sin BIM.</em></h1>
+    <p style="font-size:clamp(14px,1.6vw,17px);color:var(--mu);line-height:1.8;max-width:600px">
+      Detectamos interferencias antes de que sean adicionales. Producimos cómputos exactos que no cambian en obra.
+      Entregamos planos coordinados que la cuadrilla puede seguir sin pausar para consultar.
+    </p>
+    <div class="bmc-ctas">
+      <a href="https://wa.me/+542996287652?text=Hola%20Franco%2C%20soy%20de%20una%20constructora%20y%20quiero%20hablar%20sobre%20c%C3%B3mputos%20y%20coordinaci%C3%B3n%20BIM" class="bmc-bp" target="_blank" rel="noopener">🏗️ Quiero eliminar adicionales en mi obra</a>
+      <a href="#bmc-como" class="bmc-bg">Ver el proceso</a>
+    </div>
+    <p style="font-size:12px;color:var(--mu)">Diagnóstico gratis en 48hs · Precio fijo · Sin sorpresas</p>
+  </div>
+</section>
+
+<!-- ══ PROOF BAR ══ -->
+<div class="bmc-pb">
+  <div class="bmc-pi"><span class="bmc-pn">+100K</span><span class="bmc-pl">m² coordinados BIM</span></div>
+  <div class="bmc-pi"><span class="bmc-pn">47</span><span class="bmc-pl">interferencias detectadas Hotel True</span></div>
+  <div class="bmc-pi"><span class="bmc-pn">−35%</span><span class="bmc-pl">reducción en adicionales</span></div>
+  <div class="bmc-pi"><span class="bmc-pn">11</span><span class="bmc-pl">años en BIM + obra real</span></div>
+</div>
+
+<!-- ══ EL NÚMERO QUE DUELE ══ -->
+<div class="bmc-full">
+  <div class="bmc-sec">
+    <span class="bmc-lbl">El problema que le cuesta dinero a toda constructora</span>
+    <h2 class="bmc-h2">Los adicionales que "nadie previó"<br><em>siempre estaban en los planos</em></h2>
+    <p class="bmc-lead">En Argentina, los proyectos de construcción tienen entre un 8% y un 20% de adicionales sobre el presupuesto original. En la mayoría de los casos, esos adicionales estaban visibles en los planos: interferencias no detectadas, cómputos imprecisos, documentación inconsistente.</p>
+    <div class="bmc-impact">
+      <p style="font-size:14px;color:var(--mu);margin-bottom:8px">Caso real: Hotel True — 12 pisos — Cipolletti, Neuquén</p>
+      <h3 style="font-size:clamp(18px,3vw,32px);font-weight:900;color:#fff;letter-spacing:-.02em">Encontramos <em style="color:var(--c)">47 interferencias</em> antes de que empezara la obra.</h3>
+      <div class="bmc-imp-grid">
+        <div class="bmc-imp-item"><span class="bmc-imp-num">47</span><span class="bmc-imp-lbl">Interferencias detectadas<br>en modelo BIM</span></div>
+        <div class="bmc-imp-item"><span class="bmc-imp-num">0</span><span class="bmc-imp-lbl">Interferencias llegadas<br>a la obra</span></div>
+        <div class="bmc-imp-item"><span class="bmc-imp-num">USD 180K</span><span class="bmc-imp-lbl">En adicionales potenciales<br>evitados</span></div>
+        <div class="bmc-imp-item"><span class="bmc-imp-num">USD 22K</span><span class="bmc-imp-lbl">Costo del modelo BIM<br>completo</span></div>
+      </div>
+      <p style="font-size:13px;color:var(--mu);margin-top:24px">ROI: cada peso invertido en BIM evitó 8 pesos en adicionales de obra</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ MIEDOS ══ -->
+<div class="bmc-sec">
+  <span class="bmc-lbl">Lo que le pasa a toda constructora sin BIM</span>
+  <h2 class="bmc-h2">Los problemas que esperás<br><em>en cada obra</em></h2>
+  <div class="bmc-fg">
+    <div class="bmc-fc">
+      <span class="bmc-ft">Problema #1</span>
+      <span style="font-size:30px">💥</span>
+      <p class="bmc-h3">"El cálculo no coincide con el plano de arquitectura"</p>
+      <p style="font-size:14px;color:var(--mu);line-height:1.7">El calculista trabajó sobre una versión del plano que ya no es la actual. La estructura no encaja. Hay que parar y redefinir. El arquitecto dice que avisó del cambio. El calculista no lo recibió. La obra espera.</p>
+    </div>
+    <div class="bmc-fc">
+      <span class="bmc-ft">Problema #2</span>
+      <span style="font-size:30px">📊</span>
+      <p class="bmc-h3">"El cómputo del presupuesto no coincide con lo que realmente se va a usar"</p>
+      <p style="font-size:14px;color:var(--mu);line-height:1.7">Presupuestaste con cómputos aproximados hechos a mano desde planos 2D. En la fase de ejecución, los metros reales son otros. Los materiales ya no alcanzan. Hay que hacer una orden de compra adicional urgente a precio de mercado.</p>
+    </div>
+    <div class="bmc-fc">
+      <span class="bmc-ft">Problema #3</span>
+      <span style="font-size:30px">🔧</span>
+      <p class="bmc-h3">"Un conducto de HVAC atraviesa una viga. Lo detectamos cuando ya estaba hormigonada."</p>
+      <p style="font-size:14px;color:var(--mu);line-height:1.7">Las instalaciones se diseñaron en paralelo a la estructura. Nadie coordinó. Cuando el instalador llegó a la obra, la viga ya estaba. Ahora hay que buscar cómo rodear o hacer un cajeado que no estaba previsto ni presupuestado.</p>
+    </div>
+    <div class="bmc-fc">
+      <span class="bmc-ft">Problema #4</span>
+      <span style="font-size:30px">📋</span>
+      <p class="bmc-h3">"Los planos de obra y los planos licitados no son los mismos y nadie avisó"</p>
+      <p style="font-size:14px;color:var(--mu);line-height:1.7">El proyecto tuvo cambios durante la obra. Nadie actualizó la documentación. El director de obra trabaja con una versión, la cuadrilla con otra. Al final de la obra, nadie tiene los planos conforme a obra reales.</p>
+    </div>
+    <div class="bmc-fc">
+      <span class="bmc-ft">Problema #5</span>
+      <span style="font-size:30px">📅</span>
+      <p class="bmc-h3">"Tenemos que presentar BIM en el pliego y no tenemos quién lo haga"</p>
+      <p style="font-size:14px;color:var(--mu);line-height:1.7">Cada vez más pliegos públicos exigen documentación BIM, modelos 4D y cómputos salidos del modelo. Sin esa capacidad, no podés presentar. La licitación se la lleva una constructora que sí puede cumplir ese requisito.</p>
+    </div>
+    <div class="bmc-fc">
+      <span class="bmc-ft">Problema #6</span>
+      <span style="font-size:30px">⚖️</span>
+      <p class="bmc-h3">"El cliente pide más de lo que presupuestamos y el contrato dice 'precio total'"</p>
+      <p style="font-size:14px;color:var(--mu);line-height:1.7">Firmaste por obra completa. Lo que quedó mal definido en el alcance te lo terminás comiendo. Si los cómputos y el modelo hubieran estado bien hechos al inicio, el contrato hubiera sido más preciso y el margen, real.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SOLUCIÓN ══ -->
+<div class="bmc-full">
+  <div class="bmc-sec">
+    <span class="bmc-lbl">Lo que hacemos por tu constructora</span>
+    <h2 class="bmc-h2">Cómputos exactos, planos coordinados,<br><em>cero interferencias en obra</em></h2>
+    <p class="bmc-lead">Producimos toda la documentación técnica que necesitás para construir sin sorpresas: desde el modelo BIM coordinado hasta el cómputo métrico que alimenta tu presupuesto con precisión real.</p>
+    <div class="bmc-sg">
+      <div class="bmc-sc">
+        <span class="bmc-stag">Servicio principal</span>
+        <span class="bmc-sn">01</span>
+        <p class="bmc-h3">Cómputos BIM — directamente del modelo</p>
+        <p style="font-size:14px;color:var(--mu);line-height:1.75">Generamos el cómputo métrico y el cómputo de materiales directamente desde el modelo Revit. Cada m³ de hormigón, cada kg de acero, cada m² de revestimiento es extraído del modelo 3D, no calculado a mano. Precisión real, sin estimaciones.</p>
+      </div>
+      <div class="bmc-sc">
+        <span class="bmc-stag">Core BIM</span>
+        <span class="bmc-sn">02</span>
+        <p class="bmc-h3">Clash Detection — interferencias detectadas antes de la obra</p>
+        <p style="font-size:14px;color:var(--mu);line-height:1.75">Coordinamos todos los modelos de especialidades (arquitectura, estructura, sanitaria, electricidad, HVAC) en Navisworks. Cada interferencia queda documentada con posición, captura 3D y resolución propuesta. Nada llega a la obra sin haberse resuelto en el modelo.</p>
+      </div>
+      <div class="bmc-sc">
+        <span class="bmc-stag">Documentación</span>
+        <span class="bmc-sn">03</span>
+        <p class="bmc-h3">Planos coordinados ejecutivos — todos desde el mismo modelo</p>
+        <p style="font-size:14px;color:var(--mu);line-height:1.75">Todos los planos — arquitectura, estructura, instalaciones — salen del mismo modelo BIM. Si hay un cambio, lo actualizamos en el modelo y todos los planos se actualizan automáticamente. No más versiones contradictorias.</p>
+      </div>
+      <div class="bmc-sc">
+        <span class="bmc-stag">Planificación</span>
+        <span class="bmc-sn">04</span>
+        <p class="bmc-h3">BIM 4D — cronograma vinculado al modelo</p>
+        <p style="font-size:14px;color:var(--mu);line-height:1.75">Vinculamos el modelo 3D con el cronograma de obra. Cada elemento tiene su fecha de ejecución. Podés ver la obra avanzar en el modelo, detectar conflictos de secuencia y presentarle al comitente el avance real vs. lo planificado.</p>
+      </div>
+      <div class="bmc-sc">
+        <span class="bmc-stag">Licitaciones</span>
+        <span class="bmc-sn">05</span>
+        <p class="bmc-h3">Documentación BIM para pliegos públicos</p>
+        <p style="font-size:14px;color:var(--mu);line-height:1.75">Preparamos toda la documentación BIM que piden los pliegos: modelo Revit, cómputos por partida, reporte de interferencias, cronograma 4D y memoria BIM. Presentás el pliego con la misma documentación que las empresas grandes.</p>
+      </div>
+      <div class="bmc-sc">
+        <span class="bmc-stag">Cierre de obra</span>
+        <span class="bmc-sn">06</span>
+        <p class="bmc-h3">As-Built BIM — modelo conforme a obra</p>
+        <p style="font-size:14px;color:var(--mu);line-height:1.75">Al cierre de obra actualizamos el modelo con todo lo que cambió durante la ejecución. Entregás al comitente los planos conforme a obra y el modelo BIM actualizado — diferencial que muy pocas constructoras pueden ofrecer.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ COMPARACION ══ -->
+<div class="bmc-sec">
+  <span class="bmc-lbl">La diferencia concreta</span>
+  <h2 class="bmc-h2">Obra sin BIM<br><em>vs. Obra con BIMARG</em></h2>
+  <div class="bmc-comp">
+    <div class="bmc-comp-header">
+      <div class="bmc-comp-h">Criterio</div>
+      <div class="bmc-comp-h">Sin BIM</div>
+      <div class="bmc-comp-h hl">Con BIMARG</div>
+    </div>
+    <div class="bmc-comp-row">
+      <div class="bmc-comp-cell" style="font-weight:600;color:#fff">Cómputos</div>
+      <div class="bmc-comp-cell" style="color:var(--mu)"><span class="bad-icon">✗</span>Estimados a mano desde 2D — error ±15%</div>
+      <div class="bmc-comp-cell hl"><span class="good-icon">✓</span>Extraídos del modelo 3D — error &lt;2%</div>
+    </div>
+    <div class="bmc-comp-row">
+      <div class="bmc-comp-cell" style="font-weight:600;color:#fff">Interferencias</div>
+      <div class="bmc-comp-cell" style="color:var(--mu)"><span class="bad-icon">✗</span>Se detectan en obra — son adicionales</div>
+      <div class="bmc-comp-cell hl"><span class="good-icon">✓</span>Detectadas en modelo — resueltas antes</div>
+    </div>
+    <div class="bmc-comp-row">
+      <div class="bmc-comp-cell" style="font-weight:600;color:#fff">Planos</div>
+      <div class="bmc-comp-cell" style="color:var(--mu)"><span class="bad-icon">✗</span>Múltiples versiones que no coinciden</div>
+      <div class="bmc-comp-cell hl"><span class="good-icon">✓</span>Un solo modelo, planos siempre actualizados</div>
+    </div>
+    <div class="bmc-comp-row">
+      <div class="bmc-comp-cell" style="font-weight:600;color:#fff">Cambios en obra</div>
+      <div class="bmc-comp-cell" style="color:var(--mu)"><span class="bad-icon">✗</span>Generan confusión y versiones contradictorias</div>
+      <div class="bmc-comp-cell hl"><span class="good-icon">✓</span>Se actualizan en el modelo, impacto en cómputo inmediato</div>
+    </div>
+    <div class="bmc-comp-row">
+      <div class="bmc-comp-cell" style="font-weight:600;color:#fff">Licitaciones BIM</div>
+      <div class="bmc-comp-cell" style="color:var(--mu)"><span class="bad-icon">✗</span>No pueden cumplir el requisito</div>
+      <div class="bmc-comp-cell hl"><span class="good-icon">✓</span>Documentación completa según pliego</div>
+    </div>
+    <div class="bmc-comp-row">
+      <div class="bmc-comp-cell" style="font-weight:600;color:#fff">Cierre de obra</div>
+      <div class="bmc-comp-cell" style="color:var(--mu)"><span class="bad-icon">✗</span>Planos conforme a obra incompletos o inexistentes</div>
+      <div class="bmc-comp-cell hl"><span class="good-icon">✓</span>Modelo As-Built completo para el comitente</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ENTREGABLES ══ -->
+<div class="bmc-full">
+  <div class="bmc-sec">
+    <span class="bmc-lbl">Entregables concretos</span>
+    <h2 class="bmc-h2">Qué recibís antes de<br><em>que empiece la obra</em></h2>
+    <div class="bmc-dl">
+      <div class="bmc-dr"><span class="bmc-dk">✓</span><div><p class="bmc-dn">Modelo BIM coordinado (todas las especialidades)</p><p class="bmc-ds">Revit ARQ + EST + INST · Navisworks para clash detection</p></div><span class="bmc-dt">Entrega 1</span></div>
+      <div class="bmc-dr"><span class="bmc-dk">✓</span><div><p class="bmc-dn">Reporte de Clash Detection</p><p class="bmc-ds">Listado de todas las interferencias · Posición en plano · Captura 3D · Resolución propuesta</p></div><span class="bmc-dt">Entrega 1</span></div>
+      <div class="bmc-dr"><span class="bmc-dk">✓</span><div><p class="bmc-dn">Cómputo métrico por partida (Excel + PDF)</p><p class="bmc-ds">Extraído del modelo BIM · Por especialidad · Para alimentar tu presupuesto</p></div><span class="bmc-dt">Entrega 2</span></div>
+      <div class="bmc-dr"><span class="bmc-dk">✓</span><div><p class="bmc-dn">Planos coordinados ejecutivos (DWG + PDF)</p><p class="bmc-ds">ARQ · EST · Sanitaria · Eléctrica · HVAC · Todos del mismo modelo</p></div><span class="bmc-dt">Entrega 2</span></div>
+      <div class="bmc-dr"><span class="bmc-dk">✓</span><div><p class="bmc-dn">Cronograma BIM 4D (si requerido)</p><p class="bmc-ds">Modelo vinculado a MS Project o primavera · Secuencia de obra visual</p></div><span class="bmc-dt">Entrega 3</span></div>
+      <div class="bmc-dr"><span class="bmc-dk">✓</span><div><p class="bmc-dn">Documentación para pliego BIM (si requerido)</p><p class="bmc-ds">BEP · Memoria BIM · Formatos específicos del comitente</p></div><span class="bmc-dt">Entrega 3</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PROCESO ══ -->
+<div class="bmc-sec" id="bmc-como">
+  <span class="bmc-lbl">Proceso</span>
+  <h2 class="bmc-h2">Cómo trabajamos<br><em>con tu constructora</em></h2>
+  <div class="bmc-steps">
+    <div class="bmc-step"><div class="bmc-snum">1</div><div><span class="bmc-stg">Gratis · 48hs</span><p class="bmc-st">Diagnóstico del proyecto</p><p class="bmc-sd">Mandanos los planos disponibles. En 48hs te decimos qué nivel de coordinación necesita el proyecto, cuántas interferencias típicas tiene ese tipo de obra, timeline de producción y precio fijo.</p></div></div>
+    <div class="bmc-step"><div class="bmc-snum">2</div><div><span class="bmc-stg">Semana 1</span><p class="bmc-st">Recopilación de información y kick-off</p><p class="bmc-sd">Pedimos todos los planos a todas las especialidades involucradas (arquitectura, calculista, sanitarista, electricista, HVAC). Coordinamos directamente con cada uno para que nos manden la versión actualizada.</p></div></div>
+    <div class="bmc-step"><div class="bmc-snum">3</div><div><span class="bmc-stg">Semanas 2-5</span><p class="bmc-st">Modelado, coordinación y detección de interferencias</p><p class="bmc-sd">Construimos el modelo coordinado y corremos la detección de interferencias. Cada clash queda documentado con foto 3D y resolución. Te mostramos el avance cada 2 semanas para que confirmes resoluciones antes de continuar.</p></div></div>
+    <div class="bmc-step"><div class="bmc-snum">4</div><div><span class="bmc-stg">Semanas 5-6</span><p class="bmc-st">Cómputos, planos y documentación final</p><p class="bmc-sd">Con el modelo coordinado y limpio, extraemos los cómputos definitivos y generamos todos los planos ejecutivos. Todo sale del mismo modelo — consistencia garantizada.</p></div></div>
+    <div class="bmc-step"><div class="bmc-snum">5</div><div><span class="bmc-stg">Obra</span><p class="bmc-st">Soporte durante la ejecución (opcional)</p><p class="bmc-sd">Si hay cambios en obra, los actualizamos en el modelo. Al cierre, entregamos el modelo As-Built actualizado con todo lo que cambió en la ejecución.</p></div></div>
+  </div>
+</div>
+
+<!-- ══ TESTIMONIOS ══ -->
+<div class="bmc-full">
+  <div class="bmc-sec">
+    <span class="bmc-lbl">Resultados reales</span>
+    <h2 class="bmc-h2">Lo que logran las constructoras<br><em>que trabajan con nosotros</em></h2>
+    <div class="bmc-tg">
+      <div class="bmc-tc"><div style="color:var(--c);font-size:15px;letter-spacing:2px">★★★★★</div><p style="font-size:14px;color:var(--tx);line-height:1.8;font-style:italic">"Encontraron 47 interferencias antes de que empezáramos. El costo del modelo fue USD 22K. Lo que hubiera costado resolver eso en obra no quiero calcularlo. Lo haremos en todos los proyectos de ahora en adelante."</p><div><strong style="font-size:14px;color:#fff;display:block">Director de Obra</strong><span style="font-size:12px;color:var(--mu)">Hotel True — 12 pisos · Cipolletti, Neuquén</span></div></div>
+      <div class="bmc-tc"><div style="color:var(--c);font-size:15px;letter-spacing:2px">★★★★★</div><p style="font-size:14px;color:var(--tx);line-height:1.8;font-style:italic">"El cómputo que sacaron del modelo fue un 14% más preciso que el que habíamos hecho con método tradicional. Esa diferencia se hubiera convertido en un adicional al comitente o en pérdida nuestra."</p><div><strong style="font-size:14px;color:#fff;display:block">Gerente de Proyectos</strong><span style="font-size:12px;color:var(--mu)">Constructora — Neuquén Capital</span></div></div>
+      <div class="bmc-tc"><div style="color:var(--c);font-size:15px;letter-spacing:2px">★★★★★</div><p style="font-size:14px;color:var(--tx);line-height:1.8;font-style:italic">"Presentamos en la licitación con documentación BIM completa. Los competidores no pudieron cumplir el requisito del pliego. Ganamos la obra. El BIM fue la diferencia."</p><div><strong style="font-size:14px;color:#fff;display:block">Responsable Licitaciones</strong><span style="font-size:12px;color:var(--mu)">Constructora de obra pública — Patagonia</span></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FAQ ══ -->
+<div class="bmc-sec" style="max-width:760px">
+  <span class="bmc-lbl">Preguntas frecuentes</span>
+  <h2 class="bmc-h2">Lo que preguntan<br><em>las constructoras antes de arrancar</em></h2>
+  <div style="width:100%;margin-top:48px;text-align:left">
+    <details class="bmc-faq-d"><summary class="bmc-faq-s">¿Necesitamos tener modelos BIM propios para trabajar con ustedes?</summary><p class="bmc-faq-a">No. Pueden mandarnos los planos 2D en DWG o PDF que tengan de cada especialidad. Nosotros construimos el modelo BIM 3D coordinado desde esos planos. Si ya tienen algún modelo parcial, lo podemos integrar al flujo.</p></details>
+    <details class="bmc-faq-d"><summary class="bmc-faq-s">¿Trabajan con el calculista y los instaladores que ya tenemos contratados?</summary><p class="bmc-faq-a">Sí. Coordinamos directamente con cada especialista para obtener sus planos actualizados. No necesitan saber BIM ni Revit. Les pedimos los planos en el formato que usen y los incorporamos al modelo.</p></details>
+    <details class="bmc-faq-d"><summary class="bmc-faq-s">¿En cuánto tiempo pueden tener el modelo coordinado listo?</summary><p class="bmc-faq-a">Depende del tamaño y complejidad del proyecto. Para un edificio de 5-12 pisos, el modelo coordinado con clash detection completo típicamente está listo en 4-6 semanas desde que recibimos todos los planos. En el diagnóstico inicial te damos el timeline exacto.</p></details>
+    <details class="bmc-faq-d"><summary class="bmc-faq-s">¿Qué pasa si durante la obra hay cambios al proyecto?</summary><p class="bmc-faq-a">Podemos actualizar el modelo durante la obra con los cambios que se vayan ejecutando. Esto permite tener siempre un cómputo actualizado y planos As-Built al cierre. El soporte durante la ejecución se cotiza por separado del modelo inicial.</p></details>
+    <details class="bmc-faq-d"><summary class="bmc-faq-s">¿Pueden ayudarnos a preparar documentación BIM para pliegos de licitación?</summary><p class="bmc-faq-a">Sí. Preparamos toda la documentación BIM que exigen los pliegos: modelo Revit, cómputos por partida, reporte de clash detection, cronograma 4D y BEP (BIM Execution Plan). Si el pliego tiene requisitos específicos, los revisamos antes de empezar para asegurarnos de cumplirlos.</p></details>
+  </div>
+</div>
+
+<!-- ══ CTA FINAL ══ -->
+<section class="bmc-ctaf">
+  <span class="bmc-eye"><span class="bmc-dot"></span>Diagnóstico gratis · Respuesta en 48hs</span>
+  <h2 class="bmc-h2" style="max-width:640px">La próxima obra puede empezar<br>con todos los problemas ya resueltos.<br><em>En el modelo, no en la realidad.</em></h2>
+  <p style="font-size:16px;color:var(--mu);max-width:520px;line-height:1.7">Mandanos los planos del proyecto. En 48hs te mostramos cuántas interferencias típicas tiene ese tipo de obra y qué costo tendría resolverlas en BIM vs. en la construcción.</p>
+  <div class="bmc-ctas">
+    <a href="https://wa.me/+542996287652?text=Hola%20Franco%2C%20soy%20de%20una%20constructora%20y%20quiero%20un%20diagn%C3%B3stico%20de%20coordinaci%C3%B3n%20BIM" class="bmc-bp" target="_blank" rel="noopener">🏗️ Diagnóstico BIM gratis</a>
+    <a href="/cdn-cgi/l/email-protection#771e19111837151e1a1605105914181a" class="bmc-bg">✉️ Escribir por mail</a>
+  </div>
+  <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--mu)">Patagonia · Buenos Aires · Proyectos públicos y privados</p>
+</section>
+
+</div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Coordinación BIM y Cómputos para Constructoras","provider":{"@type":"LocalBusiness","name":"BIMARG","url":"https://www.bimarg.com","telephone":"+542996287652","address":{"@type":"PostalAddress","addressLocality":"Neuquén","addressCountry":"AR"}},"description":"Clash detection, cómputos BIM y planos coordinados para empresas constructoras. Eliminamo

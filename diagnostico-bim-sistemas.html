@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BIMARG — Diagnóstico BIM · MASTER-SISTEMAS</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --dk:#0a0a0a;--d2:#111;--ca:#181818;--cb:#222;
+  --c:#00BFFF;--cd:rgba(0,191,255,.1);
+  --ok:#22C55E;--okd:rgba(34,197,94,.12);
+  --warn:#F59E0B;--warnd:rgba(245,158,11,.1);
+  --err:#EF4444;
+  --tx:rgba(255,255,255,.88);--mu:rgba(255,255,255,.45);--fa:rgba(255,255,255,.06);
+  --fn:-apple-system,'Helvetica Neue',Arial,sans-serif;
+}
+body{font-family:var(--fn);background:var(--dk);color:var(--tx);-webkit-font-smoothing:antialiased;min-height:100vh}
+
+/* HEADER */
+.header{background:var(--d2);border-bottom:1px solid var(--fa);padding:20px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:100}
+.logo{font-size:18px;font-weight:900;letter-spacing:-.03em;color:#fff}
+.logo span{color:var(--c)}
+.proj-path{font-size:11px;color:var(--mu);letter-spacing:.08em}
+.proj-path b{color:var(--c);font-weight:700}
+.header-right{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.prog-global{display:flex;align-items:center;gap:10px}
+.prog-bar{width:160px;height:6px;background:var(--fa);border-radius:99px;overflow:hidden}
+.prog-fill{height:100%;background:var(--c);border-radius:99px;transition:width .4s}
+.prog-txt{font-size:13px;font-weight:700;color:var(--c);min-width:36px;text-align:right}
+.btn-reset{font-size:11px;font-weight:700;padding:6px 14px;border-radius:99px;border:1px solid var(--fa);background:transparent;color:var(--mu);cursor:pointer;letter-spacing:.06em;text-transform:uppercase;transition:border-color .2s,color .2s}
+.btn-reset:hover{border-color:var(--err);color:var(--err)}
+.btn-print{font-size:11px;font-weight:700;padding:6px 14px;border-radius:99px;border:1px solid var(--cb);background:var(--cb);color:var(--tx);cursor:pointer;letter-spacing:.06em;text-transform:uppercase;transition:background .2s}
+.btn-print:hover{background:#2a2a2a}
+
+/* LAYOUT */
+.wrap{max-width:1200px;margin:0 auto;padding:32px 24px}
+
+/* LEGEND */
+.legend{display:flex;gap:20px;flex-wrap:wrap;margin-bottom:32px;align-items:center}
+.legend-item{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--mu)}
+.legend-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0}
+
+/* SISTEMA CARD */
+.sistema{background:var(--ca);border:1px solid var(--fa);border-radius:16px;margin-bottom:16px;overflow:hidden;transition:border-color .2s}
+.sistema.active{border-color:var(--cb)}
+.sis-header{padding:20px 24px;display:flex;align-items:center;gap:16px;cursor:pointer;user-select:none;transition:background .2s}
+.sis-header:hover{background:rgba(255,255,255,.02)}
+.sis-code{font-size:13px;font-weight:900;letter-spacing:.1em;color:var(--c);min-width:44px;text-transform:uppercase}
+.sis-name{font-size:15px;font-weight:700;color:#fff;flex:1}
+.sis-desc{font-size:12px;color:var(--mu);font-weight:400;display:block;margin-top:2px}
+.sis-stats{display:flex;align-items:center;gap:12px;margin-left:auto;flex-shrink:0}
+.sis-prog{display:flex;align-items:center;gap:8px}
+.sis-bar{width:80px;height:4px;background:var(--fa);border-radius:99px;overflow:hidden}
+.sis-fill{height:100%;border-radius:99px;transition:width .3s}
+.sis-pct{font-size:12px;font-weight:700;color:var(--mu);min-width:32px;text-align:right}
+.sis-badge{font-size:10px;font-weight:700;padding:3px 9px;border-radius:99px;text-transform:uppercase;letter-spacing:.08em;white-space:nowrap}
+.badge-ok{background:var(--okd);color:var(--ok);border:1px solid rgba(34,197,94,.2)}
+.badge-warn{background:var(--warnd);color:var(--warn);border:1px solid rgba(245,158,11,.2)}
+.badge-err{background:rgba(239,68,68,.1);color:var(--err);border:1px solid rgba(239,68,68,.2)}
+.badge-nd{background:var(--fa);color:var(--mu);border:1px solid rgba(255,255,255,.08)}
+.sis-arrow{color:var(--mu);font-size:14px;transition:transform .3s}
+.sis-header.open .sis-arrow{transform:rotate(180deg)}
+
+/* CHECKLIST BODY */
+.sis-body{display:none;border-top:1px solid var(--fa);padding:24px}
+.sis-body.open{display:block}
+.cat-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--mu);margin-bottom:10px;margin-top:20px;display:flex;align-items:center;gap:8px}
+.cat-title:first-child{margin-top:0}
+.cat-title::before{content:'';flex:1;height:1px;background:var(--fa)}
+.cat-title::after{content:'';flex:1;height:1px;background:var(--fa)}
+.checks{display:flex;flex-direction:column;gap:6px}
+.check-item{display:flex;align-items:flex-start;gap:12px;padding:10px 14px;border-radius:10px;cursor:pointer;transition:background .15s;border:1px solid transparent}
+.check-item:hover{background:rgba(255,255,255,.03)}
+.check-item.checked{background:var(--okd);border-color:rgba(34,197,94,.15)}
+.check-item.na{background:rgba(255,255,255,.02);opacity:.5}
+.chk{width:18px;height:18px;border-radius:5px;border:1.5px solid var(--fa);background:var(--fa);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .2s;cursor:pointer}
+.check-item.checked .chk{background:var(--ok);border-color:var(--ok)}
+.chk-icon{color:#000;font-size:11px;font-weight:900;opacity:0;transition:opacity .15s}
+.check-item.checked .chk-icon{opacity:1}
+.chk-label{font-size:13px;color:var(--tx);line-height:1.55;flex:1}
+.chk-label small{font-size:11px;color:var(--mu);display:block;margin-top:2px}
+.chk-sev{font-size:9px;font-weight:700;padding:2px 7px;border-radius:99px;text-transform:uppercase;letter-spacing:.06em;flex-shrink:0;margin-top:3px}
+.sev-c{background:rgba(239,68,68,.12);color:#FF8888}
+.sev-m{background:var(--warnd);color:var(--warn)}
+.sev-b{background:var(--cd);color:var(--c)}
+.btn-na-row{display:flex;justify-content:flex-end;margin-top:8px}
+.btn-na{font-size:10px;padding:4px 10px;border-radius:99px;border:1px solid var(--fa);background:transparent;color:var(--mu);cursor:pointer;letter-spacing:.06em}
+.btn-na:hover{border-color:var(--mu);color:var(--tx)}
+
+/* NOTES */
+.sis-notes{margin-top:20px;border-top:1px solid var(--fa);padding-top:16px}
+.sis-notes label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mu);display:block;margin-bottom:8px}
+.sis-notes textarea{width:100%;background:var(--cb);border:1px solid var(--fa);border-radius:10px;padding:12px;color:var(--tx);font-family:var(--fn);font-size:13px;line-height:1.6;resize:vertical;min-height:72px;outline:none;transition:border-color .2s}
+.sis-notes textarea:focus{border-color:var(--c)}
+.sis-notes textarea::placeholder{color:var(--mu)}
+
+/* SUMMARY */
+.summary{background:var(--ca);border:1px solid var(--fa);border-radius:16px;padding:28px;margin-bottom:32px}
+.sum-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--mu);margin-bottom:20px}
+.sum-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px}
+.sum-item{text-align:center;background:var(--d2);border-radius:12px;padding:16px 10px}
+.sum-num{font-size:28px;font-weight:900;letter-spacing:-.03em;display:block;margin-bottom:4px}
+.sum-lbl{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--mu)}
+
+@media(max-width:700px){
+  .sis-stats{display:none}
+  .header{padding:14px 16px}
+  .wrap{padding:20px 12px}
+  .sum-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media print{
+  .header{position:static;border:none}
+  .btn-reset,.btn-print,.sis-arrow{display:none}
+  .sis-body{display:block!important}
+  .sistema{break-inside:avoid;margin-bottom:12px}
+  body{background:#fff;color:#000}
+  .ca,.d2,.cb{background:#f9f9f9}
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <div class="logo">BIM<span>ARG</span></div>
+    <div class="proj-path">PLATE BIM S03 TO P15 › 01-BMO › PROJECT › MODEL › <b>MASTER-SISTEMAS</b></div>
+  </div>
+  <div class="header-right">
+    <div class="prog-global">
+      <div class="prog-bar"><div class="prog-fill" id="globalFill" style="width:0%"></div></div>
+      <div class="prog-txt" id="globalPct">0%</div>
+    </div>
+    <button class="btn-print" onclick="window.print()">🖨 Imprimir</button>
+    <button class="btn-reset" onclick="resetAll()">✕ Reset</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- SUMMARY -->
+  <div class="summary">
+    <div class="sum-title">Resumen del diagnóstico — 22 sistemas</div>
+    <div class="sum-grid">
+      <div class="sum-item"><span class="sum-num" id="sTot" style="color:var(--c)">0</span><span class="sum-lbl">Checks OK</span></div>
+      <div class="sum-item"><span class="sum-num" id="sTotAll" style="color:var(--mu)">0</span><span class="sum-lbl">Total checks</span></div>
+      <div class="sum-item"><span class="sum-num" id="sSisOk" style="color:var(--ok)">0</span><span class="sum-lbl">Sistemas ≥80%</span></div>
+      <div class="sum-item"><span class="sum-num" id="sSisWarn" style="color:var(--warn)">0</span><span class="sum-lbl">Sistemas 40–79%</span></div>
+      <div class="sum-item"><span class="sum-num" id="sSisErr" style="color:var(--err)">0</span><span class="sum-lbl">Sistemas &lt;40%</span></div>
+      <div class="sum-item"><span class="sum-num" id="sSisNd" style="color:var(--mu)">0</span><span class="sum-lbl">Sin iniciar</span></div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <span style="font-size:11px;color:var(--mu);font-weight:700;text-transform:uppercase;letter-spacing:.1em">Criticidad:</span>
+    <span class="legend-item"><span class="legend-dot" style="background:#FF8888"></span>Crítico</span>
+    <span class="legend-item"><span class="legend-dot" style="background:var(--warn)"></span>Medio</span>
+    <span class="legend-item"><span class="legend-dot" style="background:var(--c)"></span>Bajo</span>
+  </div>
+
+  <div id="sistemas"></div>
+</div>
+
+<script>
+const SISTEMAS = [
+  {code:'ARQ',name:'Arquitectura',desc:'Modelo base del proyecto — referencia para todas las especialidades',
+   checks:[
+    {cat:'Modelo & Archivo'},
+    {t:'Archivo Revit con nomenclatura correcta según BEP',sev:'c'},
+    {t:'Niveles y grillas vinculados al modelo coordinador',sev:'c'},
+    {t:'Fases del proyecto correctamente configuradas',sev:'m'},
+    {t:'Unidades del proyecto en metros (Argentina)',sev:'c'},
+    {t:'Ubicación geográfica del proyecto configurada',sev:'m'},
+    {cat:'Contenido del Modelo'},
+    {t:'Muros, losas y techos modelados correctamente (no parcheados)',sev:'c'},
+    {t:'Aberturas (puertas/ventanas) con familia correcta y parámetros completos',sev:'m'},
+    {t:'Elementos de circulación: escaleras, rampas, ascensores modelados',sev:'m'},
+    {t:'Locales con área y nombre de habitación configurados',sev:'m'},
+    {t:'Modelo sin elementos duplicados ni superpuestos',sev:'c'},
+    {cat:'LOD & Parámetros'},
+    {t:'Nivel de desarrollo (LOD) acorde a la fase del proyecto',sev:'c'},
+    {t:'Parámetros de clasificación (OmniClass/Uniclass) asignados',sev:'b'},
+    {t:'Materiales con nomenclatura estándar',sev:'b'},
+    {cat:'Coordinación'},
+    {t:'Modelo exportado a IFC y validado',sev:'m'},
+    {t:'Sin interferencias con estructura en última corrida',sev:'c'},
+    {t:'Planos de planta generados desde el modelo (no manuales)',sev:'c'},
+  ]},
+  {code:'EST',name:'Estructura',desc:'Sistema estructural: fundaciones, vigas, columnas, losas',
+   checks:[
+    {cat:'Modelo & Archivo'},
+    {t:'Archivo vinculado al modelo ARQ con grillas coincidentes',sev:'c'},
+    {t:'Fundaciones modeladas con geometría real (no simplificada)',sev:'m'},
+    {t:'Columnas y vigas con sección correcta según planos de cálculo',sev:'c'},
+    {t:'Losas estructurales con espesor real',sev:'c'},
+    {cat:'Calidad del Modelo'},
+    {t:'Nodos viga-columna correctamente modelados (sin gaps)',sev:'c'},
+    {t:'Reservas para instalaciones (pasatubos, nichos) incorporadas',sev:'m'},
+    {t:'Elementos de Steel/Madera con perfiles paramétricos correctos',sev:'m'},
+    {t:'Modelo sin warnings críticos en Revit',sev:'c'},
+    {cat:'Coordinación'},
+    {t:'Clash detection corrida con ARQ — 0 interferencias activas',sev:'c'},
+    {t:'Clash detection corrida con SAN/ELE/GAS — documentadas',sev:'c'},
+    {t:'Planos de armado con referencias al modelo 3D',sev:'b'},
+    {cat:'Documentación'},
+    {t:'Leyenda de materiales estructurales actualizada',sev:'m'},
+    {t:'Planilla de vigas/columnas generada desde modelo',sev:'b'},
+  ]},
+  {code:'SAN',name:'Sanitaria',desc:'Agua potable fría/caliente, desagüe pluvial y cloacal',
+   checks:[
+    {cat:'Modelo & Archivo'},
+    {t:'Sistemas MEP de Revit configurados: AFS, ACC, desagüe, pluvial',sev:'c'},
+    {t:'Pendientes de desagüe correctamente definidas',sev:'c'},
+    {t:'Cañerías con diámetros reales según cálculo hidráulico',sev:'c'},
+    {cat:'Contenido del Modelo'},
+    {t:'Bocas de desagüe en locales húmedos con cota correcta',sev:'m'},
+    {t:'Tendidos de agua fría y caliente diferenciados por sistema',sev:'m'},
+    {t:'Colectores, bajadas y cámaras de inspección modelados',sev:'m'},
+    {t:'Artefactos sanitarios con conector MEP funcional',sev:'b'},
+    {cat:'Coordinación'},
+    {t:'Clash con EST: vigas/losas sin interferencias con cañerías',sev:'c'},
+    {t:'Clash con ELE: ninguna cañería pasa sobre tablero eléctrico',sev:'c'},
+    {t:'Clash con ARQ: trayectorias dentro de espacios previstos',sev:'c'},
+    {cat:'Documentación'},
+    {t:'Isométricos de SAN generados desde modelo',sev:'b'},
+    {t:'Planilla de artefactos con caudales',sev:'b'},
+  ]},
+  {code:'ELE',name:'Electricidad',desc:'Instalación eléctrica: tableros, circuitos, alimentadores',
+   checks:[
+    {cat:'Modelo & Archivo'},
+    {t:'Sistemas eléctricos configurados en Revit (circuitos, paneles)',sev:'c'},
+    {t:'Tableros modelados con posición y dimensión reales',sev:'c'},
+    {t:'Bandejas portacables con dimensión real y clasificación por tipo',sev:'m'},
+    {cat:'Contenido del Modelo'},
+    {t:'Circuitos de iluminación y tomacorrientes diferenciados',sev:'m'},
+    {t:'Tuberías/cañoductos de media y baja tensión modelados',sev:'c'},
+    {t:'Empalmes y cajas de paso incluidos',sev:'b'},
+    {t:'Conductores con sección según cálculo eléctrico',sev:'m'},
+    {cat:'Coordinación'},
+    {t:'Clash con EST: bandejas no interfieren con vigas',sev:'c'},
+    {t:'Clash con SAN: ninguna bandeja bajo cañería de agua',sev:'c'},
+    {t:'Clash con CMA/HVAC: recorridos coordinados',sev:'c'},
+    {cat:'Documentación'},
+    {t:'Planilla de cargas por tablero generada desde modelo',sev:'m'},
+    {t:'Esquema unifilar vinculado al modelo 3D',sev:'b'},
+  ]},
+  {code:'GAS',name:'Gas',desc:'Red de gas natural: troncal, ramales, medidores',
+   checks:[
+    {cat:'Modelo & Archivo'},
+    {t:'Sistema de gas configurado como sistema MEP independiente',sev:'c'},
+    {t:'Cañerías con diámetro real según memoria de cálculo',sev:'c'},
+    {t:'Material de cañerías especificado (acero, cobre, PE)',sev:'m'},
+    {cat:'Contenido del Modelo'},
+    {t:'Llave de paso y reguladores modelados en posición real',sev:'m'},
+    {t:'Medidores y ramales de distribución incluidos',sev:'m'},
+    {t:'Bajadas y tendidos con cotas correctas',sev:'c'},
+    {cat:'Coordinación'},
+    {t:'Clash con EST: ninguna interferencia con estructura',sev:'c'},
+    {t:'Clash con ELE: separación reglamentaria respetada (≥300mm)',sev:'c'},
+    {t:'Clash con SAN: separación reglamentaria',sev:'c'},
+    {cat:'Documentación'},
+    {t:'Isométrico de gas generado desde modelo',sev:'m'},
+    {t:'Nota de habilitación — datos del modelo son correctos',sev:'m'},
+  ]},
+  {code:'ILU',name:'Iluminación',desc:'Luminarias, controladores y sistemas de lighting design',
+   checks:[
+    {cat:'Modelo & Archivo'},
+    {t:'Familias de luminarias con fotometría IES cargada',sev:'m'},
+    {t:'Zonas de iluminación definidas como espacios en Revit',sev:'m'},
+    {t:'Circuitos de iluminación vinculados al sistema ELE',sev:'c'},
+    {cat:'Contenido del Modelo'},
+    {t:'Luminarias de emergencia diferenciadas del sistema general',sev:'c'},
+    {t:'Controladores DALI/DMX modelados con espacio de acceso',sev:'b'},
+    {t:'Luxes por local verificados con análisis lumínico',sev:'m'},
+    {t:'Cableado de iluminación coordinado con bandeja ELE',sev:'m'},
+    {cat:'Coordinación'},
+    {t:'Clash con RCP: luminarias encajan en cielorraso',sev:'c'},
+    {t:'Clash con CMA: difusores y luminarias no superpuestos',sev:'c'},
+    {t:'Clash con EST: fijaciones de luminarias verificadas',sev:'m'},
+  ]},
+  {code:'CMA',name:'Climatización',desc:'Sistemas HVAC: fancoils, VRF, conductos, difusores',
+   checks:[
+    {cat:'Modelo & Archivo'},
+    {t:'Sistemas de suministro y retorno diferenciados',sev:'c'},
+    {t:'Conductos con dimensión real (no simbólica)',sev:'c'},
+    {t:'Equipos (unidades exteriores/interiores) con dimensión real',sev:'c'},
+    {cat:'Contenido del Modelo'},
+    {t:'Difusores y rejillas con conector MEP a conducto',sev:'m'},
+    {t:'Sala de máquinas / cuartos de instalaciones modelados',sev:'m'},
+    {t:'Curvas y transiciones de conductos correctamente modeladas',sev:'m'},
+    {t:'Plenum de retorno modelado cuando aplica',sev:'b'},
+    {cat:'Coordinación'},
+    {t:'Clash con EST: conductos pasan sin interferir con vigas',sev:'c'},
+    {t:'Clash con ELE: bandejas y conductos coordinados en cielorraso',sev:'c'},
+    {t:'Clash con SAN: trazado coordinado en pasillos técnicos',sev:'c'},
+    {t:'Clash con RCP: difusores y rejillas correctamente ubicados en plano de techo',sev:'c'},
+  ]},
+  {code:'FPT',name:'Protección Contra Incendio',desc:'Sistemas húmedos/secos, hidratantes, gabinetes, matafuegos',
+   checks:[
+    {cat:'Modelo & Archivo'},
+    {t:'Sistema húmedo y seco configurados como sistemas MEP separados',sev:'c'},
+    {t:'Cañerías con diámetro según norma NFPA/IRAM',sev:'c'},
+    {t:'Sprinklers con tipo correcto (colgante/montante/lateral)',sev:'m'},
+    {cat:'Contenido del Modelo'},
+    {t:'Gabinetes y bocas de incendio equipadas (BIE) modelados',sev:'c'},
+    {t:'Área de cobertura de sprinklers verificada',sev:'c'},
+    {t:'Cámaras de presurización de escaleras verificadas',sev:'m'},
+    {t:'Sala de bombas con espacio de mantenimiento modelado',sev:'m'},
+    {cat:'Coordinación'},
+    {t:'Clash con EST: pasatubos en losas coordinados',sev:'c'},
+    {t:'Clash con ELE: ningún sprinkler sobre tablero',sev:'c'},
+    {t:'Clash con ARQ: gabinetes embutidos en tabiques previstos',sev:'c'},
+    {cat:'Normativa'},
+    {t:'Cobertura de sprinklers según habilitación vigente',sev:'c'},
+    {t:'Posición de matafuegos marcada en modelo y planos',sev:'b'},
+  ]},
+  {code:'COM',name:'Comunicaciones',desc:'Voz, datos, fibra óptica, CCTV, control de acceso',
+   checks:[
+    {cat:'Modelo & Archivo'},
+    {t:'Sistemas de comunicaciones diferenciados por tipo en Revit',sev:'m'},
+    {t:'Bandejas de datos separadas de BT eléctrica',sev:'c'},
+    {t:'Rack/patch panels modelados con dimensión real',sev:'m'},
+    {cat:'Contenido del Modelo'},
+    {t:'Bocas de datos (RJ45/FO) en posición correcta',sev:'m'},
+    {t:'Cámaras CCTV con ángulo de visión representado',sev:'b'},
+    {t:'Lectores de control de acceso modelados',sev:'b'},
+    {t:'Central de comunicaciones con espacio de acceso',sev:'m'},
+    {cat:'Coordinación'},
+    {t:'Clash con ELE: separación entre bandejas data y potencia',sev:'c'},
+    {t:'Clash con CMA: sin conflictos en cielorraso técnico',sev:'m'},
+    {t:'Clash con ARQ: cajas y bocas dentro de tabiques previstos',sev:'m'},
+  ]},
+  {code:'BTE',name:'Baja Tensión Especial',desc:'UPS, sistemas de respaldo, tierras técnicas',
+   checks:[
+    {cat:'Modelo & Archivo'},
+    {t:'Sistemas BTE separados del sistema ELE general',sev:'c'},
+    {t:'UPS y equipos de respaldo modelados con dimensiones reales',sev:'m'},
+    {t:'Tierra técnica y tierra de protección diferenciadas',sev:'c'},
+    {cat:'Contenido del Modelo'},
+    {t:'Recorrido de tierra técnica modelado',sev:'m'},
+    {t:'Grupos electrógenos / generadores con acceso de mantenimiento',sev:'m'},
+    {t:'Tableros de transferencia con espacio libre frontal ≥1m',sev:'c'},
+    {cat:'Coordinación'},
+    {t:'Clash con arq: salas técnicas con dimensiones operativas',sev:'c'},
+    {t:'Clash con ELE: sin circuitos compartidos BTE/BT general',sev:'c'},
+  ]},
+  {code:'SEN',name:'Señalización / Señalética',desc:'Señalización de emergencia, evacuación, accesibilidad',
+   checks:[
+    {cat:'Modelo & Archivo'},
+    {t:'Familia de carteles con parámetros de tipo (ISO 7010)',sev:'m'},
+    {t:'Niveles y planos de referencia coinciden con ARQ',sev:'c'},
+    {cat:'Contenido del Modelo'},
+    {t:'Carteles de salida de emergencia posicionados correctamente',sev:'c'},
+    {t:'Señalización de accesibilidad universal incluida',sev:'m'},
+    {t:'Señalización de extintores y medios de extinción',sev:'c'},
+    {t:'Recorridos de evacuación representados en planos',sev:'c'},
+    {t:'Punto de encuentro definido y señalizado',sev:'m'},
+    {cat:'Coordinación'},
+    {t:'Carteles no obstruidos por elementos de CMA/ILU',sev:'c'},
+    {t:'Visibilidad de señales verificada desde puntos de origen',sev:'m'},
+  ]},
+  {code:'MOB',name:'Mobiliario',desc:'Equipamiento fijo y móvil: mesas, sillas, mesadas, equipos',
+   checks:[
+    {cat:'Modelo & Archivo'},
+    {t:'Familia de mobiliario con dimensiones reales (no genérico)',sev:'m'},
+    {t:'Mobiliario fijo diferenciado del móvil',sev:'b'},
+    {cat:'Contenido del Modelo'},
+    {t:'Cocinas/mesadas con dimensión correcta según diseño',sev:'m'},
+    {t:'Espacios de circulación cumplidos (mín. 900mm libre)',sev:'c'},
+    {t:'Accesibilidad: radio de giro silla de ruedas donde aplica',sev:'c'},
+    {t:'Equipos especiales (cocina, laboratorio) con conector a instalaciones',sev:'m'},
+    {cat:'Coordinación'},
+    {t:'Clash con SAN: desagüe de cocina/lavabo coordinado',sev:'c'},
+    {t:'Clash con ELE: tomas en posición correcta respecto a muebles',sev:'m'},
+    {t:'Áreas de locales verificadas con mobiliario puesto',sev:'b'},
+  ]},
+  {code:'RCP',name:'Revestimientos / Cielorraso / Pisos',desc:'Terminaciones: pisos flotantes, cielorrasos suspendidos, revestimientos',
+   checks:[
+    {cat:'Modelo & Archivo'},
+    {t:'Cielorrasos suspendidos modelados con espesor real de plenum',sev:'c'},
+    {t:'Pisos con espesor de terminación correcto (no sólo losa)',sev:'c'},
+    {t:'Tipos de revestimiento con espesor de adhesivo + cerámica',sev:'m'},
+    {cat:'Contenido del Modelo'},
+    {t:'Altura libre con cielorraso verificada según normativa',sev:'c'},
+    {t:'Aberturas en cielorraso para ILU/CMA/FPT correctamente ubicadas',sev:'c'},
+    {t:'Detalle de arranque de cielorraso / cornisa incluido',sev:'b'},
+    {cat:'Coordinación'},
+    {t:'Clash con CMA: difusores encajan sin interferencias',sev:'c'},
+    {t:'Clash con ILU: luminarias con rebaje correcto en cielorraso',sev:'c'},
+    {t:'Clash con FPT: sprinklers pasan cielorraso sin conflictos',sev:'c'},
+    {t:'Plenum de cielorraso suficiente para todos los sistemas',sev:'c'},
+  ]},
+  {code:'FAC',name:'Fachada',desc:'Revestimientos exteriores, muro cortina, parasoles',
+   checks:[
+    {cat:'Modelo & Archivo'},
+    {t:'Sistema de fachada modelado como sistema curtain wall Revit',sev:'m'},
+    {t:'Dimensiones de módulos coinciden con plano de fachada ejecutivo',sev:'c'},
+    {t:'Detalle de encuentro con losa/estructura representado',sev:'m'},
+    {cat:'Contenido del Modelo'},
+    {t:'Tipos de vidrio/panel especificados en parámetros',sev:'m'},
+    {t:'Sellados y juntas de movimiento modelados',sev:'b'},
+    {t:'Balcones y salientes con dimensión correcta para cómputo',sev:'c'},
+    {t:'Parasoles/quiebrasoles con geometría real (para análisis solar)',sev:'b'},
+    {cat:'Coordinación'},
+    {t:'Clash con EST: anclajes de fachada en posición correcta',sev:'c'},
+    {t:'Clash con ARQ: ventanas de fachada coinciden con modelo ARQ',sev:'c'},
+    {cat:'Documentación'},
+    {t:'Planilla de fachada con m² por tipo generada desde modelo',sev:'m'},
+  ]},
+  {code:'CUW',name:'Curtain Wall / Muro Cortina',desc:'Sistemas de muro cortina, vidrios estructurales, piel de vidrio',
+   checks:[
+    {cat:'Modelo & Archivo'},
+    {t:'Sistema CW modelado con grilla paramétrica real',sev:'c'},
+    {t:'Tipo de montante y travesaño especificados (marca/serie)',sev:'m'},
+    {t:'Tipos de vidrio con parámetros térmicos y acústicos',sev:'m'},
+    {cat:'Contenido del Modelo'},
+    {t:'Módulos de apertura (hojas de ventana) con tipo correcto',sev:'m'},
+    {t:'Anclajes a estructura con espacio de ajuste',sev:'c'},
+    {t:'Detalle de sellado perimetral incluido',sev:'b'},
+    {t:'Canaletas de drenaje de agua modeladas',sev:'m'},
+    {cat:'Coordinación'},
+    {t:'Clash con EST: anclajes resueltos sin cortar vigas/columnas',sev:'c'},
+    {t:'Clash con ARQ: plano de CW coincide con alineación interior',sev:'c'},
+    {cat:'Documentación'},
+    {t:'Planilla de módulos CW por tipo generada desde modelo',sev:'m'},
+    {t:'Modelo IFC exportado para fabricante',sev:'b'},
+  ]},
+  {code:'ENT',name:'Entorno / Urbanización',desc:'Paisajismo, veredas, pavimentos, cercos, infraestructura exterior',
+   checks:[
+    {cat:'Modelo & Archivo'},
+    {t:'Topografía del terreno modelada con cotas reales',sev:'c'},
+    {t:'Límites de propiedad y servidumbres representados',sev:'c'},
+    {t:'Accesos vehiculares y peatonales modelados',sev:'m'},
+    {cat:'Contenido del Modelo'},
+    {t:'Veredas y pavimentos con espesores reales',sev:'m'},
+    {t:'Vegetación con tamaño adulto representado',sev:'b'},
+    {t:'Nivel de veredas y accesos cumple accesibilidad (rampas ≤8%)',sev:'c'},
+    {t:'Cisternas, tanques o elementos subterráneos modelados',sev:'m'},
+    {cat:'Coordinación'},
+    {t:'Clash con EST fundaciones: excavaciones compatibles',sev:'c'},
+    {t:'Clash con SAN ext: cámaras e instalaciones exteriores',sev:'m'},
+    {t:'Nivel de piso terminado interior vs. exterior coordinado',sev:'c'},
+  ]},
+  {code:'AFC',name:'Aforo / Control de Acceso',desc:'Molinetes, torniquetes, sistemas de control y seguridad',
+   checks:[
+    {cat:'Modelo & Archivo'},
+    {t:'Equipos de control de acceso modelados con dimensión real',sev:'m'},
+    {t:'Radio de giro de puertas de seguridad verificado',sev:'c'},
+    {cat:'Contenido del Modelo'},
+    {t:'Molinetes/torniquetes con ancho libre ≥900mm para accesibilidad',sev:'c'},
+    {t:'Lectores biométricos y cámaras en posición correcta',sev:'m'},
+    {t:'Central de seguridad / guardhouse modelado',sev:'b'},
+    {cat:'Coordinación'},
+    {t:'Clash con ARQ: equipos no obstruyen circulaciones de egreso',sev:'c'},
+    {t:'Clash con COM: cableado de acceso en bandeja datos',sev:'m'},
+    {t:'Clash con ELE: alimentación eléctrica coordinada',sev:'m'},
+    {t:'Coordinado con SEN: señalización de acceso visible',sev:'b'},
+  ]},
+  {code:'ESM',name:'Estructura Metálica',desc:'Steel: perfiles, conexiones, tensores, estructuras secundarias',
+   checks:[
+    {cat:'Modelo & Archivo'},
+    {t:'Perfiles con nomenclatura normalizada (IPN, HEA, UPN, etc.)',sev:'c'},
+    {t:'Conexiones atornilladas/soldadas modeladas con detalle',sev:'m'},
+    {t:'Material de acero especificado (A36, A572, ASTM, etc.)',sev:'c'},
+    {cat:'Contenido del Modelo'},
+    {t:'Chapas base y planchuelas de conexión incluidas',sev:'m'},
+    {t:'Arriostramientos y tensores con geometría real',sev:'m'},
+    {t:'Estructura secundaria (correas, montantes) modelada',sev:'b'},
+    {t:'Tolerancias de fabricación y montaje previstas',sev:'b'},
+    {cat:'Coordinación'},
+    {t:'Clash con ARQ: revestimientos y cerramientos sobre estructura',sev:'c'},
+    {t:'Clash con instalaciones: anclajes compatibles con servicios',sev:'c'},
+    {cat:'Documentación'},
+    {t:'Planilla de corte y doblez generada desde modelo',sev:'b'},
+    {t:'Modelo IFC exportado para fabricante/taller',sev:'m'},
+  ]},
+  {code:'FMO',name:'Fachada / Muro Opaco',desc:'Muros exteriores opacos: EPS, EIFS, placas de revestimiento',
+   checks:[
+    {cat:'Modelo & Archivo'},
+    {t:'Sistema de muro compuesto con capas reales (aislación, frente, interior)',sev:'c'},
+    {t:'Espesor total coherente con detalle constructivo',sev:'c'},
+    {t:'Valores de transmitancia térmica (U) definidos en tipo de muro',sev:'m'},
+    {cat:'Contenido del Modelo'},
+    {t:'Juntas de movimiento verticales y horizontales representadas',sev:'m'},
+    {t:'Detalles de arranque inferior y coronamiento modelados',sev:'b'},
+    {t:'Carpinterías de muro opaco con umbral correcto',sev:'m'},
+    {cat:'Coordinación'},
+    {t:'Clash con EST: anclajes de fachada opaca sin conflictos',sev:'c'},
+    {t:'Clash con CUW: unión entre muro opaco y cortina resuelta',sev:'c'},
+    {cat:'Documentación'},
+    {t:'Cómputo de m² de revestimiento exterior generado desde modelo',sev:'m'},
+  ]},
+  {code:'inA',name:'Instalación A — Agua de incendio / Pluvial especial',desc:'Red de agua pluvial, cisternas, bombas, tanques de reserva',
+   checks:[
+    {cat:'Modelo & Archivo'},
+    {t:'Sistema de agua pluvial diferenciado de SAN cloacal',sev:'c'},
+    {t:'Pendientes de desagüe pluvial ≥1% correctamente modeladas',sev:'c'},
+    {t:'Tanque de reserva y cisterna con capacidad correcta',sev:'m'},
+    {cat:'Contenido del Modelo'},
+    {t:'Bombas de agua con espacio de mantenimiento',sev:'m'},
+    {t:'Canaletas y sumideros en terrazas modelados',sev:'m'},
+    {t:'Bajadas pluviales con dimensión real según cálculo',sev:'c'},
+    {cat:'Coordinación'},
+    {t:'Clash con EST: pases de bajada pluvial en losas coordinados',sev:'c'},
+    {t:'Clash con ARQ: tapas de inspección accesibles',sev:'m'},
+    {t:'Clash con SAN: sistemas pluvial y cloacal no se mezclan',sev:'c'},
+  ]},
+  {code:'inB',name:'Instalación B — Vapor / Líquidos especiales',desc:'Vapor de baja presión, vacío, gases medicinales u otros líquidos',
+   checks:[
+    {cat:'Modelo & Archivo'},
+    {t:'Sistema identificado y separado de instalaciones comunes',sev:'c'},
+    {t:'Tuberías con material específico para el fluido',sev:'c'},
+    {t:'Presión de diseño especificada en parámetros del sistema',sev:'c'},
+    {cat:'Contenido del Modelo'},
+    {t:'Válvulas de aislamiento en posición correcta y accesible',sev:'c'},
+    {t:'Trampas de vapor / filtros modelados',sev:'m'},
+    {t:'Expansiones y juntas de dilatación para sistemas de vapor',sev:'m'},
+    {cat:'Coordinación'},
+    {t:'Clash con ELE: distancias reglamentarias respetadas',sev:'c'},
+    {t:'Clash con EST: soportes de cañería especiales coordinados',sev:'m'},
+    {t:'Aislación térmica considerada en dimensión de tendido',sev:'c'},
+  ]},
+  {code:'inC',name:'Instalación C — Sistemas especializados',desc:'Sistema específico del proyecto (define según tipología)',
+   checks:[
+    {cat:'Modelo & Archivo'},
+    {t:'Sistema correctamente tipificado e identificado en modelo',sev:'c'},
+    {t:'Archivo con nomenclatura según BEP del proyecto',sev:'c'},
+    {cat:'Contenido del Modelo'},
+    {t:'Elementos modelados con geometría real (no simbólica)',sev:'c'},
+    {t:'Parámetros de operación/mantenimiento cargados',sev:'m'},
+    {t:'Espacios de mantenimiento y acceso verificados',sev:'c'},
+    {cat:'Coordinación'},
+    {t:'Clash con todas las especialidades corrido y documentado',sev:'c'},
+    {t:'Integrado en modelo federado del proyecto',sev:'c'},
+    {t:'IFC exportado y validado',sev:'m'},
+  ]},
+];
+
+const savedData = JSON.parse(localStorage.getItem('bimarg_dx') || '{}');
+const container = document.getElementById('sistemas');
+
+SISTEMAS.forEach((s,si) => {
+  const checkItems = s.checks.filter(c=>c.t);
+  const total = checkItems.length;
+  const savedChecks = savedData[s.code]?.checks || {};
+  const savedNote = savedData[s.code]?.note || '';
+
+  const el = document.createElement('div');
+  el.className='sistema';
+  el.id='sis_'+s.code;
+
+  let bodyHtml='<div class="sis-body" id="body_'+s.code+'">';
+  let currentCat='';
+  s.checks.forEach((item,i)=>{
+    if(item.cat){
+      if(currentCat) bodyHtml+='</div>';
+      bodyHtml+=`<div class="cat-title">${item.cat}</div><div class="checks">`;
+      currentCat=item.cat;
+    } else {
+      const id=s.code+'_'+i;
+      const isChecked=savedChecks[id]||false;
+      const sevLabel={c:'Crítico',m:'Medio',b:'Bajo'}[item.sev];
+      const sevClass={c:'sev-c',m:'sev-m',b:'sev-b'}[item.sev];
+      bodyHtml+=`<div class="check-item${isChecked?' checked':''}" id="ci_${id}" onclick="toggle('${id}','${s.code}')">
+        <div class="chk"><span class="chk-icon">✓</span></div>
+        <span class="chk-label">${item.t}</span>
+        <span class="chk-sev ${sevClass}">${sevLabel}</span>
+      </div>`;
+    }
+  });
+  if(currentCat) bodyHtml+='</div>';
+  bodyHtml+=`<div class="sis-notes"><label>Observaciones / Notas del diagnóstico</label>
+    <textarea id="note_${s.code}" placeholder="Ej: Modelo incompleto en pisos 3-5, falta coordinar con EST..." onchange="saveNote('${s.code}')">${savedNote}</textarea>
+  </div></div>`;
+
+  const done = Object.values(savedChecks).filter(Boolean).length;
+  const pct = total>0?Math.round(done/total*100):0;
+  const {cls:badgeClass,txt:badgeTxt} = getBadge(pct,done,total);
+
+  el.innerHTML=`
+    <div class="sis-header" id="hdr_${s.code}" onclick="toggleSis('${s.code}')">
+      <span class="sis-code">${s.code}</span>
+      <div><span class="sis-name">${s.name}</span><small class="sis-desc">${s.desc}</small></div>
+      <div class="sis-stats">
+        <div class="sis-prog">
+          <div class="sis-bar"><div class="sis-fill" id="fill_${s.code}" style="width:${pct}%;background:${getFillColor(pct)}"></div></div>
+          <span class="sis-pct" id="pct_${s.code}">${pct}%</span>
+        </div>
+        <span class="sis-badge ${badgeClass}" id="badge_${s.code}">${badgeTxt}</span>
+      </div>
+      <span class="sis-arrow">▼</span>
+    </div>
+    ${bodyHtml}`;
+  container.appendChild(el);
+});
+
+updateGlobal();
+
+function getBadge(pct,done,total){
+  if(done===0) return {cls:'badge-nd',txt:'Sin iniciar'};
+  if(pct>=80) return {cls:'badge-ok',txt:'OK'};
+  if(pct>=40) return {cls:'badge-warn',txt:'En proceso'};
+  return {cls:'badge-err',txt:'Incompleto'};
+}
+function getFillColor(pct){
+  if(pct>=80) return 'var(--ok)';
+  if(pct>=40) return 'var(--warn)';
+  if(pct>0) return 'var(--err)';
+  return 'var(--fa)';
+}
+
+function toggleSis(code){
+  const body=document.getElementById('body_'+code);
+  const hdr=document.getElementById('hdr_'+code);
+  const open=body.classList.contains('open');
+  body.classList.toggle('open',!open);
+  hdr.classList.toggle('open',!open);
+  document.getElementById('sis_'+code).classList.toggle('active',!open);
+}
+
+function toggle(id,code){
+  const ci=document.getElementById('ci_'+id);
+  const isChecked=ci.classList.contains('checked');
+  ci.classList.toggle('checked',!isChecked);
+  save(code);
+  updateSisProgress(code);
+  updateGlobal();
+}
+
+function save(code){
+  const checks={};
+  const s=SISTEMAS.find(x=>x.code===code);
+  s.checks.filter(c=>c.t).forEach((item,i)=>{
+    const id=code+'_'+(s.checks.indexOf(item));
+    const el=document.getElementById('ci_'+id);
+    if(el) checks[id]=el.classList.contains('checked');
+  });
+  if(!savedData[code]) savedData[code]={};
+  savedData[code].checks=checks;
+  localStorage.setItem('bimarg_dx',JSON.stringify(savedData));
+}
+
+function saveNote(code){
+  const val=document.getElementById('note_'+code).value;
+  if(!savedData[code]) savedData[code]={};
+  savedData[code].note=val;
+  localStorage.setItem('bimarg_dx',JSON.stringify(savedData));
+}
+
+function updateSisProgress(code){
+  const s=SISTEMAS.find(x=>x.code===code);
+  const checkItems=s.checks.filter(c=>c.t);
+  const total=checkItems.length;
+  let done=0;
+  checkItems.forEach((item,i)=>{
+    const id=code+'_'+(s.checks.indexOf(item));
+    const el=document.getElementById('ci_'+id);
+    if(el&&el.classList.contains('checked')) done++;
+  });
+  const pct=total>0?Math.round(done/total*100):0;
+  document.getElementById('fill_'+code).style.width=pct+'%';
+  document.getElementById('fill_'+code).style.background=getFillColor(pct);
+  document.getElementById('pct_'+code).textContent=pct+'%';
+  const b=document.getElementById('badge_'+code);
+  const {cls,txt}=getBadge(pct,done,total);
+  b.className='sis-badge '+cls;
+  b.textContent=txt;
+}
+
+function updateGlobal(){
+  let totalChecks=0,doneChecks=0;
+  let sisOk=0,sisWarn=0,sisErr=0,sisNd=0;
+  SISTEMAS.forEach(s=>{
+    const items=s.checks.filter(c=>c.t);
+    totalChecks+=items.length;
+    let done=0;
+    items.forEach((item,i)=>{
+      const id=s.code+'_'+(s.checks.indexOf(item));
+      const el=document.getElementById('ci_'+id);
+      if(el&&el.classList.contains('checked')) done++;
+    });
+    doneChecks+=done;
+    const pct=items.length>0?Math.round(done/items.length*100):0;
+    if(done===0) sisNd++;
+    else if(pct>=80) sisOk++;
+    else if(pct>=40) sisWarn++;
+    else sisErr++;
+  });
+  const gPct=totalChecks>0?Math.round(doneChecks/totalChecks*100):0;
+  document.getElementById('globalFill').style.width=gPct+'%';
+  document.getElementById('globalPct').textContent=gPct+'%';
+  document.getElementById('sTot').textContent=doneChecks;
+  document.getElementById('sTotAll').textContent=totalChecks;
+  document.getElementById('sSisOk').textContent=sisOk;
+  document.getElementById('sSisWarn').textContent=sisWarn;
+  document.getElementById('sSisErr').textContent=sisErr;
+  document.getElementById('sSisNd').textContent=sisNd;
+}
+
+function resetAll(){
+  if(!confirm('¿Resetear todo el diagnóstico? Se perderán todos los checks y notas.')) return;
+  localStorage.removeItem('bimarg_dx');
+  location.reload();
+}
+</script>
+</body>
+</html>
