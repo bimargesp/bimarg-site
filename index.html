@@ -18,9 +18,11 @@
   <meta itemprop="telephone" content="+542996287652">
   <meta itemprop="areaServed" content="Argentina">
 
-  <!-- VIDEO FONDO VIMEO -->
+  <!-- VIDEO FONDO VIMEO + FALLBACK GRADIENTE -->
   <div class="bimarg-video-wrap" aria-hidden="true">
+    <div class="bimarg-video-fallback" id="bimaFallback"></div>
     <iframe
+      id="bimaIframe"
       src="https://player.vimeo.com/video/1169185829?background=1&autoplay=1&muted=1&loop=1&byline=0&title=0&transparent=0"
       frameborder="0"
       allow="autoplay; fullscreen"
@@ -698,6 +700,59 @@
   </div>
 </section>
 
+<!-- ── HERO FIXES: gradiente fallback + mobile botones ── -->
+<style>
+/* 1. FALLBACK: gradiente animado detrás del video */
+.bimarg-video-fallback {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 65% 55% at 18% 52%, rgba(41,151,255,0.13) 0%, transparent 60%),
+    radial-gradient(ellipse 45% 65% at 82% 38%, rgba(41,151,255,0.08) 0%, transparent 55%),
+    linear-gradient(155deg, #050c1a 0%, #0a0a0a 45%, #06101f 100%);
+  animation: bimaGradPulse 10s ease-in-out infinite alternate;
+}
+@keyframes bimaGradPulse {
+  0%   { filter: brightness(0.85); }
+  50%  { filter: brightness(1.06); }
+  100% { filter: brightness(0.90); }
+}
+/* Shimmer sutil sobre el gradiente */
+.bimarg-video-fallback::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    108deg,
+    transparent 30%,
+    rgba(41,151,255,0.05) 50%,
+    transparent 70%
+  );
+  background-size: 200% 100%;
+  animation: bimaShimmer 7s linear infinite;
+}
+@keyframes bimaShimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+/* Iframe arranca invisible — se activa al cargar el video */
+.bimarg-video-wrap iframe {
+  opacity: 0;
+  transition: opacity 1.8s ease;
+  will-change: opacity;
+}
+.bimarg-video-wrap iframe.bim-vid-ready {
+  opacity: 1;
+}
+
+/* 2. MOBILE: ocultar scroll indicator, dar espacio a los botones */
+@media (max-width: 768px) {
+  .bimarg-scroll-indicator { display: none !important; }
+  .hero-content { padding-bottom: 64px !important; }
+}
+</style>
+
 <!-- ESTILOS FAQ -->
 <style>
 .bimarg-faq-item {
@@ -864,4 +919,23 @@ details[open] .bimarg-faq-q::after { transform: rotate(45deg); }
     ]
   }
 }
+</script>
+
+<!-- ── HERO VIDEO FALLBACK LOGIC ── -->
+<script>
+(function () {
+  var iframe = document.getElementById('bimaIframe');
+  if (!iframe) return;
+  var revealed = false;
+  function revealVideo() {
+    if (revealed) return;
+    revealed = true;
+    iframe.classList.add('bim-vid-ready');
+  }
+  // Esperar 1.5s tras la carga del iframe para que el video empiece antes del fade-in
+  iframe.addEventListener('load', function () {
+    setTimeout(revealVideo, 1500);
+  });
+  // Si el load nunca dispara (Vimeo bloqueado, sin red), el fallback queda visible — correcto
+}());
 </script>
