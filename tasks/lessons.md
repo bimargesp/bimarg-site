@@ -30,6 +30,16 @@
 - Solución: crear deploy hook en Netlify + webhook en GitHub apuntando al hook
 - Regla: para deploy automático sin OAuth, usar webhook GitHub → Netlify build hook
 
+### 2026-03-06 — Hero video fallback (iframe externo)
+- Contexto: iframe Vimeo background puede fallar (red, bloqueador, timeout) → hero negro
+- Solución: div fallback con gradiente animado detrás del iframe; iframe arranca con `opacity:0`; al cargar + 1.5s delay se añade clase `.bim-vid-ready` → `opacity:1`
+- Regla: para cualquier video background de terceros, siempre añadir fallback CSS visible por defecto; el video fades in encima cuando está listo
+
+### 2026-03-06 — Botones superpuestos en mobile (hero scroll indicator)
+- Contexto: `.bimarg-scroll-indicator` (posición absoluta, fondo del hero) se pisa con `.bimarg-ctas` en mobile
+- Solución: `display:none !important` en mobile para el indicador + `padding-bottom` suficiente en `.hero-content`
+- Regla: en hero sections con indicador de scroll, siempre verificar superposición en mobile ≤768px
+
 ### 2026-03-06 — UI/UX Pro Max skill
 - Contexto: skill clonado en `.claude/skills/ui-ux-pro-max/`
 - Solución: ejecutar search con `powershell.exe -Command "python3.exe 'C:\bimarg-site\.claude\skills\ui-ux-pro-max\src\ui-ux-pro-max\scripts\search.py' ..."`
