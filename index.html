@@ -1,941 +1,1042 @@
-<!-- ============================================================
-     BIMARG.COM — HOMEPAGE COMPLETA
-     INSTRUCCIONES DIVI:
-     1. Crear nueva página → Layout en blanco
-     2. Agregar módulo "Fullwidth Code" (sección fullwidth)
-     3. Pegar TODO este código en el campo "Text/Code"
-     4. CSS va en: Divi → Opciones del Tema → CSS Personalizado
-     ============================================================ -->
-
-<!-- ==================== HERO ==================== -->
-<section class="bimarg-hero"
-  aria-label="BIMARG - Consultoría BIM para arquitectura y construcción en Neuquén y Buenos Aires"
-  itemscope itemtype="https://schema.org/Organization">
-
-  <meta itemprop="name" content="BIMARG">
-  <meta itemprop="description" content="Consultoría BIM especializada en Patagonia y Buenos Aires. Modelado BIM 3D/4D/5D para estudios de arquitectura, desarrolladoras y constructoras.">
-  <meta itemprop="url" content="https://www.bimarg.com">
-  <meta itemprop="telephone" content="+542996287652">
-  <meta itemprop="areaServed" content="Argentina">
-
-  <!-- VIDEO FONDO VIMEO + FALLBACK GRADIENTE -->
-  <div class="bimarg-video-wrap" aria-hidden="true">
-    <div class="bimarg-video-fallback" id="bimaFallback"></div>
-    <iframe
-      id="bimaIframe"
-      src="https://player.vimeo.com/video/1169185829?background=1&autoplay=1&muted=1&loop=1&byline=0&title=0&transparent=0"
-      frameborder="0"
-      allow="autoplay; fullscreen"
-      allowfullscreen>
-    </iframe>
-  </div>
-
-  <div class="overlay" aria-hidden="true"></div>
-
-  <!-- CONTENIDO HERO -->
-  <div class="hero-content">
-
-    <span class="bimarg-badge">
-      <span class="dot"></span>
-      Primera empresa BIM de Neuquén · Patagonia & Buenos Aires
-    </span>
-
-    <h1>Modelado BIM que elimina sobrecostos y blinda tu documentación</h1>
-
-    <p class="subtitle">
-      Nos integramos a tu estudio o constructora y transformamos tus proyectos
-      en modelos BIM 3D/4D/5D completos. Documentación municipal, ejecutiva
-      y licitatoria 100% precisa. En semanas, no meses.
-    </p>
-
-    <div class="bimarg-stats">
-      <div class="bimarg-stat">
-        <strong>+100K</strong>
-        <span>m² modelados</span>
-      </div>
-      <div class="bimarg-stat-divider" aria-hidden="true"></div>
-      <div class="bimarg-stat">
-        <strong>11</strong>
-        <span>años de experiencia</span>
-      </div>
-      <div class="bimarg-stat-divider" aria-hidden="true"></div>
-      <div class="bimarg-stat">
-        <strong>+30</strong>
-        <span>proyectos entregados</span>
-      </div>
-      <div class="bimarg-stat-divider" aria-hidden="true"></div>
-      <div class="bimarg-stat">
-        <strong>24/7</strong>
-        <span>producción activa</span>
-      </div>
-    </div>
-
-    <div class="bimarg-ctas">
-      <a
-        href="https://wa.me/+542996287652?text=Hola%20Franco%2C%20quiero%20cotizar%20un%20proyecto%20BIM"
-        class="bimarg-cta-primary"
-        target="_blank"
-        rel="noopener"
-        aria-label="Cotizar proyecto BIM vía WhatsApp">
-        Cotizá tu Proyecto →
-      </a>
-      <a
-        href="#bimarg-servicios"
-        class="bimarg-cta-secondary"
-        aria-label="Ver todos los servicios BIM de BIMARG">
-        Ver Servicios
-      </a>
-    </div>
-
-  </div>
-
-  <!-- LOGO WATERMARK -->
-  <img
-    class="bimarg-watermark"
-    src="https://www.bimarg.com/wp-content/uploads/LOGO-TIPO-BIMARG.svg"
-    alt="BIMARG"
-    width="100"
-    height="auto"
-    loading="eager">
-
-  <!-- SCROLL INDICATOR -->
-  <div class="bimarg-scroll-indicator" aria-hidden="true">
-    <span>scroll</span>
-    <div class="bimarg-scroll-line"></div>
-  </div>
-
-</section>
-
-
-<!-- ==================== LOGOS CLIENTES ==================== -->
-<section class="bimarg-logos-section" aria-label="Clientes y proyectos de BIMARG">
-  <p class="bimarg-logos-label">Proyectos desarrollados con</p>
-  <div class="bimarg-logos-overflow" style="overflow:hidden;">
-    <div class="bimarg-logos-track" aria-hidden="true">
-      <!-- Duplicá los logos para el loop infinito -->
-      <span style="color:rgba(255,255,255,0.35);font-size:13px;font-weight:600;letter-spacing:0.08em;white-space:nowrap;font-family:sans-serif;">ASPA PATAGONIA</span>
-      <span style="color:rgba(255,255,255,0.35);font-size:13px;font-weight:600;letter-spacing:0.08em;white-space:nowrap;font-family:sans-serif;">HOTEL TRUE · CIPOLLETTI</span>
-      <span style="color:rgba(255,255,255,0.35);font-size:13px;font-weight:600;letter-spacing:0.08em;white-space:nowrap;font-family:sans-serif;">PROA ARQUITECTURA</span>
-      <span style="color:rgba(255,255,255,0.35);font-size:13px;font-weight:600;letter-spacing:0.08em;white-space:nowrap;font-family:sans-serif;">PROYECTO JNT · BUENOS AIRES</span>
-      <span style="color:rgba(255,255,255,0.35);font-size:13px;font-weight:600;letter-spacing:0.08em;white-space:nowrap;font-family:sans-serif;">TRU HOTEL IMPLEMENTATION</span>
-      <span style="color:rgba(255,255,255,0.35);font-size:13px;font-weight:600;letter-spacing:0.08em;white-space:nowrap;font-family:sans-serif;">UFLO CIPOLLETTI</span>
-      <!-- Duplicate for infinite scroll -->
-      <span style="color:rgba(255,255,255,0.35);font-size:13px;font-weight:600;letter-spacing:0.08em;white-space:nowrap;font-family:sans-serif;">ASPA PATAGONIA</span>
-      <span style="color:rgba(255,255,255,0.35);font-size:13px;font-weight:600;letter-spacing:0.08em;white-space:nowrap;font-family:sans-serif;">HOTEL TRUE · CIPOLLETTI</span>
-      <span style="color:rgba(255,255,255,0.35);font-size:13px;font-weight:600;letter-spacing:0.08em;white-space:nowrap;font-family:sans-serif;">PROA ARQUITECTURA</span>
-      <span style="color:rgba(255,255,255,0.35);font-size:13px;font-weight:600;letter-spacing:0.08em;white-space:nowrap;font-family:sans-serif;">PROYECTO JNT · BUENOS AIRES</span>
-      <span style="color:rgba(255,255,255,0.35);font-size:13px;font-weight:600;letter-spacing:0.08em;white-space:nowrap;font-family:sans-serif;">TRU HOTEL IMPLEMENTATION</span>
-      <span style="color:rgba(255,255,255,0.35);font-size:13px;font-weight:600;letter-spacing:0.08em;white-space:nowrap;font-family:sans-serif;">UFLO CIPOLLETTI</span>
-    </div>
-  </div>
-</section>
-
-
-<!-- ==================== EL PROBLEMA ==================== -->
-<section class="bimarg-section-full" id="bimarg-problema" style="background:#0a0a0a;">
-  <div class="inner">
-
-    <span class="bimarg-label">El problema que resolvemos</span>
-    <h2 class="bimarg-h2">
-      Sin BIM, cada obra tiene <em>planos que mienten</em>
-    </h2>
-    <p class="bimarg-lead">
-      En Argentina, el 73% de los proyectos de construcción registra sobrecostos por errores de documentación.
-      Los planos 2D son ambiguos, las interferencias aparecen en obra, y la documentación municipal
-      no coincide con la ejecutiva. El resultado: obras frenadas, adicionales no previstos y clientes enojados.
-    </p>
-
-    <div class="bimarg-problems-grid">
-
-      <div class="bimarg-problem-card">
-        <div class="bimarg-problem-icon" aria-hidden="true" style="font-size:36px;">⚠️</div>
-        <h3>Interferencias detectadas en obra</h3>
-        <p>
-          Las colisiones entre estructura, sanitaria y electricidad aparecen cuando la losa ya está hormigonada.
-          Modificarlas en obra puede costar entre 3x y 10x más que detectarlas en modelo.
-        </p>
-      </div>
-
-      <div class="bimarg-problem-card">
-        <div class="bimarg-problem-icon" aria-hidden="true" style="font-size:36px;">📋</div>
-        <h3>Documentación municipal inconsistente</h3>
-        <p>
-          Los planos de aprobación difieren de los ejecutivos. Las cotas no cierran. Los municipios
-          en Neuquén y Buenos Aires cada vez exigen mayor precisión y los trámites se frenan por errores evitables.
-        </p>
-      </div>
-
-      <div class="bimarg-problem-card">
-        <div class="bimarg-problem-icon" aria-hidden="true" style="font-size:36px;">💸</div>
-        <h3>Presupuestos que no cierran</h3>
-        <p>
-          Sin cómputo métrico salido directamente del modelo, las referencias son manuales y sujetas a error.
-          En contexto de inflación argentina, un error del 5% en cómputo puede desfinanciar una obra completa.
-        </p>
-      </div>
-
-      <div class="bimarg-problem-card">
-        <div class="bimarg-problem-icon" aria-hidden="true" style="font-size:36px;">⏱️</div>
-        <h3>Tiempo perdido en coordinación</h3>
-        <p>
-          Arquitectos, calculistas e instaladores trabajan con versiones distintas del proyecto.
-          Las reuniones de coordinación se convierten en sesiones de detective para encontrar
-          la "versión final" del plano correcto.
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ==================== LA SOLUCIÓN ==================== -->
-<section class="bimarg-section" id="bimarg-solucion" itemscope itemtype="https://schema.org/Service">
-
-  <span class="bimarg-label">Por qué BIMARG</span>
-  <h2 class="bimarg-h2">
-    BIM implementado por alguien que <em>entiende la obra argentina</em>
-  </h2>
-  <p class="bimarg-lead">
-    No somos una empresa de software. Somos un equipo técnico con experiencia real en obra — incluyendo
-    gestión de proyectos en Australia — que traduce la teoría BIM a la realidad constructiva de Neuquén y Buenos Aires.
-    Nuestra metodología BIMBOX® está diseñada específicamente para el contexto argentino.
-  </p>
-
-  <meta itemprop="name" content="Consultoría BIM BIMARG">
-  <meta itemprop="provider" content="BIMARG">
-
-  <div class="bimarg-vs-table" style="margin-top:48px;" role="table" aria-label="Comparación BIM tradicional vs BIMARG">
-
-    <div class="vs-header" role="row">
-      <span role="columnheader">Criterio</span>
-      <span role="columnheader">BIM tradicional</span>
-      <span role="columnheader">BIMARG</span>
-    </div>
-
-    <div class="bimarg-vs-row" role="row">
-      <span role="cell">Tiempo de entrega</span>
-      <span class="bad" role="cell">4-6 meses</span>
-      <span class="good" role="cell">3-8 semanas</span>
-    </div>
-    <div class="bimarg-vs-row" role="row">
-      <span role="cell">Conocimiento del mercado local</span>
-      <span class="bad" role="cell">Genérico / importado</span>
-      <span class="good" role="cell">100% argentino</span>
-    </div>
-    <div class="bimarg-vs-row" role="row">
-      <span role="cell">Documentación municipal</span>
-      <span class="bad" role="cell">Adaptada manualmente</span>
-      <span class="good" role="cell">Integrada desde el modelo</span>
-    </div>
-    <div class="bimarg-vs-row" role="row">
-      <span role="cell">Cómputo métrico</span>
-      <span class="bad" role="cell">Manual y aproximado</span>
-      <span class="good" role="cell">Automático desde BIM</span>
-    </div>
-    <div class="bimarg-vs-row" role="row">
-      <span role="cell">Coordinación de especialidades</span>
-      <span class="bad" role="cell">Revisión puntual</span>
-      <span class="good" role="cell">Clash detection continuo</span>
-    </div>
-    <div class="bimarg-vs-row" role="row">
-      <span role="cell">Implementación en estudio</span>
-      <span class="bad" role="cell">Consultoría externa desconectada</span>
-      <span class="good" role="cell">Integración real al workflow</span>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ==================== SERVICIOS ==================== -->
-<section class="bimarg-section-full" id="bimarg-servicios" style="background:#0d0d0d;">
-  <div class="inner">
-
-    <span class="bimarg-label">Servicios BIM</span>
-    <h2 class="bimarg-h2">
-      Todo lo que tu proyecto necesita, <em>sin los dolores de cabeza</em>
-    </h2>
-    <p class="bimarg-lead">
-      Desde la conversión de planos 2D hasta la coordinación BIM 4D/5D completa para licitaciones.
-      Adaptamos el servicio al tamaño y etapa de tu proyecto.
-    </p>
-
-    <div class="bimarg-services-grid">
-
-      <article class="bimarg-service-card" itemscope itemtype="https://schema.org/Service">
-        <div class="bimarg-service-body">
-          <span class="bimarg-service-tag">Modelado 3D</span>
-          <h3 itemprop="name">Modelado BIM desde planos 2D</h3>
-          <p itemprop="description">
-            Convertimos tus planos AutoCAD o PDF en un modelo BIM 3D completo en Revit.
-            Arquitectura, estructura, instalaciones coordinadas. Entregamos en 2-4 semanas.
-            USD 10-12/m² según complejidad.
-          </p>
-          <span class="bimarg-service-link">Ver detalle →</span>
-        </div>
-      </article>
-
-      <article class="bimarg-service-card" itemscope itemtype="https://schema.org/Service">
-        <div class="bimarg-service-body">
-          <span class="bimarg-service-tag">Coordinación BIM</span>
-          <h3 itemprop="name">Coordinación y Clash Detection</h3>
-          <p itemprop="description">
-            Detectamos interferencias entre especialidades antes de que aparezcan en obra.
-            Coordinamos Arquitectura + Estructura + HVAC + Sanitaria + Electricidad con Navisworks.
-            Reportes mensuales de clashes y resoluciones.
-          </p>
-          <span class="bimarg-service-link">Ver detalle →</span>
-        </div>
-      </article>
-
-      <article class="bimarg-service-card" itemscope itemtype="https://schema.org/Service">
-        <div class="bimarg-service-body">
-          <span class="bimarg-service-tag">Documentación</span>
-          <h3 itemprop="name">Documentación Municipal y Ejecutiva</h3>
-          <p itemprop="description">
-            Producimos toda la documentación de aprobación municipal, ejecutiva y licitatoria
-            directamente desde el modelo BIM. Planos consistentes que no se contradicen.
-            Sin errores de cota ni referencias cruzadas rotas.
-          </p>
-          <span class="bimarg-service-link">Ver detalle →</span>
-        </div>
-      </article>
-
-      <article class="bimarg-service-card" itemscope itemtype="https://schema.org/Service">
-        <div class="bimarg-service-body">
-          <span class="bimarg-service-tag">4D / 5D</span>
-          <h3 itemprop="name">BIM 4D y 5D: Tiempo y Costo</h3>
-          <p itemprop="description">
-            Vinculamos el modelo a cronograma y presupuesto. Visualizás el avance de obra
-            mes a mes y generás cómputos métricos automáticos. Imprescindible para
-            licitaciones públicas y desarrollos de inversión.
-          </p>
-          <span class="bimarg-service-link">Ver detalle →</span>
-        </div>
-      </article>
-
-      <article class="bimarg-service-card" itemscope itemtype="https://schema.org/Service">
-        <div class="bimarg-service-body">
-          <span class="bimarg-service-tag">Implementación</span>
-          <h3 itemprop="name">Implementación BIM en tu Estudio</h3>
-          <p itemprop="description">
-            Implementamos BIM en tu organización desde cero. BEP (BIM Execution Plan),
-            templates de Revit, flujos de trabajo, capacitación del equipo.
-            Metodología BIMBOX® adaptada a estudios argentinos de 2 a 20 personas.
-          </p>
-          <span class="bimarg-service-link">Ver detalle →</span>
-        </div>
-      </article>
-
-      <article class="bimarg-service-card" itemscope itemtype="https://schema.org/Service">
-        <div class="bimarg-service-body">
-          <span class="bimarg-service-tag">Análisis</span>
-          <h3 itemprop="name">Factibilidad BIM para Desarrolladores</h3>
-          <p itemprop="description">
-            Análisis de factibilidad técnica y económica para proyectos inmobiliarios en Neuquén,
-            Cipolletti, Bariloche y Buenos Aires. FOS, FOT, indicadores de rentabilidad,
-            simulación de variantes de diseño en tiempo real.
-          </p>
-          <span class="bimarg-service-link">Ver detalle →</span>
-        </div>
-      </article>
-
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ==================== PROCESO ==================== -->
-<section class="bimarg-section" id="bimarg-proceso">
-
-  <span class="bimarg-label">Cómo trabajamos</span>
-  <h2 class="bimarg-h2">
-    Tu proyecto BIM en <em>4 pasos claros</em>
-  </h2>
-  <p class="bimarg-lead">
-    Sin metodologías abstractas. Sin consultores que desaparecen. Un proceso transparente
-    con entregables definidos en cada etapa y comunicación directa con Franco.
-  </p>
-
-  <div class="bimarg-process-list">
-
-    <div class="bimarg-process-item">
-      <div class="bimarg-process-num" aria-hidden="true">01</div>
-      <div class="bimarg-process-content">
-        <span class="bimarg-process-tag">Fase 0 — Diagnóstico</span>
-        <h3>Diagnóstico BIM del proyecto (sin costo)</h3>
-        <p>
-          Analizamos tus planos actuales, documentación disponible y necesidades específicas.
-          En 48hs te entregamos una propuesta con alcance, timing y precio fijo. Sin sorpresas.
-          Esta fase incluye auditoría de la documentación existente y mapa de interferencias potenciales.
-        </p>
-      </div>
-    </div>
-
-    <div class="bimarg-process-item">
-      <div class="bimarg-process-num" aria-hidden="true">02</div>
-      <div class="bimarg-process-content">
-        <span class="bimarg-process-tag">Fase 1 — Modelo base</span>
-        <h3>Modelado BIM 3D completo</h3>
-        <p>
-          Construimos el modelo Revit desde tus planos. Arquitectura, estructura e instalaciones
-          coordinadas desde el origen. Control de calidad cada 2 semanas. Acceso al modelo
-          en tiempo real vía BIM 360 o carpeta compartida.
-        </p>
-      </div>
-    </div>
-
-    <div class="bimarg-process-item">
-      <div class="bimarg-process-num" aria-hidden="true">03</div>
-      <div class="bimarg-process-content">
-        <span class="bimarg-process-tag">Fase 2 — Coordinación</span>
-        <h3>Clash Detection y resolución</h3>
-        <p>
-          Corremos análisis de colisiones con Navisworks. Generamos reportes de interferencias
-          con prioridad por criticidad. Coordinamos las resoluciones con cada especialista.
-          Cada clash resuelto en modelo evita un problema (y costo) en obra.
-        </p>
-      </div>
-    </div>
-
-    <div class="bimarg-process-item">
-      <div class="bimarg-process-num" aria-hidden="true">04</div>
-      <div class="bimarg-process-content">
-        <span class="bimarg-process-tag">Fase 3 — Documentación final</span>
-        <h3>Entrega de documentación y transferencia</h3>
-        <p>
-          Producimos todos los planos y vistas desde el modelo. Documentación municipal,
-          ejecutiva y licitatoria coherente al 100%. Transferimos el modelo con toda la información
-          incorporada y capacitamos a tu equipo para mantenerlo actualizado.
-        </p>
-      </div>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ==================== NÚMEROS ==================== -->
-<section class="bimarg-section-full" style="background:#0a0a0a;">
-  <div class="inner">
-
-    <span class="bimarg-label">BIMARG en números</span>
-    <h2 class="bimarg-h2">
-      Resultados que se miden <em>en metros y en pesos</em>
-    </h2>
-
-    <div class="bimarg-bigstas-wrap">
-
-      <div class="bimarg-bigstat">
-        <strong>+100K</strong>
-        <p>metros cuadrados modelados en BIM</p>
-      </div>
-
-      <div class="bimarg-bigstat">
-        <strong>11</strong>
-        <p>años de experiencia en BIM y gestión de obras</p>
-      </div>
-
-      <div class="bimarg-bigstat">
-        <strong>-35%</strong>
-        <p>reducción promedio en sobrecostos por interferencias</p>
-      </div>
-
-      <div class="bimarg-bigstat">
-        <strong>+30</strong>
-        <p>proyectos entregados en Patagonia y Buenos Aires</p>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ==================== TESTIMONIOS ==================== -->
-<section class="bimarg-section" id="bimarg-proyectos">
-
-  <span class="bimarg-label">Lo que dicen nuestros clientes</span>
-  <h2 class="bimarg-h2">
-    Estudios y constructoras que <em>ya trabajan con BIM</em>
-  </h2>
-
-  <div class="bimarg-testimonials-grid">
-
-    <div class="bimarg-testimonial">
-      <div class="bimarg-stars" aria-label="5 estrellas">★★★★★</div>
-      <blockquote>
-        "BIMARG nos permitió detectar 47 interferencias entre estructura y sanitaria
-        antes de arrancar la obra del Hotel True. Solo eso justificó toda la inversión BIM
-        y probablemente evitó meses de demora en la obra."
-      </blockquote>
-      <div class="bimarg-testimonial-author">
-        <strong>Gaspar Ignacio Marcet</strong>
-        <span>Director de Proyecto — ASPA Patagonia · Hotel True, Cipolletti</span>
-      </div>
-    </div>
-
-    <div class="bimarg-testimonial">
-      <div class="bimarg-stars" aria-label="5 estrellas">★★★★★</div>
-      <blockquote>
-        "La documentación que entrega BIMARG es de otro nivel. Por primera vez en años,
-        el expediente municipal aprobó sin observaciones. Y los planos ejecutivos
-        coinciden exactamente con lo que hay en modelo."
-      </blockquote>
-      <div class="bimarg-testimonial-author">
-        <strong>Florencia Perelarte</strong>
-        <span>Arquitecta — ASPA Patagonia</span>
-      </div>
-    </div>
-
-    <div class="bimarg-testimonial">
-      <div class="bimarg-stars" aria-label="5 estrellas">★★★★★</div>
-      <blockquote>
-        "Trabajar con BIMARG para la etapa de factibilidad nos ahorró semanas de análisis.
-        Las variantes de proyecto las visualizamos directamente en el modelo BIM
-        y tomamos decisiones de inversión con datos reales, no estimaciones."
-      </blockquote>
-      <div class="bimarg-testimonial-author">
-        <strong>Desarrollador inmobiliario</strong>
-        <span>Proyecto residencial — Neuquén Capital</span>
-      </div>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ==================== BIMBOX ==================== -->
-<section class="bimarg-section-full" style="background:#0d0d0d;" id="bimarg-metodologia">
-  <div class="inner">
-
-    <span class="bimarg-label">Metodología exclusiva</span>
-    <h2 class="bimarg-h2">
-      BIMBOX® — El sistema BIM <em>diseñado para Argentina</em>
-    </h2>
-    <p class="bimarg-lead">
-      Los estándares internacionales BIM (ISO 19650, RIBA Plan of Work) son excelentes en teoría
-      pero están pensados para mercados con otra dinámica. BIMBOX® los adapta a la realidad argentina:
-      ciclos de obra imprevisibles, múltiples monedas, procesos municipales variables y equipos técnicos
-      sin background BIM previo.
-    </p>
-
-    <div class="bimarg-bonos-grid">
-
-      <div class="bimarg-bono-card">
-        <span class="bimarg-bono-badge">BEP argentino</span>
-        <h3>BIM Execution Plan adaptado</h3>
-        <p>
-          No usamos el template genérico. El BEP de BIMBOX® tiene campos específicos para
-          normativa municipal argentina, etapas de aprobación y gestión de documentación
-          en contexto de inflación.
-        </p>
-      </div>
-
-      <div class="bimarg-bono-card">
-        <span class="bimarg-bono-badge">Workflow probado</span>
-        <h3>Flujos de trabajo validados en obra</h3>
-        <p>
-          Cada proceso de BIMBOX® fue probado en proyectos reales en Neuquén, Cipolletti
-          y Buenos Aires. No es teoría: es lo que funciona en la práctica con equipos
-          y organismos argentinos.
-        </p>
-      </div>
-
-      <div class="bimarg-bono-card">
-        <span class="bimarg-bono-badge">Transferencia real</span>
-        <h3>Tu equipo aprende, no solo recibe</h3>
-        <p>
-          La implementación BIMBOX® incluye capacitación para que tu equipo pueda
-          mantener y actualizar el modelo. No generamos dependencia: generamos capacidad interna.
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ==================== SOBRE FRANCO ==================== -->
-<section class="bimarg-section" id="bimarg-nosotros">
-
-  <span class="bimarg-label">Quiénes somos</span>
-  <h2 class="bimarg-h2">
-    BIM con experiencia <em>de obra, no de escritorio</em>
-  </h2>
-
-  <div class="bimarg-about-grid" style="margin-top:56px;">
-
-    <div class="bimarg-about-content">
-      <p>
-        <strong style="color:#fff;">Franco</strong> es Maestro Mayor de Obras con formación en Arquitectura
-        y 11 años de experiencia en BIM. Trabajó como Assistant Project Manager en Australia,
-        lo que le dio perspectiva internacional sobre cómo el BIM puede realmente
-        transformar la gestión de proyectos — más allá del modelado.
-      </p>
-      <p>
-        Fundó BIMARG en Neuquén como la primera consultora BIM especializada de la Patagonia,
-        con el objetivo concreto de hacer que los beneficios del BIM sean accesibles para estudios
-        y constructoras argentinas de todos los tamaños — no solo para las grandes corporaciones.
-      </p>
-      <p>
-        Hoy BIMARG tiene presencia en Patagonia (Neuquén, Cipolletti, Bariloche) y está
-        expandiéndose activamente a Buenos Aires, con proyectos activos en ambas regiones.
-      </p>
-
-      <div style="display:flex;flex-direction:column;gap:12px;margin-top:16px;">
-        <div style="display:flex;align-items:center;gap:12px;">
-          <span style="width:32px;height:32px;background:rgba(0,191,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">🎓</span>
-          <span style="font-size:14px;color:rgba(255,255,255,0.6);">MMO + 5 años Arquitectura + Project Management en Australia</span>
-        </div>
-        <div style="display:flex;align-items:center;gap:12px;">
-          <span style="width:32px;height:32px;background:rgba(0,191,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">🏗️</span>
-          <span style="font-size:14px;color:rgba(255,255,255,0.6);">+11 años de experiencia en BIM, obra y coordinación técnica</span>
-        </div>
-        <div style="display:flex;align-items:center;gap:12px;">
-          <span style="width:32px;height:32px;background:rgba(0,191,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">📍</span>
-          <span style="font-size:14px;color:rgba(255,255,255,0.6);">Neuquén Capital — operaciones en Patagonia y Buenos Aires</span>
-        </div>
-        <div style="display:flex;align-items:center;gap:12px;">
-          <span style="width:32px;height:32px;background:rgba(0,191,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">🔧</span>
-          <span style="font-size:14px;color:rgba(255,255,255,0.6);">Revit · Navisworks · AutoCAD · BIM 360 · ISO 19650 · RIBA 2020</span>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="bimarg-about-img-wrap">
-      <!-- Reemplazá con foto real de Franco o imagen de proyecto -->
-      <div style="width:100%;aspect-ratio:4/5;background:rgba(0,191,255,0.05);border-radius:24px;border:1px solid rgba(0,191,255,0.15);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;">
-        <span style="font-size:64px;" aria-hidden="true">👷</span>
-        <span style="font-size:13px;color:rgba(255,255,255,0.3);text-align:center;padding:0 24px;">
-          Reemplazar con foto de Franco<br>o imagen de proyecto real
-        </span>
-      </div>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ==================== PREGUNTAS FRECUENTES ==================== -->
-<section class="bimarg-section-full" style="background:#0a0a0a;" id="bimarg-faq">
-  <div class="inner" style="max-width:800px;">
-
-    <span class="bimarg-label">Preguntas frecuentes</span>
-    <h2 class="bimarg-h2">
-      Lo que siempre <em>preguntan antes de contratar</em>
-    </h2>
-
-    <div style="margin-top:48px;display:flex;flex-direction:column;gap:0;" itemscope itemtype="https://schema.org/FAQPage">
-
-      <details class="bimarg-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <summary class="bimarg-faq-q" itemprop="name">¿Cuánto tarda el modelado BIM de un edificio de 10 pisos?</summary>
-        <div class="bimarg-faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text">
-            Para un edificio de 10 pisos con planos 2D completos, el modelado BIM arquitectónico
-            tarda entre 3 y 5 semanas. Si incluimos estructura e instalaciones coordinadas,
-            entre 6 y 10 semanas. El diagnóstico inicial (gratis) te da un timing exacto para tu proyecto.
-          </p>
-        </div>
-      </details>
-
-      <details class="bimarg-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <summary class="bimarg-faq-q" itemprop="name">¿El precio es en pesos o dólares? ¿Cómo manejan la inflación?</summary>
-        <div class="bimarg-faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text">
-            Los proyectos se cotizan en USD para dar estabilidad a ambas partes. La facturación
-            puede adaptarse según la realidad de cada cliente. Para proyectos largos, definimos
-            hitos de pago vinculados a entregables concretos, protegiendo tanto al cliente como
-            a BIMARG de la volatilidad cambiaria.
-          </p>
-        </div>
-      </details>
-
-      <details class="bimarg-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <summary class="bimarg-faq-q" itemprop="name">¿Trabajan con estudios que no tienen experiencia en BIM?</summary>
-        <div class="bimarg-faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text">
-            Sí, es de hecho la situación más común. BIMARG no requiere que tu equipo sepa
-            Revit para empezar. Nos hacemos cargo del modelo completo y de forma gradual
-            capacitamos a quien quieras de tu estudio para que puedan participar o continuar
-            con el modelo cuando terminamos.
-          </p>
-        </div>
-      </details>
-
-      <details class="bimarg-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <summary class="bimarg-faq-q" itemprop="name">¿Pueden modelar proyectos en curso que ya tienen planos AutoCAD?</summary>
-        <div class="bimarg-faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text">
-            Absolutamente. La mayoría de nuestros proyectos empiezan desde planos AutoCAD (DWG o PDF).
-            El proceso de conversión incluye una auditoría de inconsistencias en los planos originales:
-            detectamos problemas de documentación que muchas veces el propio estudio desconocía.
-          </p>
-        </div>
-      </details>
-
-      <details class="bimarg-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <summary class="bimarg-faq-q" itemprop="name">¿Tienen experiencia con trámites municipales en Neuquén y Buenos Aires?</summary>
-        <div class="bimarg-faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text">
-            Sí. Conocemos los requerimientos específicos de los municipios de Neuquén, Cipolletti,
-            Centenario, Plottier y la Ciudad de Buenos Aires. La documentación que generamos
-            está adaptada a los formatos y criterios de cada organismo, reduciendo las observaciones
-            y retrasos en aprobación.
-          </p>
-        </div>
-      </details>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- ── HERO FIXES: gradiente fallback + mobile botones ── -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BIMARG — BIM Profesional · Neuquén · Patagonia · Buenos Aires</title>
+<meta name="description" content="BIMARG: primera empresa BIM de Neuquén. Modelado 3D/4D/5D, documentación ejecutiva y metodología BIMBOX® para arquitectos, constructoras y desarrolladoras en Patagonia y Buenos Aires.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700,800,900&display=swap">
 <style>
-/* 1. FALLBACK: gradiente animado detrás del video */
-.bimarg-video-fallback {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background:
-    radial-gradient(ellipse 65% 55% at 18% 52%, rgba(41,151,255,0.13) 0%, transparent 60%),
-    radial-gradient(ellipse 45% 65% at 82% 38%, rgba(41,151,255,0.08) 0%, transparent 55%),
-    linear-gradient(155deg, #050c1a 0%, #0a0a0a 45%, #06101f 100%);
-  animation: bimaGradPulse 10s ease-in-out infinite alternate;
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --c:#00BFFF;--cb:rgba(0,191,255,.22);--ch:rgba(0,191,255,.45);
+  --dk:#070707;--d2:#0b0b0b;--ca:#111;--cb2:#171717;
+  --tx:rgba(255,255,255,.90);--mu:rgba(255,255,255,.48);
+  --fa:rgba(255,255,255,.06);--fa2:rgba(255,255,255,.10);
+  --disp:'Bebas Neue',sans-serif;--body:'Satoshi',sans-serif;
+  --ease-out:cubic-bezier(0.16,1,0.3,1);--ease:cubic-bezier(0.4,0,0.2,1);
 }
-@keyframes bimaGradPulse {
-  0%   { filter: brightness(0.85); }
-  50%  { filter: brightness(1.06); }
-  100% { filter: brightness(0.90); }
+html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent}
+body{font-family:var(--body);background:var(--dk);color:var(--tx);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.cur,.cur-ring{position:fixed;pointer-events:none;z-index:9999;border-radius:50%;transform:translate(-50%,-50%)}
+.cur{width:9px;height:9px;background:var(--c);transition:width .2s,height .2s;opacity:0}
+.cur-ring{width:36px;height:36px;border:1px solid rgba(0,191,255,.35);transition:width .3s var(--ease-out),height .3s var(--ease-out),border-color .3s,opacity .4s;opacity:0}
+@media(hover:hover){.cur,.cur-ring{opacity:1}}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,5vw,72px);transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+nav.scrolled{background:rgba(7,7,7,.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-color:var(--fa)}
+.logo{font-family:var(--disp);font-size:28px;letter-spacing:.06em;color:#fff;text-decoration:none;flex-shrink:0}
+.logo span{color:var(--c)}
+.nav-links{display:flex;align-items:center;gap:36px}
+.nav-links a{font-size:12.5px;font-weight:500;color:var(--mu);text-decoration:none;letter-spacing:.05em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-cta{font-size:13px;font-weight:700;color:#000;background:var(--c);padding:14px 32px;border-radius:99px;text-decoration:none;transition:transform .3s var(--ease-out),box-shadow .3s;letter-spacing:.03em;white-space:nowrap}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(0,191,255,.5)}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+.burger span{display:block;width:22px;height:1.5px;background:var(--mu);transition:all .3s var(--ease-out)}
+.nav-mob{display:none;position:fixed;inset:72px 0 0;background:rgba(7,7,7,.97);backdrop-filter:blur(24px);z-index:490;flex-direction:column;align-items:center;justify-content:center;gap:32px}
+.nav-mob.open{display:flex}
+.nav-mob a{font-family:var(--disp);font-size:52px;color:rgba(255,255,255,.65);text-decoration:none;letter-spacing:.04em;transition:color .2s}
+.nav-mob a:hover{color:var(--c)}
+/* HERO */
+#hero{position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.vid-bg{position:absolute;inset:0;z-index:0;background:#040404;overflow:hidden}
+.vid-wrap{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:177.78vh;min-width:100%;height:56.25vw;min-height:100%}
+.vid-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:none;pointer-events:none}
+.hero-ov{position:absolute;inset:0;z-index:1;background:linear-gradient(to right,rgba(7,7,7,.85) 0%,transparent 40%,transparent 60%,rgba(7,7,7,.85) 100%),linear-gradient(to bottom,rgba(7,7,7,.5) 0%,rgba(7,7,7,.1) 30%,rgba(7,7,7,.25) 65%,rgba(7,7,7,.99) 100%)}
+.hero-c{position:relative;z-index:2;text-align:center;padding:80px clamp(20px,5vw,80px) 0;max-width:1120px;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--c);background:rgba(0,191,255,.07);border:1px solid rgba(0,191,255,.18);padding:9px 24px;border-radius:99px;margin-bottom:40px;animation:fadeUp .9s .1s var(--ease-out) both}
+.blink{width:7px;height:7px;border-radius:50%;background:var(--c);animation:blink 2s infinite;flex-shrink:0}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.6)}}
+h1.hero-h1{font-family:var(--disp);font-size:clamp(56px,11.5vw,152px);line-height:.88;letter-spacing:.015em;color:#fff;animation:fadeUp .9s .22s var(--ease-out) both}
+h1.hero-h1 em{color:var(--c);font-style:normal;display:block}
+.hero-sub{font-size:clamp(15px,1.6vw,18px);color:rgba(255,255,255,.52);line-height:1.82;max-width:540px;margin:32px auto 0;animation:fadeUp .9s .38s var(--ease-out) both}
+.hero-btns{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin-top:60px;animation:fadeUp .9s .50s var(--ease-out) both}
+.btn-primary{display:inline-flex;align-items:center;gap:12px;background:var(--c);color:#000;font-weight:800;font-size:16px;padding:22px 52px;border-radius:99px;text-decoration:none;letter-spacing:.02em;transition:transform .35s var(--ease-out),box-shadow .35s;position:relative;overflow:hidden}
+.btn-primary::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.15),transparent);opacity:0;transition:opacity .25s}
+.btn-primary:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 18px 48px rgba(0,191,255,.5)}
+.btn-primary:hover::after{opacity:1}
+.btn-ghost{display:inline-flex;align-items:center;gap:12px;background:rgba(255,255,255,.07);color:#fff;font-weight:600;font-size:16px;padding:22px 44px;border-radius:99px;text-decoration:none;border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(12px);transition:background .25s,border-color .25s,transform .35s var(--ease-out),box-shadow .35s}
+.btn-ghost:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.28);transform:translateY(-3px);box-shadow:0 14px 36px rgba(0,0,0,.3)}
+.hero-scroll{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px;animation:fadeIn 1.5s 1.5s var(--ease-out) both}
+.hero-scroll span{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.30)}
+.scroll-ln{width:1px;height:52px;background:linear-gradient(to bottom,var(--c),transparent);animation:scrollLn 2.2s 1.5s infinite}
+@keyframes scrollLn{0%{transform:scaleY(0);transform-origin:top}48%{transform:scaleY(1);transform-origin:top}52%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+/* STATS */
+.stats{background:var(--d2);border-top:1px solid var(--fa);border-bottom:1px solid var(--fa);padding:44px clamp(20px,5vw,80px);display:flex;justify-content:center;gap:clamp(28px,5vw,80px);flex-wrap:wrap;position:relative;overflow:hidden}
+.stats::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--cb),transparent)}
+.stat{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
+.stat-n{font-family:var(--disp);font-size:52px;color:var(--c);letter-spacing:.02em;line-height:1}
+.stat-l{font-size:11px;color:var(--mu);text-transform:uppercase;letter-spacing:.12em;line-height:1.5;max-width:140px}
+.stat-sep{width:1px;height:56px;background:var(--fa);align-self:center}
+/* SECTION */
+.section{padding:clamp(90px,11vw,150px) clamp(20px,6vw,80px)}
+.inner{max-width:1200px;margin:0 auto}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--c);margin-bottom:20px}
+.eyebrow::before{content:'';width:26px;height:1px;background:var(--c)}
+.sec-h2{font-family:var(--disp);font-size:clamp(42px,6.5vw,84px);color:#fff;line-height:.91;letter-spacing:.02em;margin-bottom:28px}
+.sec-h2 em{color:var(--c);font-style:normal}
+.sec-lead{font-size:clamp(15px,1.6vw,17px);color:var(--mu);line-height:1.85;max-width:580px}
+/* OBJECIONES */
+#objeciones{background:var(--d2);border-top:1px solid var(--fa);border-bottom:1px solid var(--fa)}
+.obj-hd{text-align:center;margin-bottom:56px}
+.obj-hd .sec-lead{margin:18px auto 0;text-align:center}
+.obj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;border-radius:20px;overflow:hidden}
+.obj-c{background:var(--ca);padding:38px 34px;transition:background .3s,transform .4s var(--ease-out)}
+.obj-c:hover{background:var(--cb2);transform:translateY(-4px)}
+.obj-q{font-size:11.5px;font-weight:700;color:var(--mu);letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.obj-q::before{content:'?';width:24px;height:24px;border-radius:50%;border:1px solid rgba(255,255,255,.14);display:inline-flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0}
+.obj-a{font-size:15px;color:var(--tx);line-height:1.80}
+.obj-a strong{color:var(--c)}
+/* PARA QUIEN */
+#para-quien{background:var(--dk)}
+.seg-top{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap;margin-bottom:60px}
+.seg-note{font-size:15px;color:var(--mu);max-width:300px;line-height:1.85;text-align:right}
+.seg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.seg-card{border-radius:28px;overflow:hidden;background:var(--ca);border:1px solid var(--fa);text-decoration:none;display:block;transition:border-color .4s,transform .5s var(--ease-out),box-shadow .5s;position:relative}
+.seg-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--cc,var(--c)),transparent);opacity:0;transition:opacity .4s}
+.seg-card:hover{transform:translateY(-12px);box-shadow:0 36px 72px rgba(0,0,0,.5);border-color:var(--cc,var(--cb))}
+.seg-card:hover::before{opacity:1}
+.seg-inner{padding:48px 40px 44px;display:flex;flex-direction:column;min-height:460px;position:relative;z-index:1}
+.seg-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:6px 16px;border-radius:99px;margin-bottom:30px;align-self:flex-start;color:var(--cc,var(--c));border:1px solid var(--cc,var(--c));background:rgba(0,0,0,.2)}
+.seg-ico{font-size:56px;margin-bottom:22px;display:block;line-height:1}
+.seg-title{font-family:var(--disp);font-size:42px;color:#fff;line-height:.91;letter-spacing:.02em;margin-bottom:16px}
+.seg-val{font-size:15px;color:var(--mu);line-height:1.80;flex:1}
+.seg-promise{margin-top:28px;padding-top:22px;border-top:1px solid var(--fa);font-size:13px;font-weight:600;line-height:1.55;font-style:italic;color:var(--cc,var(--c))}
+.seg-go{display:inline-flex;align-items:center;gap:8px;margin-top:26px;font-size:12px;font-weight:800;color:var(--cc,var(--c));letter-spacing:.05em;text-transform:uppercase}
+.seg-arr{transition:transform .3s var(--ease-out);display:inline-block}
+.seg-card:hover .seg-arr{transform:translateX(10px)}
+.c1{--cc:#00BFFF}.c2{--cc:#FF8C00}.c3{--cc:#A855F7}
+/* METODOLOGIA */
+#metodologia{background:var(--d2);border-top:1px solid var(--fa);border-bottom:1px solid var(--fa)}
+.metod-header{text-align:center;max-width:740px;margin:0 auto 80px}
+.metod-header .sec-lead{margin:20px auto 0}
+.metod-pills{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:32px}
+.pill{display:inline-flex;align-items:center;gap:7px;background:rgba(0,191,255,.05);border:1px solid var(--cb);padding:10px 22px;border-radius:99px;font-size:11.5px;color:var(--c);font-weight:700;letter-spacing:.06em;text-transform:uppercase;transition:background .25s,transform .25s}
+.pill:hover{background:rgba(0,191,255,.12);transform:translateY(-2px)}
+/* RIBA */
+.riba-wrap{margin-bottom:80px}
+.riba-lbl{font-size:10.5px;font-weight:700;letter-spacing:.18em;color:rgba(255,255,255,.25);text-transform:uppercase;margin-bottom:20px;text-align:center}
+.riba-row{display:grid;grid-template-columns:repeat(8,1fr);border-radius:18px;overflow:hidden;border:1px solid var(--fa)}
+.riba-ph{padding:22px 16px;background:var(--ca);position:relative;transition:background .3s;border-right:1px solid var(--fa)}
+.riba-ph:last-child{border-right:none}
+.riba-ph:hover{background:var(--cb2)}
+.riba-bar{position:absolute;top:0;left:0;right:0;height:2px;background:var(--c);opacity:0;transition:opacity .3s}
+.riba-ph.active-ph{background:rgba(0,191,255,.06)}
+.riba-ph.active-ph .riba-bar{opacity:1}
+.riba-num{font-family:var(--disp);font-size:34px;color:rgba(0,191,255,.15);line-height:1;margin-bottom:10px;transition:color .3s}
+.riba-ph:hover .riba-num,.riba-ph.active-ph .riba-num{color:rgba(0,191,255,.40)}
+.riba-name{font-size:10.5px;font-weight:700;color:rgba(255,255,255,.55);letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;line-height:1.3}
+.riba-ph.active-ph .riba-name{color:var(--c)}
+.riba-desc{font-size:10.5px;color:rgba(255,255,255,.25);line-height:1.5}
+/* PILARES */
+.pilares{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:72px}
+.pilar{background:var(--ca);border:1px solid var(--fa);border-radius:26px;padding:40px 36px;transition:border-color .35s,transform .45s var(--ease-out),box-shadow .45s}
+.pilar:hover{border-color:var(--cb);transform:translateY(-8px);box-shadow:0 32px 64px rgba(0,0,0,.4)}
+.pilar-ico{font-size:40px;margin-bottom:20px;display:block}
+.pilar-title{font-family:var(--disp);font-size:28px;color:#fff;letter-spacing:.04em;margin-bottom:14px}
+.pilar-title span{color:var(--c)}
+.pilar-text{font-size:14px;color:var(--mu);line-height:1.82}
+.pilar-list{margin-top:20px;display:flex;flex-direction:column;gap:10px}
+.pilar-item{display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(255,255,255,.60);line-height:1.55}
+.pilar-item::before{content:'→';color:var(--c);font-size:11px;flex-shrink:0;margin-top:2px}
+/* PASOS */
+.pasos-lbl{font-size:10.5px;font-weight:700;letter-spacing:.18em;color:rgba(255,255,255,.25);text-transform:uppercase;margin-bottom:20px;text-align:center}
+.pasos{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;border-radius:20px;overflow:hidden}
+.paso{background:var(--ca);padding:38px 30px;transition:background .3s;position:relative;overflow:hidden}
+.paso:hover{background:var(--cb2)}
+.paso-n{font-family:var(--disp);font-size:76px;color:var(--fa2);line-height:1;margin-bottom:16px;transition:color .3s}
+.paso:hover .paso-n{color:rgba(0,191,255,.10)}
+.paso-ico{font-size:30px;margin-bottom:14px;display:block}
+.paso-title{font-family:var(--disp);font-size:24px;color:#fff;letter-spacing:.03em;margin-bottom:10px}
+.paso-text{font-size:13px;color:var(--mu);line-height:1.75}
+/* CALCULADORA */
+#calculadora{background:var(--dk)}
+.calc-header{text-align:center;margin-bottom:64px}
+.calc-header .sec-lead{margin:18px auto 0;text-align:center}
+/* BUNDLE */
+.bundle{background:linear-gradient(135deg,rgba(0,191,255,.09) 0%,rgba(0,191,255,.03) 100%);border:1px solid rgba(0,191,255,.28);border-radius:24px;padding:32px 40px;margin-bottom:36px;display:flex;align-items:center;justify-content:space-between;gap:24px;position:relative;overflow:hidden;transition:border-color .3s,transform .3s var(--ease-out),box-shadow .3s}
+.bundle:hover{border-color:rgba(0,191,255,.45);transform:translateY(-3px);box-shadow:0 20px 48px rgba(0,191,255,.08)}
+.bundle::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--c),transparent)}
+.bundle-flash{display:inline-flex;align-items:center;gap:7px;font-size:10.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--c);background:rgba(0,191,255,.09);border:1px solid rgba(0,191,255,.22);padding:5px 14px;border-radius:99px;margin-bottom:12px}
+.bundle-title{font-family:var(--disp);font-size:30px;color:#fff;letter-spacing:.03em;margin-bottom:8px}
+.bundle-desc{font-size:13px;color:rgba(255,255,255,.45);line-height:1.65}
+.bundle-features{display:flex;flex-wrap:wrap;gap:14px;margin-top:16px}
+.bundle-feat{font-size:12px;color:rgba(255,255,255,.45);display:flex;align-items:center;gap:6px}
+.bundle-feat::before{content:'✓';color:#22C55E;font-weight:700}
+.bundle-price-block{text-align:right;flex-shrink:0}
+.bundle-price{font-family:var(--disp);font-size:56px;color:var(--c);line-height:1;letter-spacing:.02em}
+.bundle-unit{font-size:13px;color:rgba(255,255,255,.35);margin-top:6px}
+.bundle-old{font-size:14px;color:rgba(255,255,255,.22);text-decoration:line-through;margin-top:4px}
+/* CALC */
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start}
+.calc-panel{background:#0e0e0e;border:1px solid rgba(255,255,255,.07);border-radius:28px;padding:46px 42px}
+.calc-section-title{font-family:var(--disp);font-size:16px;letter-spacing:.14em;color:rgba(255,255,255,.35);text-transform:uppercase;margin-bottom:38px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.06)}
+.calc-block{margin-bottom:34px}
+.calc-block:last-child{margin-bottom:0}
+.calc-lbl{font-size:14px;font-weight:700;color:rgba(255,255,255,.85);margin-bottom:16px;display:block}
+.calc-hint{font-size:11px;color:rgba(255,255,255,.30);font-weight:400;margin-left:8px}
+.calc-div{height:1px;background:rgba(255,255,255,.06);margin:30px 0}
+.chk-group{display:flex;flex-direction:column;gap:9px}
+.chk-card{position:relative;cursor:pointer;display:block}
+.chk-card input{position:absolute;opacity:0;width:0;height:0}
+.chk-lbl{display:flex;align-items:center;gap:13px;background:#141414;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:16px 20px;transition:border-color .2s,background .2s,transform .2s;cursor:pointer}
+.chk-card input:checked ~ .chk-lbl{border-color:rgba(0,191,255,.38);background:rgba(0,191,255,.05)}
+.chk-lbl:hover{border-color:rgba(255,255,255,.14);background:#191919;transform:translateX(3px)}
+.chk-box{width:21px;height:21px;border-radius:7px;border:1.5px solid rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s}
+.chk-card input:checked ~ .chk-lbl .chk-box{background:var(--c);border-color:var(--c);box-shadow:0 0 0 4px rgba(0,191,255,.14)}
+.chk-tick{font-size:12px;color:#000;opacity:0;transition:opacity .15s;font-weight:800}
+.chk-card input:checked ~ .chk-lbl .chk-tick{opacity:1}
+.chk-txt{font-size:14px;font-weight:600;color:rgba(255,255,255,.85)}
+.chk-sub{font-size:11px;color:rgba(255,255,255,.28);margin-top:2px}
+.chk-price{font-size:12px;font-weight:700;color:var(--c);letter-spacing:.05em;white-space:nowrap;margin-left:auto}
+.rdo-group{display:flex;flex-direction:column;gap:9px}
+.rdo-card{position:relative;cursor:pointer;display:block}
+.rdo-card input{position:absolute;opacity:0;width:0;height:0}
+.rdo-lbl{display:flex;align-items:center;justify-content:space-between;background:#141414;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:18px 22px;transition:border-color .2s,background .2s,transform .2s;cursor:pointer}
+.rdo-card input:checked ~ .rdo-lbl{border-color:rgba(0,191,255,.38);background:rgba(0,191,255,.05)}
+.rdo-lbl:hover{border-color:rgba(255,255,255,.14);background:#191919;transform:translateX(3px)}
+.rdo-left{display:flex;align-items:center;gap:13px}
+.rdo-dot{width:19px;height:19px;border-radius:50%;border:2px solid rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s}
+.rdo-card input:checked ~ .rdo-lbl .rdo-dot{border-color:var(--c);background:var(--c);box-shadow:0 0 0 4px rgba(0,191,255,.14)}
+.rdo-dot::after{content:'';width:6px;height:6px;border-radius:50%;background:#000;opacity:0;transition:opacity .15s}
+.rdo-card input:checked ~ .rdo-lbl .rdo-dot::after{opacity:1}
+.rdo-txt{font-size:14px;font-weight:600;color:rgba(255,255,255,.85)}
+.rdo-sub{font-size:11px;color:rgba(255,255,255,.28);margin-top:2px}
+.rdo-price{font-size:12px;font-weight:700;color:var(--c);letter-spacing:.05em}
+.rdo-price.free{color:rgba(0,191,255,.40);font-weight:500}
+.sl-display{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:16px}
+.sl-val{font-family:var(--disp);font-size:48px;color:#fff;line-height:1;letter-spacing:.02em}
+.sl-unit{font-size:17px;color:var(--mu);margin-left:5px;font-weight:500}
+.sl-rng{font-size:12px;color:rgba(255,255,255,.22)}
+input[type=range]{-webkit-appearance:none;width:100%;height:4px;border-radius:2px;background:linear-gradient(to right,var(--c) var(--pct,19.6%),rgba(255,255,255,.09) var(--pct,19.6%));outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:#fff;cursor:pointer;box-shadow:0 0 0 4px rgba(0,191,255,.22),0 2px 10px rgba(0,0,0,.5);transition:transform .2s,box-shadow .2s}
+input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15);box-shadow:0 0 0 7px rgba(0,191,255,.28),0 2px 14px rgba(0,0,0,.5)}
+.bundle-ind{display:none;align-items:center;gap:9px;margin-top:14px;padding:11px 16px;background:rgba(0,191,255,.06);border:1px solid rgba(0,191,255,.18);border-radius:12px;font-size:12.5px;color:var(--c);font-weight:700}
+.bundle-ind.show{display:flex}
+.result-panel{display:flex;flex-direction:column;gap:16px}
+.res-compare{background:#0e0e0e;border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:24px 30px;display:flex;align-items:center;justify-content:space-between;transition:border-color .3s}
+.res-compare:hover{border-color:rgba(255,255,255,.12)}
+.res-compare-label{font-size:12px;color:rgba(255,255,255,.35);margin-bottom:7px;letter-spacing:.04em}
+.res-compare-price{font-family:var(--disp);font-size:30px;color:rgba(255,255,255,.45);letter-spacing:.02em}
+.res-compare-note{font-size:11px;color:rgba(255,255,255,.20);margin-top:5px;line-height:1.5}
+.res-ico{font-size:30px;opacity:.25}
+.res-main{background:#0e0e0e;border:1px solid rgba(0,191,255,.22);border-radius:26px;padding:40px 36px;position:relative;overflow:hidden;transition:border-color .3s,box-shadow .3s}
+.res-main:hover{border-color:rgba(0,191,255,.38);box-shadow:0 0 60px rgba(0,191,255,.06)}
+.res-main::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--c),transparent)}
+.res-badge{display:inline-flex;align-items:center;gap:9px;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--c);margin-bottom:20px}
+.res-blink{width:7px;height:7px;border-radius:50%;background:var(--c);animation:blink 2s infinite}
+.res-label{font-size:12px;color:rgba(255,255,255,.35);letter-spacing:.07em;text-transform:uppercase;margin-bottom:12px}
+.res-price-row{display:flex;align-items:baseline;gap:8px;margin-bottom:10px}
+.res-currency{font-family:var(--disp);font-size:30px;color:rgba(255,255,255,.35)}
+.res-price{font-family:var(--disp);font-size:76px;color:#fff;line-height:1;letter-spacing:.02em}
+.res-sub{font-size:12px;color:rgba(255,255,255,.30);margin-bottom:20px;line-height:1.6}
+.res-savings{display:inline-flex;font-size:12px;font-weight:700;color:var(--c);background:rgba(0,191,255,.07);border:1px solid rgba(0,191,255,.16);padding:9px 18px;border-radius:99px;margin-bottom:28px;letter-spacing:.04em;line-height:1.5}
+.res-delivers{margin-bottom:28px}
+.res-del-title{font-size:10.5px;font-weight:700;color:rgba(255,255,255,.28);letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px}
+.del-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px 14px}
+.del-item{display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.20);line-height:1.45;transition:color .3s}
+.del-item.on{color:rgba(255,255,255,.70)}
+.del-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.10);flex-shrink:0;transition:background .3s}
+.del-item.on .del-dot{background:var(--c)}
+.res-ctas{display:flex;flex-direction:column;gap:13px}
+.btn-res-main{display:flex;align-items:center;justify-content:center;gap:11px;background:var(--c);color:#000;font-weight:800;font-size:16px;padding:20px 36px;border-radius:16px;text-decoration:none;transition:transform .3s var(--ease-out),box-shadow .3s}
+.btn-res-main:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(0,191,255,.42)}
+.btn-res-sec{background:rgba(255,255,255,.05);color:rgba(255,255,255,.45);border:1px solid rgba(255,255,255,.09);font-size:14px;font-weight:600;padding:16px 28px;border-radius:16px;cursor:pointer;font-family:inherit;transition:background .2s,color .2s}
+.btn-res-sec:hover{background:rgba(255,255,255,.09);color:rgba(255,255,255,.80)}
+.calc-note{font-size:12px;color:rgba(255,255,255,.20);line-height:1.75;text-align:center;margin-top:10px}
+/* DIAGNOSTICO */
+#diagnostico{background:var(--d2);border-top:1px solid var(--fa);border-bottom:1px solid var(--fa)}
+.diag-layout{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.diag-checklist{background:var(--ca);border:1px solid var(--fa);border-radius:24px;overflow:hidden}
+.diag-cat{border-bottom:1px solid var(--fa)}
+.diag-cat:last-child{border-bottom:none}
+.diag-cat-h{padding:18px 28px;background:rgba(255,255,255,.02);font-size:11.5px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;color:rgba(255,255,255,.35);display:flex;align-items:center;justify-content:space-between}
+.diag-score-badge{background:var(--c);color:#000;font-weight:700;font-size:18px;padding:2px 12px;border-radius:99px;font-family:var(--disp)}
+.diag-items{padding:8px 0}
+.diag-item{display:flex;align-items:flex-start;gap:13px;padding:15px 28px;cursor:pointer;transition:background .2s}
+.diag-item:hover{background:rgba(255,255,255,.02)}
+.diag-item input{position:absolute;opacity:0}
+.diag-box{width:21px;height:21px;border-radius:7px;border:1.5px solid rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;transition:all .2s}
+.diag-item input:checked ~ .diag-box{background:var(--c);border-color:var(--c)}
+.diag-tick{font-size:11px;color:#000;opacity:0;transition:opacity .15s;font-weight:800}
+.diag-item input:checked ~ .diag-box .diag-tick{opacity:1}
+.diag-txt{font-size:14px;color:rgba(255,255,255,.65);line-height:1.55}
+.diag-item input:checked ~ .diag-box ~ .diag-txt{color:rgba(255,255,255,.25);text-decoration:line-through}
+.diag-result{background:var(--ca);border:1px solid var(--fa);border-radius:24px;padding:38px;margin-top:26px;display:none}
+.diag-result.show{display:block;animation:fadeIn .5s var(--ease-out)}
+.diag-result-score{font-family:var(--disp);font-size:88px;color:var(--c);line-height:1;letter-spacing:.02em;margin-bottom:10px}
+.diag-result-label{font-size:22px;font-weight:700;color:#fff;margin-bottom:14px}
+.diag-result-desc{font-size:14px;color:var(--mu);line-height:1.80}
+/* PROYECTOS */
+#proyectos{background:var(--dk)}
+.proy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:52px}
+.proy-card{background:var(--ca);border:1px solid var(--fa);border-radius:26px;overflow:hidden;transition:border-color .35s,transform .45s var(--ease-out),box-shadow .45s}
+.proy-card:hover{border-color:var(--cb);transform:translateY(-10px);box-shadow:0 36px 72px rgba(0,0,0,.6)}
+.proy-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.9;transition:opacity .4s,transform .6s var(--ease-out)}.proy-card:hover .proy-visual img{opacity:1;transform:scale(1.05)}.proy-visual{position:relative;overflow:hidden;height:200px;display:flex;align-items:center;justify-content:center}
+.proy-visual::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,var(--ca) 100%)}
+.proy-body{padding:30px 34px 36px}
+.proy-title{font-family:var(--disp);font-size:28px;color:#fff;letter-spacing:.03em;margin-bottom:6px}
+.proy-loc{font-size:11px;color:var(--c);letter-spacing:.10em;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:6px}
+.proy-text{font-size:14px;color:var(--mu);line-height:1.75}
+.proy-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+.proy-tag{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--c);background:rgba(0,191,255,.07);border:1px solid rgba(0,191,255,.15);padding:5px 13px;border-radius:99px}
+.proy-partner{font-size:11px;color:rgba(255,255,255,.22);margin-top:12px;display:flex;align-items:center;gap:5px}
+/* CTA FINAL */
+#cta-final{background:linear-gradient(180deg,var(--d2) 0%,var(--dk) 100%);border-top:1px solid var(--fa);text-align:center;padding:clamp(90px,13vw,170px) clamp(20px,5vw,80px)}
+.cta-inner{max-width:780px;margin:0 auto}
+.cta-label{display:inline-flex;align-items:center;gap:9px;font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--c);margin-bottom:28px}
+.cta-label::before,.cta-label::after{content:'';width:28px;height:1px;background:var(--c)}
+.cta-h2{font-family:var(--disp);font-size:clamp(52px,8.5vw,108px);color:#fff;line-height:.88;letter-spacing:.02em;margin-bottom:28px}
+.cta-sub{font-size:clamp(15px,1.6vw,18px);color:var(--mu);line-height:1.80;margin-bottom:60px}
+.cta-btns{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
+.cta-info{margin-top:40px;font-size:12px;color:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;gap:22px;flex-wrap:wrap}
+/* FOOTER */
+footer{background:var(--d2);border-top:1px solid var(--fa);padding:clamp(52px,7vw,80px) clamp(20px,5vw,80px) 36px}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:52px;margin-bottom:60px}
+.footer-brand .logo{font-size:34px;display:block;margin-bottom:18px}
+.footer-brand p{font-size:14px;color:var(--mu);line-height:1.85;max-width:280px}
+.socials{display:flex;gap:12px;margin-top:28px}
+.social-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--fa2);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:18px;transition:border-color .25s,background .25s,transform .3s var(--ease-out)}
+.social-btn:hover{border-color:var(--cb);background:rgba(0,191,255,.07);transform:translateY(-4px)}
+.footer-col h4{font-size:10.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:22px}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:13px}
+.footer-col a{font-size:14px;color:var(--mu);text-decoration:none;transition:color .2s}
+.footer-col a:hover{color:#fff}
+.footer-bottom{border-top:1px solid var(--fa);padding-top:30px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px}
+.footer-copy{font-size:12px;color:rgba(255,255,255,.22)}
+.footer-copy a{color:var(--c);text-decoration:none}
+.footer-wsp{display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:700;color:var(--c);text-decoration:none}
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .75s var(--ease-out),transform .75s var(--ease-out)}
+.reveal.vis{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.18s}.d3{transition-delay:.28s}
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .nav-links,.nav-cta{display:none}
+  .burger{display:flex}
+  .obj-grid{grid-template-columns:1fr 1fr}
+  .seg-grid,.pilares{grid-template-columns:1fr 1fr}
+  .pasos{grid-template-columns:1fr 1fr}
+  .riba-row{grid-template-columns:repeat(4,1fr)}
+  .calc-grid,.diag-layout,.footer-top{grid-template-columns:1fr;gap:32px}
+  .proy-grid{grid-template-columns:1fr 1fr}
+  .bundle{flex-direction:column;text-align:center}
+  .bundle-price-block{text-align:center}
+  .bundle-features{justify-content:center}
+  .seg-note{text-align:left}
 }
-/* Shimmer sutil sobre el gradiente */
-.bimarg-video-fallback::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    108deg,
-    transparent 30%,
-    rgba(41,151,255,0.05) 50%,
-    transparent 70%
-  );
-  background-size: 200% 100%;
-  animation: bimaShimmer 7s linear infinite;
-}
-@keyframes bimaShimmer {
-  0%   { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-/* Iframe arranca invisible — se activa al cargar el video */
-.bimarg-video-wrap iframe {
-  opacity: 0;
-  transition: opacity 1.8s ease;
-  will-change: opacity;
-}
-.bimarg-video-wrap iframe.bim-vid-ready {
-  opacity: 1;
+@media(max-width:680px){
+  .stat-sep{display:none}
+  .obj-grid,.seg-grid,.pilares,.pasos,.proy-grid{grid-template-columns:1fr}
+  .riba-row{grid-template-columns:repeat(2,1fr)}
+  .seg-inner{min-height:auto}
+  .calc-panel{padding:28px 22px}
+  .res-price{font-size:58px}
+  .del-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .hero-scroll{display:none}
+  .hero-btns,.cta-btns{flex-direction:column;align-items:center}
+  .hero-btns a,.cta-btns a{width:100%;max-width:360px;justify-content:center}
 }
 
-/* 2. MOBILE: ocultar scroll indicator, dar espacio a los botones */
-@media (max-width: 768px) {
-  .bimarg-scroll-indicator { display: none !important; }
-  .hero-content { padding-bottom: 64px !important; }
+/* ── PROY ABBR ── */
+.proy-abbr{font-family:var(--disp);font-size:38px;color:rgba(0,191,255,.30);letter-spacing:.06em}
+
+/* ── MOBILE RESPONSIVE ── */
+@media(max-width:768px){
+  .hero-scroll{display:none}
+  .hero-btns,.cta-btns{flex-direction:column;align-items:center}
+  .hero-btns a,.cta-btns a{width:100%;max-width:360px;justify-content:center}
+  .obj-grid{grid-template-columns:1fr}
+  .seg-grid{grid-template-columns:1fr}
+  .seg-inner{min-height:auto;padding:32px 24px 28px}
+  .pilares{grid-template-columns:1fr}
+  .pasos{grid-template-columns:1fr 1fr}
+  .calc-grid{flex-direction:column}
+  .proy-grid{grid-template-columns:1fr}
+  .footer-top{flex-direction:column;gap:32px}
+  .riba-row{grid-template-columns:repeat(4,1fr)}
+  .bundle{flex-direction:column;gap:20px;padding:24px 20px}
+  .seg-top{flex-direction:column;gap:16px}
+  .seg-note{text-align:left}
+  .diag-layout{flex-direction:column}
 }
+@media(max-width:480px){
+  .hero-btns{padding:0 20px;gap:12px;margin-top:40px}
+  .hero-btns a{font-size:15px;padding:17px 24px;width:100%;justify-content:center}
+  .hero-c{padding:72px 0 0}
+  .pasos{grid-template-columns:1fr}
+  .riba-row{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .riba-ph{padding:14px 8px}
+  .riba-name,.riba-desc{font-size:9px}
+  .stats{gap:clamp(14px,3vw,36px)}
+  .nav-links{display:none}
+  .burger{display:flex}
+}
+
+/* ── CAROUSELS ── */
+.carousel-section{padding:clamp(44px,6vw,72px) 0;overflow:hidden;position:relative}
+.carousel-section::before,.carousel-section::after{content:'';position:absolute;top:0;bottom:0;width:100px;z-index:2;pointer-events:none}
+.carousel-section::before{left:0;background:linear-gradient(to right,var(--dk),transparent)}
+.carousel-section::after{right:0;background:linear-gradient(to left,var(--dk),transparent)}
+.carousel-section.on-d2::before{background:linear-gradient(to right,var(--d2),transparent)}
+.carousel-section.on-d2::after{background:linear-gradient(to left,var(--d2),transparent)}
+.carousel-label{text-align:center;font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.18);margin-bottom:24px;padding:0 20px}
+.marquee-wrap{overflow:hidden;width:100%}
+.marquee-track{display:flex;width:max-content;animation:marquee-scroll 34s linear infinite}
+.marquee-track.slow{animation-duration:50s}
+.marquee-track:hover{animation-play-state:paused}
+@keyframes marquee-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.mtag{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;padding:14px 32px;margin:0 8px;border:1px solid rgba(0,191,255,.16);border-radius:12px;background:rgba(0,191,255,.04);white-space:nowrap;transition:border-color .3s,background .3s;cursor:default;gap:4px;flex-shrink:0}
+.mtag:hover{border-color:rgba(0,191,255,.38);background:rgba(0,191,255,.09)}
+.mtag-name{font-size:13px;font-weight:800;color:#fff;letter-spacing:.04em;text-transform:uppercase}
+.mtag-sub{font-size:9.5px;color:rgba(0,191,255,.65);letter-spacing:.08em;text-transform:uppercase}
+.stag{display:inline-flex;align-items:center;padding:11px 24px;margin:0 7px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:99px;white-space:nowrap;transition:border-color .3s,background .3s;cursor:default;flex-shrink:0}
+.stag:hover{border-color:rgba(0,191,255,.32);background:rgba(0,191,255,.05)}
+.stag-name{font-size:12.5px;font-weight:700;color:rgba(255,255,255,.65);letter-spacing:.04em}
+.stag-dot{width:5px;height:5px;border-radius:50%;background:rgba(0,191,255,.5);margin-right:10px;flex-shrink:0}
+
+
+/* ── LOGO CAROUSEL ── */
+.logo-carousel-section{padding:clamp(36px,5vw,60px) 0;overflow:hidden;position:relative;background:var(--d2);border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05)}
+.logo-carousel-section::before,.logo-carousel-section::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
+.logo-carousel-section::before{left:0;background:linear-gradient(to right,var(--d2),transparent)}
+.logo-carousel-section::after{right:0;background:linear-gradient(to left,var(--d2),transparent)}
+.logo-label{text-align:center;font-size:9.5px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.15);margin-bottom:28px;padding:0 20px}
+.logo-track{display:flex;width:max-content;animation:marquee-scroll 40s linear infinite;align-items:center}
+.logo-track:hover{animation-play-state:paused}
+.logo-item{display:inline-flex;align-items:center;justify-content:center;padding:0 52px;height:56px;opacity:.45;transition:opacity .3s;filter:brightness(0) invert(1);flex-shrink:0}
+.logo-item:hover{opacity:.85}
+.logo-item img{max-height:46px;max-width:140px;width:auto;object-fit:contain}
+
+/* ── VIDEO SECTION ── */
+.vid-section{padding:clamp(80px,10vw,120px) 0;background:var(--d2)}
+.vid-section .inner{display:flex;flex-direction:column;align-items:center;gap:56px}
+.vid-section .sec-h2{text-align:center}
+.vid-section .sec-lead{text-align:center;max-width:600px}
+.yt-frame{width:100%;max-width:880px;aspect-ratio:16/9;border-radius:20px;overflow:hidden;border:1px solid rgba(0,191,255,.15);box-shadow:0 40px 80px rgba(0,0,0,.5),0 0 0 1px rgba(0,191,255,.05)}
+.yt-frame iframe{width:100%;height:100%;border:none;display:block}
+
+/* ── CALENDAR CTA ── */
+.cal-cta{display:inline-flex;align-items:center;gap:12px;background:rgba(0,191,255,.08);border:1px solid rgba(0,191,255,.25);border-radius:14px;padding:18px 32px;color:#fff;text-decoration:none;font-size:14px;font-weight:700;letter-spacing:.04em;transition:background .3s,border-color .3s,transform .3s var(--ease-out)}
+.cal-cta:hover{background:rgba(0,191,255,.15);border-color:rgba(0,191,255,.5);transform:translateY(-3px)}
+.cal-cta-dot{width:8px;height:8px;border-radius:50%;background:#00BFFF;flex-shrink:0;animation:pulse-dot 2s ease-in-out infinite}
+@keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+
+/* ── BONUS SECTION ── */
+.bonus-section{padding:clamp(80px,10vw,120px) 0;background:var(--dk)}
+.bonus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:52px}
+.bonus-card{border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.07);background:var(--ca);transition:border-color .3s,transform .4s var(--ease-out),box-shadow .4s}
+.bonus-card:hover{border-color:rgba(0,191,255,.28);transform:translateY(-6px);box-shadow:0 30px 60px rgba(0,0,0,.4)}
+.bonus-card img{width:100%;height:220px;object-fit:cover;object-position:top;display:block}
+.bonus-body{padding:20px 24px 24px}
+.bonus-title{font-size:15px;font-weight:800;color:#fff;margin-bottom:6px;letter-spacing:.02em}
+.bonus-desc{font-size:13px;color:rgba(255,255,255,.5);line-height:1.6}
+@media(max-width:768px){.bonus-grid{grid-template-columns:1fr}}
+
+
+.yt-poster{width:100%;max-width:880px;aspect-ratio:16/9;border-radius:20px;overflow:hidden;border:1px solid rgba(0,191,255,.15);box-shadow:0 40px 80px rgba(0,0,0,.5);position:relative;cursor:pointer;background:#000}
+.yt-poster:hover .yt-overlay{opacity:1}
+.yt-poster:hover .yt-play-btn{transform:scale(1.12)}
+.yt-thumb{width:100%;height:100%;object-fit:cover;opacity:.8;transition:opacity .3s}
+.yt-poster:hover .yt-thumb{opacity:.6}
+.yt-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:rgba(0,0,0,.2);opacity:.85;transition:opacity .3s}
+.yt-play-btn{transition:transform .3s var(--ease-out)}
+.yt-caption{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.yt-poster iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
+
 </style>
+</head>
+<body>
 
-<!-- ESTILOS FAQ -->
-<style>
-.bimarg-faq-item {
-  border-top: 1px solid rgba(255,255,255,0.07);
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-}
-.bimarg-faq-item:last-child { border-bottom: 1px solid rgba(255,255,255,0.07); }
-.bimarg-faq-q {
-  padding: 24px 0;
-  font-size: 16px;
-  font-weight: 600;
-  color: rgba(255,255,255,0.88);
-  cursor: pointer;
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-}
-.bimarg-faq-q::-webkit-details-marker { display: none; }
-.bimarg-faq-q::after {
-  content: '+';
-  color: #00BFFF;
-  font-size: 22px;
-  font-weight: 300;
-  flex-shrink: 0;
-  transition: transform 0.3s;
-}
-details[open] .bimarg-faq-q::after { transform: rotate(45deg); }
-.bimarg-faq-a {
-  padding: 0 0 24px;
-}
-.bimarg-faq-a p {
-  font-size: 14px;
-  color: rgba(255,255,255,0.55);
-  line-height: 1.75;
-}
-</style>
+<div class="cur" id="cur"></div>
+<div class="cur-ring" id="cring"></div>
 
+<nav id="nav">
+  <a href="#hero" class="logo">BIM<span>ARG</span></a>
+  <div class="nav-links">
+    <a href="#para-quien">Servicios</a>
+    <a href="#metodologia">Metodologia</a>
+    <a href="#calculadora">Calculadora</a>
+    <a href="#diagnostico">Diagnostico</a>
+    <a href="#proyectos">Proyectos</a>
+  </div>
+  <a href="https://wa.me/+542996287652?text=Hola%20Franco%2C%20quiero%20cotizar" target="_blank" rel="noopener" class="nav-cta">Cotizar &rarr;</a>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mob" id="navmob">
+  <a href="#para-quien" class="mob-link">Servicios</a>
+  <a href="#metodologia" class="mob-link">Metodologia</a>
+  <a href="#calculadora" class="mob-link">Calculadora</a>
+  <a href="#diagnostico" class="mob-link">Diagnostico</a>
+  <a href="#proyectos" class="mob-link">Proyectos</a>
+  <a href="https://wa.me/+542996287652" target="_blank" rel="noopener" style="color:var(--c)">Cotizar &rarr;</a>
+</div>
 
-<!-- ==================== CTA FINAL ==================== -->
-<section style="background:#0d0d0d;padding:0 24px 120px;font-family:'Helvetica Neue',Arial,sans-serif;" id="bimarg-contacto">
-  <div class="bimarg-cta-section">
+<section id="hero">
+  <div class="vid-bg">
+    <div class="vid-wrap">
+      <iframe src="https://player.vimeo.com/video/1169185829?background=1&autoplay=1&muted=1&loop=1&byline=0&title=0&transparent=0" allow="autoplay; fullscreen" title="BIMARG reel"></iframe>
+    </div>
+  </div>
+  <div class="hero-ov"></div>
+  <div class="hero-c">
+    <div class="hero-badge"><span class="blink"></span>Primera empresa BIM de Neuquen &middot; Patagonia &amp; Buenos Aires</div>
+    <h1 class="hero-h1">MODELADO BIM<br>QUE ELIMINA<br><em>SOBRECOSTOS</em></h1>
+    <p class="hero-sub">Nos integramos a tu estudio o constructora y transformamos tus proyectos en modelos BIM 3D/4D/5D completos. Documentacion municipal, ejecutiva y licitatoria 100% precisa. En semanas, no meses.</p>
+  
+  </div>
+  <div class="hero-scroll"><span>scroll</span><div class="scroll-ln"></div></div>
+</section>
 
-    <span class="bimarg-badge" style="position:relative;z-index:1;">
-      <span class="dot"></span>
-      Diagnóstico sin costo · Respuesta en 48hs
-    </span>
+<div class="stats" id="stats-bar">
+  <div class="stat"><span class="stat-n">+100K</span><span class="stat-l">m2 modelados</span></div>
+  <div class="stat-sep"></div>
+  <div class="stat"><span class="stat-n" id="cnt-years">11</span><span class="stat-l">anos de experiencia</span></div>
+  <div class="stat-sep"></div>
+  <div class="stat"><span class="stat-n" id="cnt-proy">+30</span><span class="stat-l">proyectos entregados</span></div>
+  <div class="stat-sep"></div>
+  <div class="stat"><span class="stat-n">24/7</span><span class="stat-l">produccion activa</span></div>
+</div>
 
-    <h2 style="font-size:clamp(24px,4vw,44px);font-weight:800;color:#fff;line-height:1.18;max-width:640px;letter-spacing:-0.02em;position:relative;z-index:1;">
-      Tu próximo proyecto merece documentación BIM precisa.<br>
-      <span style="color:#00BFFF;">Empezamos cuando quieras.</span>
-    </h2>
+<section id="objeciones" class="section">
+  <div class="inner">
+    <div class="obj-hd reveal">
+      <span class="eyebrow">El BIM real</span>
+      <h2 class="sec-h2">Es BIM <em>para vos?</em></h2>
+      <p class="sec-lead">Las dudas mas frecuentes, respondidas sin vueltas.</p>
+    </div>
+    <div class="obj-grid">
+      <div class="obj-c reveal d1"><p class="obj-q">Solo trabajo proyectos chicos</p><p class="obj-a">BIM es rentable desde <strong>casas de 80m2</strong>. La documentacion exacta ahorra correcciones, errores de obra y reclamos. El ROI es inmediato.</p></div>
+      <div class="obj-c reveal d2"><p class="obj-q">No se si mi equipo se adapta</p><p class="obj-a">Nos integramos a tu flujo actual. No necesitas cambiar software ni equipo. Nosotros aportamos el modelo, vos seguis con tus herramientas.</p></div>
+      <div class="obj-c reveal d3"><p class="obj-q">Me parece caro para Patagonia</p><p class="obj-a">BIM <strong>reduce retrabajo hasta 40%</strong>. Cada USD invertido en documentacion exacta evita correcciones de obra que cuestan 10 veces mas.</p></div>
+      <div class="obj-c reveal d1"><p class="obj-q">Los plazos son demasiado largos</p><p class="obj-a">Con BIMBOX entregamos en <strong>21 dias habiles</strong> estandar o 7 dias Express. Flujo estructurado = fechas cumplidas, siempre.</p></div>
+      <div class="obj-c reveal d2"><p class="obj-q">Ya tengo un dibujante CAD</p><p class="obj-a">CAD documenta, BIM <strong>coordina y previene</strong>. Un modelo BIM detecta interferencias entre estructura e instalaciones antes de obra.</p></div>
+      <div class="obj-c reveal d3"><p class="obj-q">Estoy fuera de Neuquen</p><p class="obj-a">Operamos <strong>100% remoto</strong> con clientes en Buenos Aires, Bariloche, Mendoza y toda Patagonia. BIMBOX esta disenado para trabajo distribuido.</p></div>
+    </div>
+  </div>
+</section>
 
-    <p style="font-size:16px;color:rgba(255,255,255,0.55);max-width:480px;line-height:1.65;position:relative;z-index:1;">
-      Mandanos los planos o contanos el proyecto. En 48hs te respondemos con un diagnóstico
-      BIM y una propuesta sin compromiso. Sin reuniones infinitas ni consultorías genéricas.
-    </p>
-
-    <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;position:relative;z-index:1;">
-      <a
-        href="https://wa.me/+542996287652?text=Hola%20Franco%2C%20quiero%20un%20diagn%C3%B3stico%20BIM%20sin%20costo%20para%20mi%20proyecto"
-        class="bimarg-cta-primary"
-        target="_blank"
-        rel="noopener"
-        style="text-decoration:none;">
-        📱 Escribinos por WhatsApp
+<section id="para-quien" class="section">
+  <div class="inner">
+    <div class="seg-top">
+      <div class="reveal">
+        <span class="eyebrow">Nuestros clientes</span>
+        <h2 class="sec-h2">Quien trabaja<br>con <em>BIMARG?</em></h2>
+      </div>
+      <p class="seg-note reveal">Nos adaptamos al ritmo de cada cliente con entregas precisas y plazos que se cumplen.</p>
+    </div>
+    <div class="seg-grid">
+      <a href="#calculadora" class="seg-card c1 reveal">
+        <div class="seg-inner">
+          <span class="seg-tag">Para arquitectos</span>
+          
+          <h3 class="seg-title">ESTUDIOS DE ARQUITECTURA</h3>
+          <p class="seg-val">Transformamos tus proyectos en modelos BIM coordinados. Documentacion ejecutiva, planos municipales y vistas 3D en plazos fijos. Vos disenyas, nosotros documentamos.</p>
+          <p class="seg-promise">"Documentacion ejecutiva completa en 21 dias habiles. Garantizado."</p>
+          <span class="seg-go">Ver mas <span class="seg-arr">&rarr;</span></span>
+        </div>
       </a>
-      <a
-        href="mailto:info@bimarg.com"
-        class="bimarg-cta-secondary"
-        style="text-decoration:none;">
-        ✉️ Mandarnos un mail
+      <a href="#calculadora" class="seg-card c2 reveal d2">
+        <div class="seg-inner">
+          <span class="seg-tag" style="color:#FF8C00;border-color:#FF8C00">Para constructoras</span>
+          
+          <h3 class="seg-title">EMPRESAS CONSTRUCTORAS</h3>
+          <p class="seg-val">Modelos BIM de coordinacion con clash detection, computos exactos y planificacion 4D. Reduce el retrabajo y las sorpresas en obra antes de que lleguen a pie de obra.</p>
+          <p class="seg-promise" style="color:#FF8C00">"Clash detection antes de obra. Cero interferencias no detectadas."</p>
+          <span class="seg-go" style="color:#FF8C00">Ver mas <span class="seg-arr">&rarr;</span></span>
+        </div>
+      </a>
+      <a href="#calculadora" class="seg-card c3 reveal d3">
+        <div class="seg-inner">
+          <span class="seg-tag" style="color:#A855F7;border-color:#A855F7">Para desarrolladoras</span>
+          
+          <h3 class="seg-title">DESARROLLADORAS INMOBILIARIAS</h3>
+          <p class="seg-val">Factibilidad BIM, renders fotorrealistas y documentacion licitatoria completa. Del analisis de factibilidad al modelo de venta en un solo flujo.</p>
+          <p class="seg-promise" style="color:#A855F7">"Del terreno al modelo de venta. Factibilidad BIM + renders."</p>
+          <span class="seg-go" style="color:#A855F7">Ver mas <span class="seg-arr">&rarr;</span></span>
+        </div>
       </a>
     </div>
-
-    <div style="display:flex;gap:40px;align-items:center;position:relative;z-index:1;flex-wrap:wrap;justify-content:center;margin-top:8px;">
-      <span style="font-size:12px;color:rgba(255,255,255,0.3);display:flex;align-items:center;gap:6px;">
-        ✓ Sin compromiso
-      </span>
-      <span style="font-size:12px;color:rgba(255,255,255,0.3);display:flex;align-items:center;gap:6px;">
-        ✓ Presupuesto en 48hs
-      </span>
-      <span style="font-size:12px;color:rgba(255,255,255,0.3);display:flex;align-items:center;gap:6px;">
-        ✓ Proyecto mínimo USD 2,000
-      </span>
-    </div>
-
   </div>
 </section>
 
 
-<!-- ==================== SCHEMA JSON-LD SEO ==================== -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "BIMARG",
-  "description": "Consultoría BIM especializada para estudios de arquitectura, desarrolladoras y constructoras en Patagonia y Buenos Aires. Modelado BIM 3D/4D/5D, coordinación de especialidades y documentación municipal.",
-  "url": "https://www.bimarg.com",
-  "telephone": "+542996287652",
-  "email": "info@bimarg.com",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Neuquén",
-    "addressRegion": "Neuquén",
-    "addressCountry": "AR"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": -38.9516,
-    "longitude": -68.0591
-  },
-  "areaServed": [
-    {"@type": "City", "name": "Neuquén"},
-    {"@type": "City", "name": "Cipolletti"},
-    {"@type": "City", "name": "Bariloche"},
-    {"@type": "City", "name": "Buenos Aires"}
-  ],
-  "serviceType": [
-    "Modelado BIM",
-    "Coordinación BIM",
-    "Clash Detection",
-    "Documentación Municipal BIM",
-    "Implementación BIM",
-    "BIM 4D",
-    "BIM 5D"
-  ],
-  "priceRange": "USD 10-12/m² modelado",
-  "foundingDate": "2014",
-  "founder": {
-    "@type": "Person",
-    "name": "Franco",
-    "jobTitle": "BIM Manager y Fundador"
-  },
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Servicios BIM BIMARG",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Modelado BIM desde planos 2D",
-          "description": "Conversión de planos AutoCAD o PDF a modelo BIM 3D en Revit"
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Coordinación y Clash Detection",
-          "description": "Detección de interferencias entre especialidades con Navisworks"
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Implementación BIM en estudios",
-          "description": "Metodología BIMBOX para implementar BIM en estudios de arquitectura argentinos"
-        }
-      }
-    ]
-  }
-}
-</script>
+<div class="carousel-section on-d2" style="background:var(--d2);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)">
+  <p class="carousel-label">Metodologias &amp; Frameworks</p>
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <div class="mtag"><span class="mtag-name">RIBA</span><span class="mtag-sub">Plan of Work</span></div>
+      <div class="mtag"><span class="mtag-name">Lean Construction</span><span class="mtag-sub">Eliminacion de desperdicios</span></div>
+      <div class="mtag"><span class="mtag-name">BIMBOX&reg;</span><span class="mtag-sub">Metodologia BIMARG</span></div>
+      <div class="mtag"><span class="mtag-name">Last Planner System</span><span class="mtag-sub">Planificacion colaborativa</span></div>
+      <div class="mtag"><span class="mtag-name">PMI</span><span class="mtag-sub">Gestion de proyectos</span></div>
+      <div class="mtag"><span class="mtag-name">ISO 19650</span><span class="mtag-sub">Gestion de informacion BIM</span></div>
+      <div class="mtag"><span class="mtag-name">RIBA</span><span class="mtag-sub">Plan of Work</span></div>
+      <div class="mtag"><span class="mtag-name">Lean Construction</span><span class="mtag-sub">Eliminacion de desperdicios</span></div>
+      <div class="mtag"><span class="mtag-name">BIMBOX&reg;</span><span class="mtag-sub">Metodologia BIMARG</span></div>
+      <div class="mtag"><span class="mtag-name">Last Planner System</span><span class="mtag-sub">Planificacion colaborativa</span></div>
+      <div class="mtag"><span class="mtag-name">PMI</span><span class="mtag-sub">Gestion de proyectos</span></div>
+      <div class="mtag"><span class="mtag-name">ISO 19650</span><span class="mtag-sub">Gestion de informacion BIM</span></div>
+    </div>
+  </div>
+</div>
+<section id="metodologia" class="section">
+  <div class="inner">
+    <div class="metod-header reveal">
+      <span class="eyebrow">Metodologia BIMBOX&reg;</span>
+      <h2 class="sec-h2">Asi trabajamos.<br><em>Sin improvisar.</em></h2>
+      <p class="sec-lead">BIMBOX combina tres sistemas probados internacionalmente para garantizar entregas predecibles, coordinacion perfecta y cero retrabajo.</p>
+      <div class="metod-pills">
+        <span class="pill">RIBA Plan of Work</span>
+        <span class="pill">Lean Construction</span>
+        <span class="pill">Last Planner System</span>
+        <span class="pill">ISO 19650</span>
+      </div>
+    </div>
 
-<!-- ── HERO VIDEO FALLBACK LOGIC ── -->
-<script>
-(function () {
-  var iframe = document.getElementById('bimaIframe');
-  if (!iframe) return;
-  var revealed = false;
-  function revealVideo() {
-    if (revealed) return;
-    revealed = true;
-    iframe.classList.add('bim-vid-ready');
-  }
-  // Esperar 1.5s tras la carga del iframe para que el video empiece antes del fade-in
-  iframe.addEventListener('load', function () {
-    setTimeout(revealVideo, 1500);
-  });
-  // Si el load nunca dispara (Vimeo bloqueado, sin red), el fallback queda visible — correcto
-}());
+    <div class="riba-wrap reveal">
+      <div class="riba-lbl">Fases RIBA &mdash; Como estructuramos cada proyecto</div>
+      <div class="riba-row">
+        <div class="riba-ph"><div class="riba-bar"></div><div class="riba-num">0</div><div class="riba-name">Estrategica</div><div class="riba-desc">Briefing y necesidades</div></div>
+        <div class="riba-ph"><div class="riba-bar"></div><div class="riba-num">1</div><div class="riba-name">Preparacion</div><div class="riba-desc">BEP, LOD, CDE y equipo</div></div>
+        <div class="riba-ph active-ph"><div class="riba-bar"></div><div class="riba-num">2</div><div class="riba-name">Concepto</div><div class="riba-desc">Modelo BIM conceptual</div></div>
+        <div class="riba-ph active-ph"><div class="riba-bar"></div><div class="riba-num">3</div><div class="riba-name">Espacial</div><div class="riba-desc">Modelo + clash detection</div></div>
+        <div class="riba-ph active-ph"><div class="riba-bar"></div><div class="riba-num">4</div><div class="riba-name">Tecnica</div><div class="riba-desc">Doc. ejecutiva completa</div></div>
+        <div class="riba-ph active-ph"><div class="riba-bar"></div><div class="riba-num">5</div><div class="riba-name">Construccion</div><div class="riba-desc">Soporte BIM en obra</div></div>
+        <div class="riba-ph"><div class="riba-bar"></div><div class="riba-num">6</div><div class="riba-name">Entrega</div><div class="riba-desc">As Built + modelo</div></div>
+        <div class="riba-ph"><div class="riba-bar"></div><div class="riba-num">7</div><div class="riba-name">Uso</div><div class="riba-desc">Mantenimiento</div></div>
+      </div>
+    </div>
+
+    <div class="pilares">
+      <div class="pilar reveal">
+        
+        <h3 class="pilar-title"><span>RIBA</span> Plan of Work</h3>
+        <p class="pilar-text">El estandar internacional que estructura el proyecto en 8 fases con entregables y responsabilidades definidas desde el dia 0. Sin ambiguedades, sin "lo damos despues".</p>
+        <div class="pilar-list">
+          <span class="pilar-item">Entregables por fase documentados en el BEP</span>
+          <span class="pilar-item">Level of Development (LOD) acordado por etapa</span>
+          <span class="pilar-item">Common Data Environment (CDE) para colaboracion</span>
+          <span class="pilar-item">Checkpoints de aprobacion antes de avanzar</span>
+        </div>
+      </div>
+      <div class="pilar reveal d2">
+        
+        <h3 class="pilar-title"><span>Lean</span> Construction</h3>
+        <p class="pilar-text">Eliminamos desperdicios del proceso documental. Cada tarea tiene un proposito, un responsable y un plazo. Sin reuniones innecesarias, sin revisiones que repiten errores.</p>
+        <div class="pilar-list">
+          <span class="pilar-item">Mapeo de flujo de valor del proceso BIM</span>
+          <span class="pilar-item">Pull Planning: el trabajo fluye, no se empuja</span>
+          <span class="pilar-item">Reduccion de reprocesos al 40% en promedio</span>
+          <span class="pilar-item">Mejora continua documentada proyecto a proyecto</span>
+        </div>
+      </div>
+      <div class="pilar reveal d3">
+        
+        <h3 class="pilar-title"><span>Last Planner</span> System</h3>
+        <p class="pilar-text">Planificacion colaborativa con compromisos reales, no estimaciones optimistas. Las semanas se planifican con quienes ejecutan el trabajo, no desde arriba.</p>
+        <div class="pilar-list">
+          <span class="pilar-item">Lookahead de 3 semanas actualizado semanalmente</span>
+          <span class="pilar-item">PPC (Porcentaje de Plan Completado) medido</span>
+          <span class="pilar-item">Analisis de causas de no-cumplimiento</span>
+          <span class="pilar-item">Reuniones diarias de coordinacion (15 min)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pasos-lbl">El proceso BIMBOX&reg; &mdash; Tus 4 semanas tipicas</div>
+    <div class="pasos">
+      <div class="paso reveal"><span class="paso-n">01</span><h4 class="paso-title">BRIEF &amp; BEP</h4><p class="paso-text">Relevamiento, alcance, LOD, CDE y cronograma. Todo documentado antes de tocar Revit.</p></div>
+      <div class="paso reveal d1"><span class="paso-n">02</span><h4 class="paso-title">MODELADO BIM</h4><p class="paso-text">Modelo Revit coordinado. Clash detection integrado. Lookahead semanal con Last Planner.</p></div>
+      <div class="paso reveal d2"><span class="paso-n">03</span><h4 class="paso-title">DOCUMENTACION</h4><p class="paso-text">Planos ejecutivos, municipales y licitatorios extraidos del modelo. Sin trabajo doble.</p></div>
+      <div class="paso reveal d3"><span class="paso-n">04</span><h4 class="paso-title">ENTREGA &amp; SOPORTE</h4><p class="paso-text">Modelo final, BEP completo, capacitacion del equipo. Soporte post-entrega incluido.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<div class="carousel-section" style="background:var(--dk)">
+  <p class="carousel-label">Stack tecnologico &amp; herramientas</p>
+  <div class="marquee-wrap">
+    <div class="marquee-track slow">
+      <div class="stag"><span class="stag-dot"></span><span class="stag-name">Revit</span></div>
+      <div class="stag"><span class="stag-dot"></span><span class="stag-name">AutoCAD</span></div>
+      <div class="stag"><span class="stag-dot"></span><span class="stag-name">Speckle</span></div>
+      <div class="stag"><span class="stag-dot"></span><span class="stag-name">Navisworks</span></div>
+      <div class="stag"><span class="stag-dot"></span><span class="stag-name">Autodesk Design Review</span></div>
+      <div class="stag"><span class="stag-dot"></span><span class="stag-name">Notion</span></div>
+      <div class="stag"><span class="stag-dot"></span><span class="stag-name">ClickUp</span></div>
+      <div class="stag"><span class="stag-dot"></span><span class="stag-name">Claude AI</span></div>
+      <div class="stag"><span class="stag-dot"></span><span class="stag-name">Power BI</span></div>
+      <div class="stag"><span class="stag-dot"></span><span class="stag-name">Premiere Pro</span></div>
+      <div class="stag"><span class="stag-dot"></span><span class="stag-name">Dynamo</span></div>
+      <div class="stag"><span class="stag-dot"></span><span class="stag-name">Google Drive</span></div>
+      <div class="stag"><span class="stag-dot"></span><span class="stag-name">Revit</span></div>
+      <div class="stag"><span class="stag-dot"></span><span class="stag-name">AutoCAD</span></div>
+      <div class="stag"><span class="stag-dot"></span><span class="stag-name">Speckle</span></div>
+      <div class="stag"><span class="stag-dot"></span><span class="stag-name">Navisworks</span></div>
+      <div class="stag"><span class="stag-dot"></span><span class="stag-name">Autodesk Design Review</span></div>
+      <div class="stag"><span class="stag-dot"></span><span class="stag-name">Notion</span></div>
+      <div class="stag"><span class="stag-dot"></span><span class="stag-name">ClickUp</span></div>
+      <div class="stag"><span class="stag-dot"></span><span class="stag-name">Claude AI</span></div>
+      <div class="stag"><span class="stag-dot"></span><span class="stag-name">Power BI</span></div>
+      <div class="stag"><span class="stag-dot"></span><span class="stag-name">Premiere Pro</span></div>
+      <div class="stag"><span class="stag-dot"></span><span class="stag-name">Dynamo</span></div>
+      <div class="stag"><span class="stag-dot"></span><span class="stag-name">Google Drive</span></div>
+    </div>
+  </div>
+</div>
+<section id="calculadora" class="section">
+  <div class="inner">
+    <div class="calc-header reveal">
+      <span class="eyebrow">Calculadora BIM</span>
+      <h2 class="sec-h2">Cuanto cuesta<br><em>tu proyecto BIM?</em></h2>
+      <p class="sec-lead">Configura tu proyecto y obtene una estimacion instantanea. Sin letra chica, sin sorpresas.</p>
+    </div>
+    <div class="bundle reveal">
+      <div>
+        <div class="bundle-flash">Oferta Todo Incluido</div>
+        <div class="bundle-title">PACK COMPLETO BIMBOX&reg;</div>
+        <div class="bundle-desc">Contratas los 4 servicios juntos y obtenetes descuento automatico + computos y mediciones gratis.</div>
+        <div class="bundle-features">
+          <span class="bundle-feat">Computos y mediciones GRATIS</span>
+          <span class="bundle-feat">Coordinacion MEP incluida</span>
+          <span class="bundle-feat">Clash detection sin costo adicional</span>
+          <span class="bundle-feat">RIBA + Lean + Last Planner</span>
+        </div>
+      </div>
+      <div class="bundle-price-block">
+        <div class="bundle-price">USD 10<span style="font-size:28px">/m2</span></div>
+        <div class="bundle-unit">Pack 4 servicios &middot; precio combinado</div>
+        <div class="bundle-old">USD 12/m2 por separado</div>
+      </div>
+    </div>
+    <div class="calc-grid">
+      <div class="calc-panel reveal">
+        <div class="calc-section-title">Configura tu proyecto</div>
+        <div class="calc-block">
+          <label class="calc-lbl">Servicios <span class="calc-hint">USD 3/m2 cada uno &middot; Pack = USD 10/m2</span></label>
+          <div class="chk-group">
+            <label class="chk-card"><input type="checkbox" id="s-arq" checked><div class="chk-lbl"><div class="chk-box"><span class="chk-tick">&#10003;</span></div><div style="flex:1"><div class="chk-txt">Modelado de Arquitectura</div><div class="chk-sub">Modelo Revit &middot; Plantas, cortes, fachadas</div></div><span class="chk-price">USD 3/m2</span></div></label>
+            <label class="chk-card"><input type="checkbox" id="s-docejec" checked><div class="chk-lbl"><div class="chk-box"><span class="chk-tick">&#10003;</span></div><div style="flex:1"><div class="chk-txt">Documentacion Ejecutiva</div><div class="chk-sub">Planos, detalles, planillas listos para obra</div></div><span class="chk-price">USD 3/m2</span></div></label>
+            <label class="chk-card"><input type="checkbox" id="s-mep" checked><div class="chk-lbl"><div class="chk-box"><span class="chk-tick">&#10003;</span></div><div style="flex:1"><div class="chk-txt">MEP &mdash; Instalaciones</div><div class="chk-sub">Sanitaria &middot; Electrica &middot; Gas &middot; HVAC &middot; Incendio</div></div><span class="chk-price">USD 3/m2</span></div></label>
+            <label class="chk-card"><input type="checkbox" id="s-ejecmep" checked><div class="chk-lbl"><div class="chk-box"><span class="chk-tick">&#10003;</span></div><div style="flex:1"><div class="chk-txt">Doc. Ejecutiva MEP</div><div class="chk-sub">Planos de instalaciones listos para obra</div></div><span class="chk-price">USD 3/m2</span></div></label>
+          </div>
+          <div class="bundle-ind" id="bund-ind">Pack completo activo &mdash; USD 10/m2 + computos GRATIS</div>
+        </div>
+        <div class="calc-div"></div>
+        <div class="calc-block">
+          <label class="calc-lbl" for="m2-sl">Superficie total cubierta</label>
+          <div class="sl-display"><div><span class="sl-val" id="m2-disp">150</span><span class="sl-unit">m2</span></div><span class="sl-rng">50 &mdash; 600 m2</span></div>
+          <input type="range" id="m2-sl" min="50" max="600" value="150" step="5" style="--pct:19.6%">
+        </div>
+        <div class="calc-div"></div>
+        <div class="calc-block">
+          <label class="calc-lbl">Adicionales</label>
+          <div class="chk-group">
+            <div style="display:flex;align-items:center;gap:13px;background:rgba(0,191,255,.04);border:1px solid rgba(0,191,255,.16);border-radius:14px;padding:16px 20px">
+              <div class="chk-box" style="background:var(--c);border-color:var(--c)"><span class="chk-tick" style="opacity:1">&#10003;</span></div>
+              <div style="flex:1"><div class="chk-txt">Computos y mediciones</div><div class="chk-sub">Incluidos en todos los servicios</div></div>
+              <span class="chk-price" style="color:#22C55E;font-size:11px">GRATIS</span>
+            </div>
+            <label class="chk-card"><input type="checkbox" id="a-bep"><div class="chk-lbl"><div class="chk-box"><span class="chk-tick">&#10003;</span></div><div style="flex:1"><div class="chk-txt">BEP &mdash; Plan de Ejecucion BIM</div><div class="chk-sub">Documento rector &middot; ISO 19650 &middot; Precio fijo</div></div><span class="chk-price">+USD 4.000</span></div></label>
+            <label class="chk-card"><input type="checkbox" id="a-muni"><div class="chk-lbl"><div class="chk-box"><span class="chk-tick">&#10003;</span></div><div style="flex:1"><div class="chk-txt">Planos municipales</div><div class="chk-sub">Planillas y doc. lista para presentar</div></div><span class="chk-price">+USD 2/m2</span></div></label>
+            <label class="chk-card"><input type="checkbox" id="a-asbuilt"><div class="chk-lbl"><div class="chk-box"><span class="chk-tick">&#10003;</span></div><div style="flex:1"><div class="chk-txt">As Built final</div><div class="chk-sub">Modelo actualizado a lo construido</div></div><span class="chk-price">+USD 1/m2</span></div></label>
+          </div>
+        </div>
+        <div class="calc-div"></div>
+        <div class="calc-block">
+          <label class="calc-lbl">Velocidad de entrega</label>
+          <div class="rdo-group">
+            <label class="rdo-card"><input type="radio" name="speed" value="20"><div class="rdo-lbl"><div class="rdo-left"><div class="rdo-dot"></div><div><div class="rdo-txt">Express &mdash; 7 dias habiles</div><div class="rdo-sub">Prioridad maxima en produccion</div></div></div><span class="rdo-price">+20%</span></div></label>
+            <label class="rdo-card"><input type="radio" name="speed" value="0" checked><div class="rdo-lbl"><div class="rdo-left"><div class="rdo-dot"></div><div><div class="rdo-txt">Estandar &mdash; 21 dias habiles</div><div class="rdo-sub">Plazo habitual del proceso BIMBOX</div></div></div><span class="rdo-price free">Sin cargo</span></div></label>
+          </div>
+        </div>
+      </div>
+      <div class="result-panel reveal d2">
+        <div class="res-compare"><div><div class="res-compare-label">Agencia BIM sin metodologia</div><div class="res-compare-price" id="p-agencia">USD 2.850</div><div class="res-compare-note">Sin RIBA, sin Last Planner, sin garantia de plazos</div></div><div class="res-ico"></div></div>
+        <div class="res-compare"><div><div class="res-compare-label">Freelancer sin coordinacion</div><div class="res-compare-price" id="p-free">USD 960</div><div class="res-compare-note">Riesgo de retrabajo, sin clash detection</div></div><div class="res-ico"></div></div>
+        <div class="res-main">
+          <div class="res-badge"><span class="res-blink"></span>BIMARG &middot; RIBA + Lean + Last Planner</div>
+          <div class="res-label">Estimacion para tu proyecto</div>
+          <div class="res-price-row"><span class="res-currency">USD</span><span class="res-price" id="bimarg-price">1.500</span></div>
+          <div class="res-sub" id="bimarg-sub">150 m2 &middot; Pack Completo &middot; Estandar 21 dias</div>
+          <div class="res-savings" id="savings">Pack completo &middot; Ahorras USD 1.350 vs. agencia</div>
+          <div class="res-delivers">
+            <div class="res-del-title">Entregables incluidos</div>
+            <div class="del-grid">
+              <div class="del-item on" data-k="base"><span class="del-dot"></span>Modelo 3D BIM (Revit)</div>
+              <div class="del-item on" data-k="base"><span class="del-dot"></span>Planos de arquitectura</div>
+              <div class="del-item on" data-k="base"><span class="del-dot"></span>Vistas y cortes</div>
+              <div class="del-item on" data-k="base"><span class="del-dot"></span>Planillas de carpinteria</div>
+              <div class="del-item on" data-k="base"><span class="del-dot"></span>Computos (GRATIS)</div>
+              <div class="del-item on" data-k="base"><span class="del-dot"></span>3D fotorrealista</div>
+              <div class="del-item" data-k="mep"><span class="del-dot"></span>Instalaciones sanitarias</div>
+              <div class="del-item" data-k="mep"><span class="del-dot"></span>Instalaciones electricas/gas</div>
+              <div class="del-item" data-k="mep"><span class="del-dot"></span>Clash detection MEP</div>
+              <div class="del-item" data-k="muni"><span class="del-dot"></span>Planillas municipales</div>
+              <div class="del-item" data-k="bep"><span class="del-dot"></span>BEP ISO 19650</div>
+              <div class="del-item" data-k="asbuilt"><span class="del-dot"></span>Modelo as-built</div>
+            </div>
+          </div>
+          <div class="res-ctas">
+            <a href="#" class="btn-res-main" id="btn-wa">Pedir cotizacion exacta &rarr;</a>
+            <button class="btn-res-sec" onclick="document.getElementById('cta-final').scrollIntoView({behavior:'smooth'})">O escribinos por email</button>
+          </div>
+        </div>
+        <p class="calc-note">Estimacion orientativa basada en tarifa BIMBOX.<br>La cotizacion final varia segun complejidad del proyecto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="diagnostico" class="section">
+  <div class="inner">
+    <div class="diag-layout">
+      <div class="reveal">
+        <span class="eyebrow">Diagnostico BIM</span>
+        <h2 class="sec-h2">Cuan preparado<br>esta tu estudio<br>para <em>BIM?</em></h2>
+        <p class="sec-lead">15 preguntas, resultados inmediatos. Descubri tu nivel de madurez BIM.</p>
+        <div class="diag-result" id="diag-res">
+          <div class="diag-result-score" id="d-score">0%</div>
+          <div class="diag-result-label" id="d-label">Selecciona los items que ya tenes</div>
+          <p class="diag-result-desc" id="d-desc">Hace clic en cada item implementado en tu estudio para obtener tu diagnostico.</p>
+        </div>
+        <div style="margin-top:28px;display:none" id="d-cta">
+          <a href="https://wa.me/+542996287652?text=Hola%20Franco%2C%20hice%20el%20diagnostico%20BIM%20y%20quiero%20consultarte." target="_blank" rel="noopener" class="btn-primary" style="font-size:14px;padding:18px 38px">Hablar sobre mi diagnostico &rarr;</a>
+        </div>
+      </div>
+      <div class="reveal d2">
+        <div class="diag-checklist">
+          <div class="diag-cat">
+            <div class="diag-cat-h">Software &amp; Herramientas<span class="diag-score-badge" id="sc-soft">0/4</span></div>
+            <div class="diag-items">
+              <label class="diag-item"><input type="checkbox" class="dcb" data-cat="soft"><div class="diag-box"><span class="diag-tick">&#10003;</span></div><span class="diag-txt">Mi equipo usa Revit para al menos el 50% de los proyectos</span></label>
+              <label class="diag-item"><input type="checkbox" class="dcb" data-cat="soft"><div class="diag-box"><span class="diag-tick">&#10003;</span></div><span class="diag-txt">Tenemos familias de Revit parametrizadas propias</span></label>
+              <label class="diag-item"><input type="checkbox" class="dcb" data-cat="soft"><div class="diag-box"><span class="diag-tick">&#10003;</span></div><span class="diag-txt">Usamos Navisworks o similar para clash detection</span></label>
+              <label class="diag-item"><input type="checkbox" class="dcb" data-cat="soft"><div class="diag-box"><span class="diag-tick">&#10003;</span></div><span class="diag-txt">Los modelos BIM se usan para extraer computos automaticos</span></label>
+            </div>
+          </div>
+          <div class="diag-cat">
+            <div class="diag-cat-h">Proceso &amp; Metodologia<span class="diag-score-badge" id="sc-proc">0/4</span></div>
+            <div class="diag-items">
+              <label class="diag-item"><input type="checkbox" class="dcb" data-cat="proc"><div class="diag-box"><span class="diag-tick">&#10003;</span></div><span class="diag-txt">Tenemos un BEP (Plan de Ejecucion BIM) por proyecto</span></label>
+              <label class="diag-item"><input type="checkbox" class="dcb" data-cat="proc"><div class="diag-box"><span class="diag-tick">&#10003;</span></div><span class="diag-txt">Los entregables BIM estan definidos por fase (RIBA o similar)</span></label>
+              <label class="diag-item"><input type="checkbox" class="dcb" data-cat="proc"><div class="diag-box"><span class="diag-tick">&#10003;</span></div><span class="diag-txt">Realizamos reuniones de coordinacion BIM semanales</span></label>
+              <label class="diag-item"><input type="checkbox" class="dcb" data-cat="proc"><div class="diag-box"><span class="diag-tick">&#10003;</span></div><span class="diag-txt">Tenemos documentado el Level of Development (LOD)</span></label>
+            </div>
+          </div>
+          <div class="diag-cat">
+            <div class="diag-cat-h">Colaboracion &amp; Entrega<span class="diag-score-badge" id="sc-colab">0/4</span></div>
+            <div class="diag-items">
+              <label class="diag-item"><input type="checkbox" class="dcb" data-cat="colab"><div class="diag-box"><span class="diag-tick">&#10003;</span></div><span class="diag-txt">Usamos Common Data Environment (BIM 360, ACC o similar)</span></label>
+              <label class="diag-item"><input type="checkbox" class="dcb" data-cat="colab"><div class="diag-box"><span class="diag-tick">&#10003;</span></div><span class="diag-txt">Los planos se generan directamente del modelo (no desde CAD)</span></label>
+              <label class="diag-item"><input type="checkbox" class="dcb" data-cat="colab"><div class="diag-box"><span class="diag-tick">&#10003;</span></div><span class="diag-txt">Coordinamos estructura e instalaciones en el mismo modelo</span></label>
+              <label class="diag-item"><input type="checkbox" class="dcb" data-cat="colab"><div class="diag-box"><span class="diag-tick">&#10003;</span></div><span class="diag-txt">Entregamos modelos IFC a los clientes cuando nos lo piden</span></label>
+            </div>
+          </div>
+          <div class="diag-cat">
+            <div class="diag-cat-h">Madurez Organizacional<span class="diag-score-badge" id="sc-org">0/3</span></div>
+            <div class="diag-items">
+              <label class="diag-item"><input type="checkbox" class="dcb" data-cat="org"><div class="diag-box"><span class="diag-tick">&#10003;</span></div><span class="diag-txt">Tenemos un BIM Manager o responsable BIM designado</span></label>
+              <label class="diag-item"><input type="checkbox" class="dcb" data-cat="org"><div class="diag-box"><span class="diag-tick">&#10003;</span></div><span class="diag-txt">El equipo recibio capacitacion BIM en los ultimos 12 meses</span></label>
+              <label class="diag-item"><input type="checkbox" class="dcb" data-cat="org"><div class="diag-box"><span class="diag-tick">&#10003;</span></div><span class="diag-txt">Tenemos templates y estandares propios en Revit</span></label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="bonus-section">
+  <div class="inner">
+    <div class="reveal">
+      <span class="eyebrow">Incluido en cada proyecto</span>
+      <h2 class="sec-h2">Lo que recibis<br><em>con BIMARG</em></h2>
+    </div>
+    <div class="bonus-grid">
+      <div class="bonus-card reveal">
+        <img src="assets/BONO_BIMBOX.png" alt="BIMBOX - Metodologia propia">
+        <div class="bonus-body">
+          <p class="bonus-title">Sistema BIMBOX&reg;</p>
+          <p class="bonus-desc">Metodologia propietaria RIBA + Lean Construction. Cada proyecto sigue el mismo proceso probado.</p>
+        </div>
+      </div>
+      <div class="bonus-card reveal d1">
+        <img src="assets/BONO_RIBA.png" alt="RIBA Plan of Work">
+        <div class="bonus-body">
+          <p class="bonus-title">RIBA Plan of Work</p>
+          <p class="bonus-desc">Entregables definidos por fase. Sin sorpresas, sin retrabajo. Sabes exactamente que recibes en cada etapa.</p>
+        </div>
+      </div>
+      <div class="bonus-card reveal d2">
+        <img src="assets/BONO_CERTFICADOS.png" alt="Certificaciones internacionales">
+        <div class="bonus-body">
+          <p class="bonus-title">Certificaciones Autodesk</p>
+          <p class="bonus-desc">Equipo certificado internacionalmente en Revit, Navisworks y suite BIM de Autodesk.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="proyectos" class="section">
+  <div class="inner">
+    <div class="reveal">
+      <span class="eyebrow">Proyectos</span>
+      <h2 class="sec-h2">Trabajos<br><em>recientes</em></h2>
+      <p class="sec-lead">Proyectos reales en Neuquen y Patagonia coordinados con metodologia BIMBOX.</p>
+    </div>
+    <div class="proy-grid">
+      <div class="proy-card reveal">
+        <div class="proy-visual" style="background:#0a1020"><img src="assets/Nhauss_8_-_Photo.jpg" alt="Nova Haus II"></div>
+        <div class="proy-body">
+          <h3 class="proy-title">NOVA HOUSE 2</h3>
+          <p class="proy-loc">Neuquen Capital &middot; 15 pisos</p>
+          <p class="proy-text">Edificio residencial de 15 pisos en Neuquen. Modelo BIM completo con coordinacion de arquitectura, estructura y MEP. Documentacion ejecutiva y licitatoria para obra.</p>
+          <div class="proy-tags"><span class="proy-tag">Edificio 15 pisos</span><span class="proy-tag">MEP completo</span><span class="proy-tag">Licitatorio</span></div>
+          <p class="proy-partner">PROA Arquitectura</p>
+        </div>
+      </div>
+      <div class="proy-card reveal d1">
+        <div class="proy-visual" style="background:#080808"><img src="assets/EXT-01.png" alt="Edificio Riva"></div>
+        <div class="proy-body">
+          <h3 class="proy-title">EDIFICIO RIVA</h3>
+          <p class="proy-loc">Neuquen Capital</p>
+          <p class="proy-text">Edificio residencial urbano. Coordinacion BIM de especialidades, clash detection integral y documentacion ejecutiva completa para gestion de obra.</p>
+          <div class="proy-tags"><span class="proy-tag">Residencial</span><span class="proy-tag">Clash Detection</span><span class="proy-tag">Ejecutiva</span></div>
+          <p class="proy-partner">PROA Arquitectura</p>
+        </div>
+      </div>
+      <div class="proy-card reveal d2">
+        <div class="proy-visual" style="background:#040c12"><img src="assets/PLANOS.webp" alt="Duplex Proa - Planos ejecutivos"></div>
+        <div class="proy-body">
+          <h3 class="proy-title">DUPLEX PROA</h3>
+          <p class="proy-loc">Neuquen Capital</p>
+          <p class="proy-text">Duplex residencial de alta gama. Modelo BIM con doc. ejecutiva completa, planos municipales y renders 3D fotorrealistas para venta y obra.</p>
+          <div class="proy-tags"><span class="proy-tag">Residencial</span><span class="proy-tag">Municipal</span><span class="proy-tag">Renders 3D</span></div>
+          <p class="proy-partner">PROA Arquitectura</p>
+        </div>
+      </div>
+      <div class="proy-card reveal">
+        <div class="proy-visual" style="background:#050505"><img src="assets/NAVISWORK.webp" alt="Conjunto Residencial - Navisworks"></div>
+        <div class="proy-body">
+          <h3 class="proy-title">CONJUNTO RESIDENCIAL</h3>
+          <p class="proy-loc">Neuquen / Patagonia</p>
+          <p class="proy-text">Coordinacion BIM de estructura y arquitectura con computos exactos para licitacion y ejecucion de obra. Entregables completos en plazo BIMBOX.</p>
+          <div class="proy-tags"><span class="proy-tag">Conjunto residencial</span><span class="proy-tag">Computos</span><span class="proy-tag">Estructura</span></div>
+          <p class="proy-partner">Neiras Construcciones</p>
+        </div>
+      </div>
+      <div class="proy-card reveal d1">
+        <div class="proy-visual" style="background:#040404"><img src="assets/INSTALACIONES-RIVA.webp" alt="EVOHUS - Instalaciones MEP"></div>
+        <div class="proy-body">
+          <h3 class="proy-title">EVOHUS</h3>
+          <p class="proy-loc">Patagonia &middot; Vivienda industrializada</p>
+          <p class="proy-text">Modelado BIM del sistema constructivo industrializado EVOHUS. Integracion de paneles, estructura y MEP en modelo parametrico para produccion en serie.</p>
+          <div class="proy-tags"><span class="proy-tag">Industrializado</span><span class="proy-tag">Parametrico</span><span class="proy-tag">MEP</span></div>
+          <p class="proy-partner">PROPANEL</p>
+        </div>
+      </div>
+      <div class="proy-card reveal d2" style="border-style:dashed;border-color:rgba(0,191,255,.18)">
+        <div class="proy-visual" style="background:linear-gradient(135deg,rgba(0,191,255,.04),rgba(0,191,255,.02))"><span class="proy-abbr">+</span></div>
+        <div class="proy-body">
+          <h3 class="proy-title">TU PROYECTO</h3>
+          <p class="proy-loc">Donde estes</p>
+          <p class="proy-text">Trabajamos con estudios, constructoras y desarrolladoras en todo Argentina, 100% remoto. Suma tu proyecto a nuestra cartera.</p>
+          <div style="margin-top:24px"><a href="https://wa.me/+542996287652?text=Hola%20Franco%2C%20quiero%20cotizar%20un%20proyecto" target="_blank" rel="noopener" class="btn-primary" style="font-size:14px;padding:17px 36px">Cotizar &rarr;</a></div>
+          <p class="proy-partner">Tambien: CODESIN &middot; YPF &middot; Parrado Arquitectura</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cta-final">
+  <div class="cta-inner reveal">
+    <div class="cta-label">Empezar</div>
+    <h2 class="cta-h2">TU PROXIMO<br>PROYECTO,<br><em>SIN ERRORES</em></h2>
+    <p class="cta-sub">Cotizacion en 48hs. Sin compromiso. Sin vueltas.</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/+542996287652?text=Hola%20Franco%2C%20quiero%20cotizar%20un%20proyecto%20BIM" target="_blank" rel="noopener" class="btn-primary">WhatsApp &mdash; Cotizar ahora</a>
+      <a href="https://calendar.app.google/9Bw5mjTfZWW2YVuy8" target="_blank" rel="noopener" class="btn-ghost">Reservar reunion gratuita</a>
+    </div>
+    <div class="cta-info">
+      <span>Neuquen, Patagonia</span><span>&middot;</span><span>Todo Argentina</span><span>&middot;</span><span> Respuesta en 48hs</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#hero" class="logo">BIM<span>ARG</span></a>
+        <p>Primera empresa BIM especializada de Neuquen. Metodologia BIMBOX para arquitectura, construccion y desarrollo inmobiliario en Patagonia y Buenos Aires.</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/bimarg/" target="_blank" rel="noopener" class="social-btn">IG</a>
+          <a href="https://www.linkedin.com/company/bimarg/" target="_blank" rel="noopener" class="social-btn">LI</a>
+          <a href="https://www.youtube.com/@bimarg" target="_blank" rel="noopener" class="social-btn">YT</a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Servicios</h4><ul><li><a href="#calculadora">Modelado BIM</a></li><li><a href="#calculadora">Documentacion Ejecutiva</a></li><li><a href="#calculadora">MEP &amp; Instalaciones</a></li><li><a href="#calculadora">BEP Completo</a></li><li><a href="#calculadora">As Built</a></li></ul></div>
+      <div class="footer-col"><h4>Para quien</h4><ul><li><a href="#para-quien">Estudios de Arquitectura</a></li><li><a href="#para-quien">Constructoras</a></li><li><a href="#para-quien">Desarrolladoras</a></li></ul></div>
+      <div class="footer-col"><h4>BIMARG</h4><ul><li><a href="#metodologia">Metodologia BIMBOX</a></li><li><a href="#diagnostico">Diagnostico BIM</a></li><li><a href="#proyectos">Proyectos</a></li><li><a href="https://wa.me/+542996287652" target="_blank" rel="noopener">Contacto</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&#169; 2025 BIMARG &middot; <a href="https://bimarg.com">bimarg.com</a> &middot; Neuquen, Patagonia, Argentina</p>
+      <a href="https://wa.me/+542996287652?text=Hola%20Franco" target="_blank" rel="noopener" class="footer-wsp">+54 299 628-7652</a>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40),{passive:true});
+const burger=document.getElementById('burger'),mob=document.getElementById('navmob');
+let menuOpen=false;
+function toggleMenu(f){menuOpen=f!==undefined?f:!menuOpen;mob.classList.toggle('open',menuOpen);document.body.style.overflow=menuOpen?'hidden':'';const sp=burger.querySelectorAll('span');if(menuOpen){sp[0].style.transform='translateY(6.5px) rotate(45deg)';sp[1].style.opacity='0';sp[2].style.transform='translateY(-6.5px) rotate(-45deg)'}else{sp.forEach(s=>{s.style.transform='';s.style.opacity=''})}}
+burger.addEventListener('click',()=>toggleMenu());
+document.querySelectorAll('.mob-link,.nav-mob a').forEach(a=>a.addEventListener('click',()=>toggleMenu(false)));
+if(window.matchMedia('(hover:hover)').matches){
+  const cu=document.getElementById('cur'),cr=document.getElementById('cring');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+  const ac=()=>{rx+=(mx-rx)*.11;ry+=(my-ry)*.11;cu&&(cu.style.left=mx+'px',cu.style.top=my+'px');cr&&(cr.style.left=rx+'px',cr.style.top=ry+'px');requestAnimationFrame(ac)};ac();
+  document.querySelectorAll('a,button,input,label').forEach(el=>{el.addEventListener('mouseenter',()=>{cu&&(cu.style.width='16px',cu.style.height='16px');cr&&(cr.style.width='52px',cr.style.height='52px',cr.style.borderColor='rgba(0,191,255,.65)')});el.addEventListener('mouseleave',()=>{cu&&(cu.style.width='',cu.style.height='');cr&&(cr.style.width='',cr.style.height='',cr.style.borderColor='')})});
+}
+const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');ro.unobserve(e.target)}}),{threshold:.07,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+function animN(el,from,to,pre,dur){if(!el)return;const st=performance.now();const step=now=>{const p=Math.min((now-st)/dur,1),e=1-Math.pow(1-p,3);el.textContent=pre+Math.round(from+(to-from)*e);p<1&&requestAnimationFrame(step)};requestAnimationFrame(step)}
+const so=new IntersectionObserver(es=>{es.forEach(e=>{if(!e.isIntersecting)return;animN(document.getElementById('cnt-years'),0,11,'',1600);animN(document.getElementById('cnt-proy'),0,30,'+',1800);so.disconnect()})},{threshold:.5});
+so.observe(document.querySelector('.stats'));
+const AGENCIA=1.9,FREE=0.64,BUNDLE=10;
+const state={m2:150,speed:0};
+function isBundle(){return['s-arq','s-docejec','s-mep','s-ejecmep'].every(id=>document.getElementById(id)?.checked)}
+function calcPrice(){const m2=state.m2;let rate=0,flat=0;if(isBundle()){rate=BUNDLE}else{['s-arq','s-docejec','s-mep','s-ejecmep'].forEach(id=>{if(document.getElementById(id)?.checked)rate+=3})}if(document.getElementById('a-bep')?.checked)flat+=4000;if(document.getElementById('a-muni')?.checked)rate+=2;if(document.getElementById('a-asbuilt')?.checked)rate+=1;if(!rate&&!flat)return 0;return Math.round((m2*rate+flat)*(1+state.speed/100)/10)*10}
+function fmt(n){return n.toLocaleString('es-AR')}
+function getSvcLabel(){if(isBundle())return'Pack Completo';const map={'s-arq':'Arq','s-docejec':'Doc.Ejec','s-mep':'MEP','s-ejecmep':'Ejec.MEP'};const a=Object.entries(map).filter(([id])=>document.getElementById(id)?.checked).map(([,v])=>v);return a.length?a.join('+'):'Sin servicios'}
+function updateCalc(){const price=calcPrice();const ag=price?Math.round(price*AGENCIA/10)*10:0;const fr=price?Math.round(price*FREE/10)*10:0;const sav=ag-price;document.getElementById('p-agencia').textContent=price?'USD '+fmt(ag):'--';document.getElementById('p-free').textContent=price?'USD '+fmt(fr):'--';document.getElementById('bimarg-price').textContent=price?fmt(price):'0';const sp=state.speed===20?'Express 7 dias':'Estandar 21 dias';document.getElementById('bimarg-sub').textContent=state.m2+' m2 - '+getSvcLabel()+' - '+sp;document.getElementById('savings').textContent=price?'Pack '+(isBundle()?'completo':'RIBA+Lean')+' - Ahorras USD '+fmt(sav)+' vs. agencia':'Selecciona al menos un servicio';const bi=document.getElementById('bund-ind');if(bi)bi.classList.toggle('show',isBundle());const hasMep=document.getElementById('s-mep')?.checked||document.getElementById('s-ejecmep')?.checked;document.querySelectorAll('.del-item[data-k]').forEach(el=>{const k=el.dataset.k;if(k==='base')return;if(k==='mep')el.classList.toggle('on',hasMep);if(k==='muni')el.classList.toggle('on',document.getElementById('a-muni')?.checked);if(k==='bep')el.classList.toggle('on',document.getElementById('a-bep')?.checked);if(k==='asbuilt')el.classList.toggle('on',document.getElementById('a-asbuilt')?.checked)});const msg=encodeURIComponent('Hola Franco! Use la calculadora BIM:\n- Servicios: '+getSvcLabel()+'\n- Superficie: '+state.m2+' m2\n- Estimacion: USD '+fmt(price)+'\nQuiero cotizar mi proyecto.');const wb=document.getElementById('btn-wa');if(wb)wb.href='https://wa.me/+542996287652?text='+msg}
+const sl=document.getElementById('m2-sl');sl?.addEventListener('input',()=>{state.m2=parseInt(sl.value);const el=document.getElementById('m2-disp');if(el)el.textContent=state.m2;const pct=((state.m2-50)/(600-50))*100;sl.style.setProperty('--pct',pct+'%');updateCalc()});
+document.querySelectorAll('.chk-card input[type=checkbox]').forEach(i=>i.addEventListener('change',updateCalc));
+document.querySelectorAll('input[name=speed]').forEach(i=>i.addEventListener('change',()=>{state.speed=parseInt(i.value);updateCalc()}));
+updateCalc();
+const dMax={soft:4,proc:4,colab:4,org:3};
+function updateDiag(){const res=document.getElementById('diag-res');let total=15,checked=0;['soft','proc','colab','org'].forEach(cat=>{const items=document.querySelectorAll('.dcb[data-cat="'+cat+'"]');let c=0;items.forEach(i=>{if(i.checked)c++});checked+=c;const sc=document.getElementById('sc-'+cat);if(sc)sc.textContent=c+'/'+dMax[cat]});res?.classList.add('show');const pct=Math.round((checked/total)*100);const sd=document.getElementById('d-score');if(sd)sd.textContent=pct+'%';const levels=[[0,20,'Etapa inicial BIM','Tu estudio esta en los primeros pasos. BIMARG puede implementar el proceso completo desde cero con BIMBOX.'],[21,40,'BIM en desarrollo','Tenes herramientas pero el proceso necesita estructura. Un plan de 90 dias te llevaria al siguiente nivel.'],[41,60,'BIM en transicion','Buen avance. Con mejoras en coordinacion y Last Planner podes escalar a proyectos mas complejos.'],[61,80,'BIM maduro','Estas en buen camino. Optimizar estandares y entrega te llevaria a nivel enterprise.'],[81,100,'BIM avanzado','Excelente madurez. Tu estudio esta listo para proyectos complejos. BIMARG puede ser tu partner estrategico.']];const lv=levels.find(([a,b])=>pct>=a&&pct<=b)||levels[0];const dl=document.getElementById('d-label');if(dl)dl.textContent=lv[2];const dd=document.getElementById('d-desc');if(dd)dd.textContent=lv[3];const dc=document.getElementById('d-cta');if(dc)dc.style.display='block'}
+const dcbs=document.querySelectorAll('.dcb');
+dcbs.forEach(cb=>cb.addEventListener('change',updateDiag));
 </script>
+</body>
+</html>

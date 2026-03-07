@@ -1,0 +1,13 @@
+# Claude Code internals
+.claude/settings.local.json
+.claude/skills/
+_state_
+
+# Archivos temporales / de trabajo local
+New folder/
+*.zip
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
