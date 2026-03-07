@@ -303,8 +303,8 @@ footer{background:var(--d2);border-top:1px solid var(--fa);padding:clamp(52px,7v
 .footer-brand .logo{font-size:34px;display:block;margin-bottom:18px}
 .footer-brand p{font-size:14px;color:var(--mu);line-height:1.85;max-width:280px}
 .socials{display:flex;gap:12px;margin-top:28px}
-.social-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--fa2);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:18px;transition:border-color .25s,background .25s,transform .3s var(--ease-out)}
-.social-btn:hover{border-color:var(--cb);background:rgba(0,191,255,.07);transform:translateY(-4px)}
+.social-btn{width:44px;height:44px;border-radius:50%;border:1.5px solid transparent;background:linear-gradient(var(--dk),var(--dk)) padding-box, linear-gradient(135deg,#00BFFF,#0077FF) border-box;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:12px;font-weight:800;letter-spacing:.04em;color:#00BFFF;transition:transform .3s var(--ease-out),box-shadow .3s}
+.social-btn:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,191,255,.25);background:linear-gradient(135deg,rgba(0,191,255,.15),rgba(0,119,255,.1)) padding-box, linear-gradient(135deg,#00BFFF,#0077FF) border-box}
 .footer-col h4{font-size:10.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:22px}
 .footer-col ul{list-style:none}
 .footer-col li{margin-bottom:13px}
@@ -367,7 +367,9 @@ footer{background:var(--d2);border-top:1px solid var(--fa);padding:clamp(52px,7v
   .riba-row{grid-template-columns:repeat(4,1fr)}
   .bundle{flex-direction:column;gap:20px;padding:24px 20px}
   .seg-top{flex-direction:column;gap:16px}
-  .seg-note{text-align:left}
+  .seg-top .reveal{width:100%;text-align:left}
+  .seg-top .reveal .eyebrow,.seg-top .reveal .sec-h2{text-align:left}
+  .seg-note{text-align:left;max-width:100%}
   .diag-layout{flex-direction:column}
 }
 @media(max-width:480px){
@@ -785,18 +787,23 @@ footer{background:var(--d2);border-top:1px solid var(--fa);padding:clamp(52px,7v
           <div class="res-delivers">
             <div class="res-del-title">Entregables incluidos</div>
             <div class="del-grid">
-              <div class="del-item on" data-k="base"><span class="del-dot"></span>Modelo 3D BIM (Revit)</div>
-              <div class="del-item on" data-k="base"><span class="del-dot"></span>Planos de arquitectura</div>
-              <div class="del-item on" data-k="base"><span class="del-dot"></span>Vistas y cortes</div>
+              <div class="del-item on" data-k="base"><span class="del-dot"></span>Planos CAD (DWG/DXF)</div>
+              <div class="del-item on" data-k="base"><span class="del-dot"></span>Planos PDF por especialidad</div>
+              <div class="del-item on" data-k="base"><span class="del-dot"></span>Design Review (DWFX)</div>
+              <div class="del-item on" data-k="base"><span class="del-dot"></span>Modelo Speckle (nube)</div>
+              <div class="del-item on" data-k="base"><span class="del-dot"></span>Modelo SKP (SketchUp)</div>
+              <div class="del-item on" data-k="base"><span class="del-dot"></span>Renders 3D fotorrealistas</div>
+              <div class="del-item on" data-k="base"><span class="del-dot"></span>Arquitectura completa</div>
+              <div class="del-item on" data-k="base"><span class="del-dot"></span>Estructura (sin calculo)</div>
               <div class="del-item on" data-k="base"><span class="del-dot"></span>Planillas de carpinteria</div>
               <div class="del-item on" data-k="base"><span class="del-dot"></span>Computos (GRATIS)</div>
-              <div class="del-item on" data-k="base"><span class="del-dot"></span>3D fotorrealista</div>
               <div class="del-item" data-k="mep"><span class="del-dot"></span>Instalaciones sanitarias</div>
               <div class="del-item" data-k="mep"><span class="del-dot"></span>Instalaciones electricas/gas</div>
+              <div class="del-item" data-k="mep"><span class="del-dot"></span>Climatizacion MEP</div>
               <div class="del-item" data-k="mep"><span class="del-dot"></span>Clash detection MEP</div>
               <div class="del-item" data-k="muni"><span class="del-dot"></span>Planillas municipales</div>
               <div class="del-item" data-k="bep"><span class="del-dot"></span>BEP ISO 19650</div>
-              <div class="del-item" data-k="asbuilt"><span class="del-dot"></span>Modelo as-built</div>
+              <div class="del-item" data-k="asbuilt"><span class="del-dot"></span>Relevamiento as-built</div>
             </div>
           </div>
           <div class="res-ctas">
